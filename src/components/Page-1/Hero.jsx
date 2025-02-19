@@ -22,7 +22,7 @@ const HeroSection = () => {
 
       {/* Left Side - Company Info */}
       <div className="relative md:w-1/2 space-y-6 z-10">
-        <h1 className="text-4xl font-bold">Welcome to Kadambam GROUP</h1>
+        <h1 className="text-4xl font-bold">Welcome to <span className="text-[#ff4a2a] drop-shadow-xl ">Kadambam</span> Group</h1>
         <p className="text-lg">One-Touch solution for all things.</p>
 
         {/* Buttons */}
