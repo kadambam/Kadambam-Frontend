@@ -1,6 +1,5 @@
 import HeroSection from "./Hero";
-
-
+import { ArrowRight } from "lucide-react";
 
 const images = [
   { id: 1, src: "https://picsum.photos/400/250", title: "Project 1", link: "/project-1" },
@@ -12,7 +11,6 @@ const images = [
 const ArchitectDesign = () => {
   return (
     <div className="bg-[#f8f8f8] font-[Poppins, sans-serif]">
-      
       <div className="container mx-auto px-6 py-16">
         {/* Page Heading */}
         <h1 className="text-5xl font-bold text-gray-900 uppercase tracking-wider text-center mb-6 font-[Cinzel, serif]">
@@ -30,11 +28,12 @@ const ArchitectDesign = () => {
               Get Your Dream House Design Plans with the Hands of Best Architects.
             </p>
             <div className="flex gap-4 mt-6">
-              <button className="px-8 py-3 bg-[#333] text-white uppercase tracking-wide rounded-lg shadow-lg hover:bg-[#555]">
-                Get Quotation
+              {/* Updated Buttons */}
+              <button className="flex items-center gap-2 px-6 py-2 bg-gray-300 text-gray-900 rounded-lg hover:bg-gray-800 hover:text-white transition shadow-lg">
+                Get a Quotation <ArrowRight className="w-5 h-5" />
               </button>
-              <button className="px-8 py-3 border border-gray-800 text-gray-800 uppercase tracking-wide rounded-lg shadow-lg hover:bg-gray-800 hover:text-white">
-                Talk to Us
+              <button className="flex items-center gap-2 px-6 py-2  text-gray-800 rounded-lg hover:bg-gray-800 hover:text-white transition shadow-lg">
+                Talk to Us <ArrowRight className="w-5 h-5" />
               </button>
             </div>
           </div>
@@ -49,7 +48,7 @@ const ArchitectDesign = () => {
           </div>
         </div>
       </div>
-<HeroSection/>
+      <HeroSection />
     </div>
   );
 };
