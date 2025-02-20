@@ -4,11 +4,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="relative bg-[#ffffff] shadow">
-      <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white/20 backdrop-blur-md shadow-md">
+      <div className="container px-6 py-1 mx-auto md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
           <a href="#">
-            <img className="w-auto h-6 sm:h-7" src="https://merakiui.com/images/full-logo.svg" alt="Logo" />
+            <img className="w-auto h-9 sm:h-7" src="logo.png" alt="Logo" />
           </a>
 
           <div className="flex lg:hidden">
@@ -31,14 +31,15 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className={`absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out md:mt-0 md:p-0 md:top-0 md:relative md:w-auto md:flex md:items-center ${isOpen ? "translate-x-0 opacity-100" : "opacity-0 -translate-x-full md:opacity-100 md:translate-x-0"}`}>
+        <div className={`absolute inset-x-0 w-full px-6 py-4 transition-all duration-300 ease-in-out md:relative md:w-auto md:flex md:items-center ${
+          isOpen ? "translate-x-0 opacity-100" : "opacity-0 -translate-x-full md:opacity-100 md:translate-x-0"
+        }`}>
           <div className="flex flex-col md:flex-row md:mx-6">
-            <a className="my-2 text-black transition-colors duration-300 transform hover:text-gray-700 md:mx-4 md:my-0" href="#">Home</a>
-            <a className="my-2 text-black transition-colors duration-300 transform hover:text-gray-700 md:mx-4 md:my-0" href="#">Services</a>
-            <a className="my-2 text-black transition-colors duration-300 transform hover:text-gray-700 md:mx-4 md:my-0" href="#">Online shop</a>
-            <a className="my-2 text-black transition-colors duration-300 transform hover:text-gray-700 md:mx-4 md:my-0" href="#">Contact</a>
+            <a className="my-2 text-black hover:text-gray-700 md:mx-4 md:my-0" href="#">Home</a>
+            <a className="my-2 text-black hover:text-gray-700 md:mx-4 md:my-0" href="#">Services</a>
+            <a className="my-2 text-black hover:text-gray-700 md:mx-4 md:my-0" href="#">Online shop</a>
+            <a className="my-2 text-black hover:text-gray-700 md:mx-4 md:my-0" href="#">Contact</a>
           </div>
-          
         </div>
       </div>
     </nav>

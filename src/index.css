@@ -1,1 +1,97 @@
 @import "tailwindcss";
+
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Move only halfway since we repeat */
+  }
+  
+  .animate-slide {
+    display: flex;
+    width: max-content;
+    animation: slide 25s linear infinite;
+  }
+  
+  .group:hover .animate-slide {
+    animation-play-state: paused;
+  }
+  
+
+  @keyframes videoScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Moves only halfway since we repeat */
+  }
+  
+  .video-slider {
+    display: flex;
+    width: max-content;
+    animation: videoScroll 25s linear infinite;
+  }
+  
+  .video-slider:hover {
+    animation-play-state: paused; /* Stops animation on hover */
+  }
+  
+  .video-card {
+    width: 18rem;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .video-thumbnail {
+    position: relative;
+    width: 100%;
+    height: 10rem;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .play-icon {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    font-size: 2rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 10px;
+  }
+  
+
+  @keyframes blogScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Moves only halfway since we repeat */
+  }
+  
+  .blog-slider {
+    display: flex;
+    width: max-content;
+    animation: blogScroll 25s linear infinite;
+  }
+  
+  .blog-slider:hover {
+    animation-play-state: paused; /* Stops animation on hover */
+  }
+  
+  .blog-card {
+    width: 18rem;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .blog-thumbnail {
+    width: 100%;
+    height: 10rem;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
