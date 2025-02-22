@@ -5,7 +5,7 @@ const HeroSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative flex flex-wrap items-center justify-center min-h-screen bg-gray-50 p-6">
+    <section className="relative flex flex-wrap items-center justify-center min-h-screen bg-gray-100 p-6">
       {/* Left Hexagonal Images */}
       <div className="relative flex flex-col items-center gap-3 w-full md:w-1/2">
         <div className="grid grid-cols-2 gap-3">
