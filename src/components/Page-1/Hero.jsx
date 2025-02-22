@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 import TypingEffect from "./TypingEffect";
 import { useState } from "react";
+import { HiChevronRight } from "react-icons/hi";
 
 const images = [
   { id: 1, src: "https://picsum.photos/400/300", title: "Project 1", link: "/project-1" },
@@ -70,17 +70,17 @@ const HeroSection = () => {
           transition={{ duration: 0.5, delay: 0.7 }}
         >
           <button 
-            className="flex items-center gap-2 px-6 py-2 bg-white text-black rounded-lg hover:bg-gray-300 transition"
-            onClick={() => navigate("/contact")}
-          >
-            Talk Us <ArrowRight className="w-5 h-5" />
-          </button>
-          <button 
-            className="flex items-center gap-2 px-6 py-2 bg-white text-black rounded-lg hover:bg-gray-300 transition"
-            onClick={() => navigate("/quotation")}
-          >
-            Get a Quotation <ArrowRight className="w-5 h-5" />
-          </button>
+  className="flex items-center gap-2 px-6 py-2 bg-white text-black rounded-lg hover:bg-gray-300 transition"
+  onClick={() => navigate("/contact")}
+>
+  Talk Us <HiChevronRight className="w-5 h-5" />
+</button>
+<button 
+  className="flex items-center gap-2 px-6 py-2 bg-white text-black rounded-lg hover:bg-gray-300 transition"
+  onClick={() => navigate("/quotation")}
+>
+  Get a Quotation <HiChevronRight className="w-5 h-5" />
+</button>
         </motion.div>
       </motion.div>
 
@@ -103,11 +103,11 @@ const HeroSection = () => {
               <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 flex justify-between items-center">
                 <h3 className="text-lg font-semibold">{image.title}</h3>
                 <button
-                  className="p-2 bg-white rounded-full hover:bg-gray-300 transition"
-                  onClick={() => navigate(image.link)}
-                >
-                  <ArrowRight className="w-5 h-5 text-black" />
-                </button>
+  className="p-2 bg-white rounded-full hover:bg-gray-300 transition"
+  onClick={() => navigate(image.link)}
+>
+  <HiChevronRight className="w-5 h-5 text-black" />
+</button>
               </div>
             </motion.div>
           ))}
@@ -131,11 +131,11 @@ const HeroSection = () => {
                 <div className="absolute bottom-0 w-full bg-black/60 text-white p-3 flex justify-between items-center">
                   <h3 className="text-lg font-semibold">{image.title}</h3>
                   <button
-                    className="p-2 bg-white rounded-full hover:bg-gray-300 transition"
-                    onClick={() => navigate(image.link)}
-                  >
-                    <ArrowRight className="w-5 h-5 text-black" />
-                  </button>
+  className="p-2 bg-white rounded-full hover:bg-gray-300 transition"
+  onClick={() => navigate(image.link)}
+>
+  <HiChevronRight className="w-5 h-5 text-black" />
+</button>
                 </div>
               </div>
             ))}
