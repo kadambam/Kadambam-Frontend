@@ -40,7 +40,7 @@ const PricingPage = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
-    <section className="bg-gray-100 py-16 px-5 md:px-20 text-center">
+    <section className="bg-[#f8f8f8] py-16 px-5 md:px-20 text-center">
       <h2 className="text-3xl font-semibold mb-6 text-gray-800">
         Elevate Your <span className="text-red-500">Dream Space</span> with Our Plans
       </h2>

@@ -85,7 +85,7 @@ const TabbedNav = () => {
                     <button
                         key={index}
                         className={`py-2 px-4 text-lg font-medium transition ${activeTab === index
-                                ? "text-black border-b-2 border-yellow-500"
+                                ? "text-black border-b-2 border-red-500"
                                 : "text-gray-500 hover:text-gray-800"
                             }`}
                         onClick={() => setActiveTab(index)}
@@ -134,7 +134,7 @@ const TabbedNav = () => {
                 href="https://wa.me/1234567890"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="fixed bottom-5 right-5 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition"
+                className="fixed bottom-5 right-5 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition z-3"
             >
                 <FaWhatsapp className="text-3xl" />
             </a>
