@@ -17,6 +17,7 @@ const HeroSection = () => {
 
   return (
     <motion.section 
+    id="hero"
       className="relative flex flex-col md:flex-row items-center justify-between p-6 md:p-10 text-white"
       style={{ backgroundImage: "url('https://picsum.photos/1200/800')", backgroundSize: "cover", backgroundPosition: "center" }}
       initial={{ opacity: 0 }}

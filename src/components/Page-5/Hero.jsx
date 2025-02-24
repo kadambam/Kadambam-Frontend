@@ -11,7 +11,7 @@ const HeroWithGallery = () => {
   ];
 
   return (
-    <section className="relative bg-white text-black dark:text-white overflow-hidden">
+    <section className="relative bg-white text-black dark:text-white overflow-hidden mt-10">
       <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center justify-between py-10 px-6  lg:px-8">
         
         {/* Left Section - Real Estate Services */}
