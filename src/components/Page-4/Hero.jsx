@@ -19,7 +19,7 @@ const OnlineShopping = () => {
     return (
         <div className="relative min-h-screen bg-white">
             {/* Navbar */}
-            <Navbar />
+           
 
             {/* Page Heading */}
             <div className="px-6 md:px-12 lg:px-20 pt-24"> 

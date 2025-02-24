@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Navbar from '../Page-1/Navbar'
+
 import OnlineShopping from './Hero'
 import HowWeWork from './HowWeWork'
 import FloorPlanSection from './FloorPlan'
@@ -15,13 +15,14 @@ import ContactUs from './Contact'
 import LatestBlog from './Blogs'
 import FAQSection from './FaqSection'
 import Footer from '../Page-1/Footer'
+import NavbarBlack from '../Page-2/Navbar'
 
 
 
 const Page4 = () => {
   return (
     <div> 
-      <Navbar/>
+     <NavbarBlack/>
       <OnlineShopping/>
       <HowWeWork/>
       <FloorPlanSection/>

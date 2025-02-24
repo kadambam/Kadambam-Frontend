@@ -2,11 +2,11 @@ import React from 'react';
 import { ClipboardList, Calculator, CalendarDays, Settings, Home } from 'lucide-react';
 
 const steps = [
-  { id: 1, title: "Your Requirement", icon: <ClipboardList size={40} color="#F59E0B" /> },
-  { id: 2, title: "Cost Estimation", icon: <Calculator size={40} color="#F59E0B" /> },
-  { id: 3, title: "Schedule Visit", icon: <CalendarDays size={40} color="#F59E0B" /> },
-  { id: 4, title: "Work Execution", icon: <Settings size={40} color="#F59E0B" /> },
-  { id: 5, title: "Satisfied Delivery", icon: <Home size={40} color="#F59E0B" /> },
+  { id: 1, title: "Your Requirement", icon: <ClipboardList size={40} color="#ff4a2a" /> },
+  { id: 2, title: "Cost Estimation", icon: <Calculator size={40} color="#ff4a2a" /> },
+  { id: 3, title: "Schedule Visit", icon: <CalendarDays size={40} color="#ff4a2a" /> },
+  { id: 4, title: "Work Execution", icon: <Settings size={40} color="#ff4a2a" /> },
+  { id: 5, title: "Satisfied Delivery", icon: <Home size={40} color="#ff4a2a" /> },
 ];
 
 const HowWeWork = () => {
