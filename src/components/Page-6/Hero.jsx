@@ -16,7 +16,7 @@ const Hero = () => {
             <h2 className="text-3xl md:text-4xl font-semibold text-shadow">
               Get in Touch
             </h2>
-            <p className="text-xl md:text-2xl font-bold text-yellow-400 tracking-wide">
+            <p className="text-xl md:text-2xl font-bold text-red-500 tracking-wide">
               With Our Experts
             </p>
             <p className="text-sm md:text-base text-gray-300 max-w-md mt-2">
