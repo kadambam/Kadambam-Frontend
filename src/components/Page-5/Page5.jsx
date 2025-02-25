@@ -1,5 +1,5 @@
 import React from 'react'
-import HeroSection from './hero'
+import HeroSection from './Hero'
 import Carousel from './Carousel'
 import HomeInteriors from './HomeInteriors'
 import HowWeWork from './HowWeWork'
