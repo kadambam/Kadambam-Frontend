@@ -1,14 +1,15 @@
 import React from 'react'
-import Navbar from '../Page-1/Navbar'
+
 import Hero from './Hero'
 import ContactForm from './ContactForm'
+import NavbarBlack from '../Page-2/Navbar'
 
 
 
 const Page6 = () => {
   return (
     <div>
-      <Navbar/>
+      <NavbarBlack/>
       <Hero/>
       <ContactForm/>
     </div>
