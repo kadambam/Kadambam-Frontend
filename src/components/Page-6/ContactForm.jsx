@@ -1,137 +1,169 @@
-import { useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
-const ContactForm = () => {
+const ContactPage = () => {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
-    phoneNumber: "",
     email: "",
-    interest: "",
+    phone: "",
     message: "",
   });
 
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  // Handle form input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  // Send Email Function
+  const sendEmail = (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    emailjs
+      .send(
+        "service_az529rg", // Replace with your EmailJS Service ID
+        "template_ym20qkp", // Replace with your EmailJS Template ID
+        {
+          first_name: formData.firstName,
+          last_name: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        },
+        "oOIUZiv8hH0yPwYmG" // Replace with your EmailJS Public Key
+      )
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          setSuccessMessage("Your message has been sent successfully!");
+          setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" });
+          setErrorMessage("");
+        },
+        (err) => {
+          console.log("FAILED...", err);
+          setErrorMessage("Failed to send message. Please try again.");
+          setSuccessMessage("");
+        }
+      );
   };
 
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center min-h-screen bg-[#fdf7e6] px-6 py-10">
-      {/* Left: Contact Form */}
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full lg:w-1/2">
-        <h2 className="text-2xl font-semibold text-black mb-4 text-center">
-          Tell Us About Your Dream Project
-        </h2>
-        <div className="w-16 border-b-2 border-black mx-auto mb-6"></div>
-
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input
-              type="text"
-              name="firstName"
-              placeholder="Eg: John"
-              className="input-field"
-              onChange={handleChange}
-            />
-            <input
-              type="text"
-              name="lastName"
-              placeholder="Eg: Smith"
-              className="input-field"
-              onChange={handleChange}
-            />
-          </div>
-          <input
-            type="tel"
-            name="phoneNumber"
-            placeholder="Enter Phone Number"
-            className="input-field"
-            onChange={handleChange}
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="jane.doe@example.com"
-            className="input-field"
-            onChange={handleChange}
-          />
-
-          {/* Interest Selection */}
-          <div className="space-y-2">
-            <label className="font-semibold text-sm text-gray-700">
-              I am Interested In *
-            </label>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-              {["Architectural Design", "Interior Designing", "House Construction", "House Renovation", "Others"].map((item) => (
-                <button
-                  key={item}
-                  type="button"
-                  className="border border-gray-400 py-2 px-3 rounded-lg text-gray-700 text-sm hover:bg-black hover:text-white transition"
-                  onClick={() => setFormData({ ...formData, interest: item })}
-                >
-                  {item}
-                </button>
-              ))}
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="max-w-6xl mx-auto bg-white shadow-xl rounded-lg overflow-hidden flex flex-col md:flex-row">
+        {/* Left Side: Contact Details */}
+        <div className="md:w-1/2 bg-gradient-to-br from-gray-900 to-gray-700 p-10 text-white">
+          <h2 className="text-4xl font-bold mb-4">Get in Touch</h2>
+          <p className="text-gray-300 mb-6">
+            Have questions or inquiries? Feel free to reach out to us.
+          </p>
+          <div className="space-y-4">
+            <div className="flex items-center">
+              <span className="text-lg">📍</span>
+              <p className="ml-2">545 Mavis Island, Chicago, IL 99191</p>
+            </div>
+            <div className="flex items-center">
+              <span className="text-lg">📞</span>
+              <p className="ml-2">+1 (555) 234-5678</p>
+            </div>
+            <div className="flex items-center">
+              <span className="text-lg">✉️</span>
+              <p className="ml-2">hello@example.com</p>
             </div>
           </div>
+        </div>
 
-          <textarea
-            name="message"
-            placeholder="Your Message..."
-            className="input-field h-24"
-            onChange={handleChange}
-          />
+        {/* Right Side: Contact Form */}
+        <div className="md:w-1/2 p-10 bg-white">
+          <form onSubmit={sendEmail} className="space-y-6">
+            {/* Success & Error Messages */}
+            {successMessage && <p className="text-green-600">{successMessage}</p>}
+            {errorMessage && <p className="text-red-600">{errorMessage}</p>}
 
-          {/* Google reCAPTCHA */}
-          <div className="flex justify-center my-4">
-            <ReCAPTCHA sitekey="YOUR_GOOGLE_RECAPTCHA_SITE_KEY" />
-          </div>
+            {/* Name Fields */}
+            <div className="flex space-x-4">
+              <div className="w-1/2">
+                <label className="block text-gray-700">First Name</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  placeholder="John"
+                  required
+                  className="w-full px-4 py-3 mt-1 border rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+                />
+              </div>
+              <div className="w-1/2">
+                <label className="block text-gray-700">Last Name</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  placeholder="Doe"
+                  required
+                  className="w-full px-4 py-3 mt-1 border rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+                />
+              </div>
+            </div>
 
-          <button type="submit" className="w-full bg-black text-white py-3 rounded-lg font-semibold hover:bg-gray-900 transition">
-            Submit
-          </button>
-        </form>
-      </div>
+            {/* Email */}
+            <div>
+              <label className="block text-gray-700">Email</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="your@email.com"
+                required
+                className="w-full px-4 py-3 mt-1 border rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+              />
+            </div>
 
-      {/* Right: Contact Info */}
-      <div className="bg-gray-900 text-white p-8 rounded-lg shadow-lg w-full lg:w-1/3 mt-8 lg:mt-0 lg:ml-6">
-        <h3 className="text-xl font-bold">Have Any Questions?</h3>
-        <p className="text-sm text-gray-300">We are here to help. Click below to reach us on WhatsApp.</p>
+            {/* Phone Number */}
+            <div>
+              <label className="block text-gray-700">Phone Number</label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="+1 234 567 890"
+                required
+                className="w-full px-4 py-3 mt-1 border rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+              />
+            </div>
 
-        <a
-          href="https://wa.me/YOUR_WHATSAPP_NUMBER"
-          target="_blank"
-          className="flex items-center justify-center bg-green-500 text-white py-2 px-4 rounded-lg font-semibold mt-4 hover:bg-green-600 transition"
-        >
-          📲 Message us on WhatsApp
-        </a>
+            {/* Message */}
+            <div>
+              <label className="block text-gray-700">Message</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Write your message here..."
+                required
+                className="w-full px-4 py-3 mt-1 border rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+                rows="4"
+              ></textarea>
+            </div>
 
-        <div className="mt-6 space-y-4 text-sm">
-          <div>
-            <strong>📍 Address:</strong>
-            <p className="text-gray-400">MIG, 267/2A 1st Floor, 100 Feet Road, New ASTC Hudco, Hosur, Tamil Nadu - 635109, INDIA</p>
-          </div>
-          <div>
-            <strong>📞 Phone:</strong>
-            <p className="text-gray-400">+91 96004 42776</p>
-          </div>
-          <div>
-            <strong>📧 Email:</strong>
-            <p className="text-gray-400">info@chennee.in</p>
-          </div>
-          <div>
-            <strong>⏰ Timings:</strong>
-            <p className="text-gray-400">Mon - Sat, 10 am to 6 pm</p>
-          </div>
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-800 transition duration-300"
+            >
+              Send Message
+            </button>
+          </form>
         </div>
       </div>
     </div>
   );
 };
 
-export default ContactForm;
+export default ContactPage;
