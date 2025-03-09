@@ -37,8 +37,8 @@
     background: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 10px;
-    padding: 1rem;
-    text-align: center;
+    
+    
     transition: transform 0.3s;
   }
   
@@ -83,8 +83,7 @@
     background: white;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    padding: 1rem;
-    text-align: center;
+    
     transition: transform 0.3s;
   }
   

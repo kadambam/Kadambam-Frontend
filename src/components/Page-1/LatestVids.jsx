@@ -77,8 +77,8 @@ const LatestVids = () => {
                   </>
                 )}
               </div>
-              <p className="mt-4 font-semibold text-lg">{video.title}</p>
-              <p className="text-gray-600">{video.description}</p>
+              <p className="mt-4 font-semibold text-lg px-4">{video.title}</p>
+              <p className="text-gray-600 p-4">{video.description}</p>
             </motion.div>
           ))}
         </div>

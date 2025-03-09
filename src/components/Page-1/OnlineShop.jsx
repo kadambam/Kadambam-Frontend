@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import SingleCard from "./SingleCard";
 
 const images = [
   { id: 1, src: "https://picsum.photos/600/400?random=1", path: "/page2" },
@@ -15,19 +16,7 @@ const OnlineShop = () => {
   return (
     <section className="relative p-10 bg-[#F8F8F8] flex flex-col md:flex-row items-start justify-between space-x-10">
       {/* Title */}
-      <motion.h2 
-        className="absolute top-4 left-10 text-4xl font-bold"
-        initial={{ opacity: 0, y: 50 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 0.8 }}
-        viewport={{ once: false }}
-      >
-        <span className="relative">
-          Welcome
-          <span className="absolute left-0 bottom-0 w-full h-1 bg-[#ff4a2a]"></span>
-        </span>
-        <span className="text-[#ff4a2a]"> to Online Shop</span>
-      </motion.h2>
+     
 
       {/* Left Side - Image Grid Layout */}
       <div className="w-full md:w-1/2 mt-16">
@@ -70,6 +59,19 @@ const OnlineShop = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: false }}
       >
+         <motion.h2 
+        className=" text-4xl font-bold"
+        initial={{ opacity: 0, y: 50 }} 
+        whileInView={{ opacity: 1, y: 0 }} 
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false }}
+      >
+        <span className="relative">
+          Welcome
+          <span className="absolute left-0 bottom-0 w-full h-1 bg-[#ff4a2a]"></span>
+        </span>
+        <span className="text-[#ff4a2a]"> to Online Shop</span>
+      </motion.h2>
         <p className="text-lg font-bold">
           Your one-stop shop for Instant 2D plans, 3D elevations, electrical, interior drawings, etc.
         </p>
@@ -77,11 +79,9 @@ const OnlineShop = () => {
         <div className="p-6 border border-gray-400 rounded-lg shadow-lg bg-white">
           <ul className="list-none space-y-2">
             <li className="flex items-center">
-              <span className="w-2 h-2 bg-[#ff4a2a] rounded-full mr-2"></span> 2D Plan & 3D Elevation
+              <span className="w-2 h-2 bg-[#ff4a2a] rounded-full mr-2"></span> 2D Plan & 3D Elevation <span className="w-2 h-2 bg-[#ff4a2a] ml-2 rounded-full mr-2"></span> Bulk Plan & Electrical Plan
             </li>
-            <li className="flex items-center">
-              <span className="w-2 h-2 bg-[#ff4a2a] rounded-full mr-2"></span> Bulk Plan & Electrical Plan
-            </li>
+            
             <li className="flex items-center">
               <span className="w-2 h-2 bg-[#ff4a2a] rounded-full mr-2"></span> Easy Download & Available All Faces
             </li>
@@ -105,6 +105,7 @@ const OnlineShop = () => {
         >
           Shop Now <ArrowRight className="w-5 h-5" />
         </button>
+        <SingleCard/>
       </motion.div>
     </section>
   );

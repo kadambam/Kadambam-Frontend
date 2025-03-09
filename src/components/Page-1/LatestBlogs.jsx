@@ -17,7 +17,7 @@ const repeatedBlogs = [...blogs, ...blogs];
 const LatestBlog = () => {
   return (
     <motion.div 
-      className="latest-blog-container "
+      className="latest-blog-container bg-[#e3e3e3]"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -68,10 +68,10 @@ const LatestBlog = () => {
                   viewport={{ once: false }}
                 >
                   <div className="blog-thumbnail">
-                    <img className="w-full h-full object-cover" src={blog.image} alt={blog.title} />
+                    <img className="w-full h-full object-cover " src={blog.image} alt={blog.title} />
                   </div>
-                  <p className="mt-4 font-semibold text-lg">{blog.title}</p>
-                  <p className="text-gray-600">{blog.description}</p>
+                  <p className="mt-4 font-semibold text-lg px-4">{blog.title}</p>
+                  <p className="text-gray-600 p-4">{blog.description}</p>
                 </motion.div>
               ))}
             </motion.div>

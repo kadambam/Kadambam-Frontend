@@ -18,7 +18,7 @@ const WhyChooseUs = () => {
     const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.2 });
 
     return (
-        <div ref={ref} className="why-choose-us p-10 text-center">
+        <div ref={ref} className="why-choose-us p-10 text-center bg-[#e3e3e3]">
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
@@ -32,8 +32,8 @@ const WhyChooseUs = () => {
                     </span>
                     <span className="text-[#ff4a2a]"> Choose Us</span> ?
                 </h2>
-                <p className='font-bold mt-6'>You will be receiving quality services and appealing designs, with superior materials, by top architects in <span className="text-[#ff4a2a]">TamilNadu.</span></p>
-                <p className='text-gray-800 font-bold'>The following are main reasons why our company is the right choice for you!</p>
+                {/* <p className='font-bold mt-6'>You will be receiving quality services and appealing designs, with superior materials, by top architects in <span className="text-[#ff4a2a]">TamilNadu.</span></p> */}
+                {/* <p className='text-gray-800 font-bold'>The following are main reasons why our company is the right choice for you!</p> */}
             </motion.div>
 
             <motion.div
@@ -42,7 +42,7 @@ const WhyChooseUs = () => {
                 transition={{ duration: 0.8 }}
                 className="slider-container"
             >
-                <div className="w-full py-16  text-center">
+                <div className="w-full py-8  text-center">
                     <div className="relative overflow-hidden">
                         <div className="flex space-x-6 animate-slide group hover:pause">
                             {repeatedReasons.map((reason, index) => (
@@ -51,7 +51,7 @@ const WhyChooseUs = () => {
                                     initial={{ opacity: 0, y: 50 }}
                                     animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    className="w-60 h-48 flex flex-col items-center justify-center bg-white shadow-lg rounded-xl p-5 transition-transform duration-300"
+                                    className="w-40 h-38 flex flex-col items-center justify-center bg-white shadow-lg rounded-xl p-5 transition-transform duration-300"
                                 >
                                     {reason.icon}
                                     <p className="mt-4 font-semibold text-lg">{reason.text}</p>

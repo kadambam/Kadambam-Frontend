@@ -35,7 +35,7 @@ const testimonials = [
 
 const TestimonialSection = () => {
   const [index, setIndex] = useState(0);
-  const testimonialsPerPage = 2;
+  const testimonialsPerPage = 3;
   const totalPages = Math.ceil(testimonials.length / testimonialsPerPage);
 
   // Auto-slide every 5 seconds
@@ -53,7 +53,7 @@ const TestimonialSection = () => {
   );
 
   return (
-    <div className="bg-gray-100 py-16 px-6 text-center">
+    <div className="py-16 px-6 text-center">
       <h3 className="text-gray-500 text-sm uppercase">Clients Testimonials</h3>
       <h2 className="top-4 left-10 text-4xl font-bold">
         <span className="relative">
@@ -63,7 +63,7 @@ const TestimonialSection = () => {
         <span className="text-[#ff4a2a]"> Clients Say !</span>
       </h2>
 
-      <div className="relative w-full max-w-4xl mx-auto mt-8">
+      <div className="relative w-full max-w-6xl mx-auto mt-8">
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
@@ -71,7 +71,7 @@ const TestimonialSection = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
             transition={{ duration: 0.5 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
           >
             {currentTestimonials.map((testimonial, i) => (
               <div

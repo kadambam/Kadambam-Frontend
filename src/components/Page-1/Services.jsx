@@ -15,7 +15,7 @@ const OurServices = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative p-10 bg-gray-300 flex flex-col md:flex-row items-start justify-between space-x-10">
+    <section className="relative p-10 bg-[#e3e3e3] flex flex-col md:flex-row items-start justify-between space-x-10">
       {/* Left Side - Text Content */}
       <motion.div
         className="w-full md:w-1/3 text-black space-y-4"
@@ -81,7 +81,7 @@ const OurServices = () => {
         {services.map((service) => (
           <motion.div
             key={service.id}
-            className="group relative flex flex-col p-4 bg-white shadow-lg rounded-lg transition hover:shadow-xl"
+            className="group relative flex flex-col  bg-white shadow-lg rounded-lg transition hover:shadow-xl"
             variants={{
               hidden: { opacity: 0, y: 50 },
               visible: { opacity: 1, y: 0 },
@@ -90,15 +90,15 @@ const OurServices = () => {
           >
             <motion.img
               src={service.img}
-              alt={service.title}
+              alt={service.title} 
               className="rounded-md w-full h-40 object-cover"
               initial={{ scale: 0.9, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: false }}
             />
-            <h3 className="text-xl font-bold mt-4">{service.title}</h3>
-            <p className="text-gray-600">{service.desc}</p>
+            <h3 className="text-xl font-bold mt-4 px-4">{service.title}</h3>
+            <p className="text-gray-600 p-4">{service.desc}</p>
             <motion.button
               className="absolute bottom-4 right-4 text-[#ff4a2a] hover:text-black"
               whileHover={{ scale: 1.2 }}

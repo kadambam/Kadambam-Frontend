@@ -14,7 +14,7 @@ const imageVariants = {
 
 const Projects = () => {
   return (
-    <div className="project-container p-10 text-center">
+    <div className="project-container py-10 text-center">
       {/* Centered Title with Two Lines */}
       <motion.div
         className="proj-title"
@@ -36,7 +36,7 @@ const Projects = () => {
 
       {/* Project Grid */}
       <div className="project-wrapper">
-        <div className="container mx-auto px-5 py-2 lg:px-32 lg:pt-14">
+        <div className="container mx-auto  py-2 lg:pt-14">
           <motion.div className="-m-1 flex flex-wrap md:-m-2" variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.2 }}>
             <div className="flex w-1/2 flex-wrap">
               {[70, 72, 73].map((num, index) => (
