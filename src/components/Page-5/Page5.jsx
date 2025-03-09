@@ -1,5 +1,5 @@
 import React from 'react'
-import HeroSection from './hero'
+import HeroWithGallery from './Hero'
 import Carousel from './Carousel'
 import HomeInteriors from './HomeInteriors'
 import HowWeWork from './HowWeWork'
@@ -16,7 +16,7 @@ const Page5 = () => {
   return (
     <div>
       <NavbarBlack/>
-    <HeroSection/>
+    <HeroWithGallery/>
     <Carousel/>
     <HomeInteriors/>
     <HowWeWork/>
