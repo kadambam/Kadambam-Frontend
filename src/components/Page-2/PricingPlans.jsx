@@ -41,31 +41,45 @@ const PricingPage = () => {
 
   return (
     <section className="bg-[#f8f8f8] py-16 px-5 md:px-20 text-center">
-      <h2 className="text-3xl font-semibold mb-6 text-gray-800">
+      {/* Animated Title */}
+      <motion.h2
+        className="text-3xl font-semibold mb-6 text-gray-800"
+        initial={{ opacity: 0, y: -50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: false, amount: 0.2 }}
+      >
         Elevate Your <span className="text-red-500">Dream Space</span> with Our Plans
-      </h2>
-      <p className="text-lg text-gray-600 mb-10">
-        Choose the perfect architectural solution that fits your vision and budget.
-      </p>
+      </motion.h2>
 
+      <motion.p
+        className="text-lg text-gray-600 mb-10"
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        viewport={{ once: false, amount: 0.2 }}
+      >
+        Choose the perfect architectural solution that fits your vision and budget.
+      </motion.p>
+
+      {/* Pricing Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         {pricingPlans.map((plan, index) => (
           <motion.div
             key={index}
-            className="relative bg-white p-8 rounded-2xl shadow-lg text-center border-t-4 border-gray-800 transition-transform transform hover:scale-105 hover:shadow-2xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            className="relative bg-white p-8 rounded-2xl shadow-lg text-center border-t-4 border-gray-800"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
-            onMouseEnter={() => index === 1 && setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
+            viewport={{ once: false, amount: 0.2 }}
           >
             {/* Hover text for Premium plan */}
             {index === 1 && hoveredIndex === index && (
               <motion.div
                 className="absolute top-0 left-0 w-full bg-gray-700 text-white text-sm py-2 rounded-t-2xl"
-                initial={{ opacity: 0, y: -10 }}
+                initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.5 }}
               >
                 ⭐ This is the best plan for you!
               </motion.div>
@@ -80,12 +94,14 @@ const PricingPage = () => {
                 </li>
               ))}
             </ul>
-            <button
-              className="mt-6 px-6 py-3 text-gray-900 rounded-lg text-lg transition bg-gray-300 hover:bg-gray-900 hover:text-white transform hover:scale-105"
+
+            <motion.button
+              className="mt-6 px-6 py-3 text-gray-900 rounded-lg text-lg transition bg-gray-300 hover:bg-gray-900 hover:text-white"
+              whileTap={{ scale: 0.9 }}
               onClick={() => navigate("/contact")}
             >
               {plan.buttonLabel}
-            </button>
+            </motion.button>
           </motion.div>
         ))}
       </div>

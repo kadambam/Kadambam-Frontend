@@ -48,8 +48,14 @@ const TabbedNav = () => {
 
     return (
         <section className="relative bg-white py-10 px-5 md:px-20">
-            {/* Title Section */}
-            <div className="text-center mb-8">
+            {/* Title Section with Scroll Animation */}
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="text-center mb-8"
+            >
                 <h2 className="text-lg font-normal text-gray-700" style={{ fontFamily: "Poppins" }}>
                     One-stop shop for all things
                 </h2>
@@ -77,10 +83,16 @@ const TabbedNav = () => {
                 <p className="text-gray-600 mt-3 text-lg">
                     Connect with us for limitless designs to build your dream palace.
                 </p>
-            </div>
+            </motion.div>
 
-            {/* Tabs Section */}
-            <div className="flex space-x-4 pb-3 border-b border-gray-300">
+            {/* Tabs Section with Animation */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.6 }}
+                className="flex space-x-4 pb-3 border-b border-gray-300"
+            >
                 {tabs.map((tab, index) => (
                     <button
                         key={index}
@@ -93,24 +105,23 @@ const TabbedNav = () => {
                         {tab.title}
                     </button>
                 ))}
-            </div>
+            </motion.div>
 
             {/* Animated Content Section */}
             <motion.div
                 key={activeTab}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.4 }}
                 className="mt-6 bg-gray-50 p-6 rounded-lg shadow-md flex flex-col md:flex-row items-center gap-6"
             >
-                {/* Image Section */}
                 <img
                     src={tabs[activeTab].image}
                     alt={tabs[activeTab].title}
                     className="w-full md:w-1/2 h-auto rounded-lg"
                 />
 
-                {/* Text Section */}
                 <div className="flex-1">
                     <h3 className="text-lg font-semibold text-gray-800">{tabs[activeTab].title}</h3>
                     <p className="text-gray-700 mt-2 leading-relaxed">{tabs[activeTab].content}</p>
