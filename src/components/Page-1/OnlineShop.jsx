@@ -14,12 +14,12 @@ const OnlineShop = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative p-10 bg-[#F8F8F8] flex flex-col md:flex-row items-start justify-between space-x-10">
+    <section className="relative p-10 bg-[#F8F8F8] flex flex-col md:flex-row items-start  space-x-10">
       {/* Title */}
      
 
       {/* Left Side - Image Grid Layout */}
-      <div className="w-full md:w-1/2 mt-16">
+      <div className="w-full md:w-3/5 mt-16">
         <div className="grid gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
           {images.map((image, index) => (
             <motion.div
@@ -53,7 +53,7 @@ const OnlineShop = () => {
 
       {/* Right Side - Text & List */}
       <motion.div 
-        className="md:w-1/2 text-black space-y-6 mt-16"
+        className="md:w-1/3 text-black space-y-6 mt-16"
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
@@ -73,13 +73,13 @@ const OnlineShop = () => {
         <span className="text-[#ff4a2a]"> to Online Shop</span>
       </motion.h2>
         <p className="text-lg font-bold">
-          Your one-stop shop for Instant 2D plans, 3D elevations, electrical, interior drawings, etc.
+        Explore and download high-quality, ready-to-use 2D/3D designs for architecture, interiors, and more – available anytime, anywhere in just a few clicks...
         </p>
 
         <div className="p-6 border border-gray-400 rounded-lg shadow-lg bg-white">
           <ul className="list-none space-y-2">
             <li className="flex items-center">
-              <span className="w-2 h-2 bg-[#ff4a2a] rounded-full mr-2"></span> 2D Plan & 3D Elevation <span className="w-2 h-2 bg-[#ff4a2a] ml-2 rounded-full mr-2"></span> Bulk Plan & Electrical Plan
+              <span className="w-2 h-2 bg-[#ff4a2a] rounded-full mr-2"></span> 2D Plan & 3D Elevation 
             </li>
             
             <li className="flex items-center">
@@ -88,7 +88,7 @@ const OnlineShop = () => {
             <li className="flex items-center">
               <span className="w-2 h-2 bg-[#ff4a2a] rounded-full mr-2"></span> 100% Vastu & Manayadi Sastram
             </li>
-            <li className="flex items-center">
+            {/* <li className="flex items-center">
               <span className="w-2 h-2 bg-[#ff4a2a] rounded-full mr-2"></span> Easy Customized Plans
             </li>
             <li className="flex items-center">
@@ -96,7 +96,7 @@ const OnlineShop = () => {
             </li>
             <li className="flex items-center">
               <span className="w-2 h-2 bg-[#ff4a2a] rounded-full mr-2"></span> 100% Genuine Services
-            </li>
+            </li> */}
           </ul>
         </div>
         <button 
