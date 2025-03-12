@@ -34,7 +34,7 @@ export default function ExteriorDesigns() {
         <section className="text-center py-10 relative">
             {/* Title */}
             <h2 className="text-3xl font-bold mb-6 border-b border-gray-300 inline-block">
-                Exterior <span className="text-red-500">Designs</span>
+                Exterir <span className="text-red-500">Designs</span>
             </h2>
 
             {/* Slider with One Navigation Button */}

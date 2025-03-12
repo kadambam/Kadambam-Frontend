@@ -48,7 +48,7 @@ const ArchitectDesign = () => {
         transition={{ duration: 1 }}
       >
         <h1 className="text-5xl font-bold text-white uppercase tracking-wider font-[Cinzel, serif]">
-          ARCHITECT
+          ARCHITEC
         </h1>
       </motion.div>
 

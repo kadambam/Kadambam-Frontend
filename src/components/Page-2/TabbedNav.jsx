@@ -70,7 +70,7 @@ const TabbedNav = () => {
                     </span>
                 </h1>
                 <p className="text-gray-600 mt-3 text-lg">
-                    Connect with us for limitless designs to build your dream palace.
+                    Connect with us for limitless designs to build your dream palace
                 </p>
             </motion.div>
 

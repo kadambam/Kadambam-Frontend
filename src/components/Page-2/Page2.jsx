@@ -17,7 +17,7 @@ const Page2 = () => {
     <div> 
       <NavbarBlack/>
       <ArchitectDesign/>
-      <Hexagon/>
+      
       <TabbedNav/>
       <PricingPage/>
       <DesignProcess/>
