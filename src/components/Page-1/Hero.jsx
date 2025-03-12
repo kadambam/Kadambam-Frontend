@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import TypingEffect from "./TypingEffect";
 import { useState } from "react";
 import { HiChevronRight } from "react-icons/hi";
+import { Section1Images } from "../../utils/data1";
 
 const images = [
   { id: 1, src: "https://picsum.photos/400/300", title: "Project 1", link: "/project-1" },
@@ -19,7 +20,7 @@ const HeroSection = () => {
     <motion.section 
     id="hero"
       className="relative flex flex-col md:flex-row items-center justify-between p-6 md:p-10 text-white"
-      style={{ backgroundImage: "url('https://picsum.photos/1200/800')", backgroundSize: "cover", backgroundPosition: "center" }}
+      style={{ backgroundImage: `url(${Section1Images[0].image})`, backgroundSize: "cover", backgroundPosition: "center" }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}

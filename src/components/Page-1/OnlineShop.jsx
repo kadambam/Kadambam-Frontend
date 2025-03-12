@@ -2,12 +2,13 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import SingleCard from "./SingleCard";
+import { Section2Images } from "../../utils/data1";
 
 const images = [
-  { id: 1, src: "https://picsum.photos/600/400?random=1", path: "/page2" },
-  { id: 2, src: "https://picsum.photos/600/400?random=2", path: "/page2" },
-  { id: 3, src: "https://picsum.photos/600/400?random=3", path: "/page2" },
-  { id: 4, src: "https://picsum.photos/600/400?random=4", path: "/page2" }
+  { id: 1, src: Section2Images[0].image, path: "/page2" },
+  { id: 2, src:Section2Images[1].image , path: "/page2" },
+  { id: 3, src: Section2Images[2].image, path: "/page2" },
+  { id: 4, src: Section2Images[3].image, path: "/page2" }
 ];
 
 const OnlineShop = () => {
