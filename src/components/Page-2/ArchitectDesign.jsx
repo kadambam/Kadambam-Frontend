@@ -1,87 +1,104 @@
+import { HiChevronRight } from "react-icons/hi";
 import { motion } from "framer-motion";
-import HeroSection from "./Hero";
-import { ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
 
-const images = [
-  { id: 1, src: "https://picsum.photos/400/250", title: "Project 1", link: "/project-1" },
-  { id: 2, src: "https://picsum.photos/400/250", title: "Project 2", link: "/project-2" },
-  { id: 3, src: "https://picsum.photos/400/250", title: "Project 3", link: "/project-3" },
-  { id: 4, src: "https://picsum.photos/400/250", title: "Project 4", link: "/project-4" }
+// Background images
+const backgroundImages = [
+  "https://picsum.photos/1920/1080?random=1",
+  "https://picsum.photos/1920/1080?random=2",
+  "https://picsum.photos/1920/1080?random=3",
+  "https://picsum.photos/1920/1080?random=4",
 ];
 
-const fadeIn = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-};
-
 const ArchitectDesign = () => {
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % backgroundImages.length);
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="bg-[#f8f8f8] font-[Poppins, sans-serif]">
-      <div className="container mx-auto px-6 py-16">
-        {/* Page Heading */}
-        <motion.h1
-          className="text-5xl font-bold text-gray-900 uppercase tracking-wider text-center mb-6 font-[Cinzel, serif]"
-          initial="hidden"
-          whileInView="visible"
-          exit="hidden"
-          variants={fadeIn}
-          viewport={{ once: false, amount: 0.3 }}
-        >
-          Architect
-        </motion.h1>
-
-        {/* Image & Text Section */}
-        <div className="flex flex-col md:flex-row items-center gap-12">
-          {/* Left: Text */}
-          <motion.div
-            className="md:w-1/2 text-left"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
-            variants={fadeIn}
-          >
-            <p className="text-2xl font-semibold text-gray-800 leading-relaxed font-[Lora, serif]">
-              Home to Beautiful Design
-            </p>
-            <p className="text-lg text-gray-600 mt-4 font-[Nunito, sans-serif]">
-              Get Your Dream House Design Plans with the Hands of Best Architects.
-            </p>
-            <div className="flex gap-4 mt-6">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-6 py-2 bg-gray-300 text-gray-900 rounded-lg hover:bg-gray-800 hover:text-white transition shadow-lg"
-              >
-                Get a Quotation <ArrowRight className="w-5 h-5" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-6 py-2 text-gray-800 rounded-lg hover:bg-gray-800 hover:text-white transition shadow-lg"
-              >
-                Talk to Us <ArrowRight className="w-5 h-5" />
-              </motion.button>
-            </div>
-          </motion.div>
-
-          {/* Right: Image */}
-          <motion.div
-            className="md:w-1/2 flex justify-center"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
-            variants={fadeIn}
-          >
-            <img
-              src={images[0].src}
-              alt="Architect Design"
-              className="w-[85%] rounded-lg shadow-xl"
-            />
-          </motion.div>
-        </div>
+    <section className="relative bg-black h-screen text-white overflow-hidden">
+      {/* Background Images Sliding Effect */}
+      <div className="absolute inset-0 overflow-hidden">
+        {backgroundImages.map((image, index) => (
+          <motion.img
+            key={index}
+            src={image}
+            alt="Background"
+            className="absolute object-cover object-center w-full h-full transition-opacity"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: index === currentImage ? 1 : 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            style={{ zIndex: index === currentImage ? 1 : 0 }}
+          />
+        ))}
+        <div className="absolute inset-0 bg-black opacity-100"></div>
       </div>
-      <HeroSection />
-    </div>
+
+      {/* Top Left Title */}
+      <motion.div
+        className="absolute top-16 left-8 z-20" // Ensure it's above changing images
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <h1 className="text-5xl font-bold text-white uppercase tracking-wider font-[Cinzel, serif]">
+          ARCHITECT
+        </h1>
+      </motion.div>
+
+
+      {/* Main Content */}
+      <div className="relative z-10 flex flex-col justify-center items-start h-full text-left max-w-5xl mx-auto px-6">
+        <motion.h2
+          className="text-6xl md:text-8xl font-bold leading-tight mb-6"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          HOME TO <br />
+          BEAUTIFUL <span className="text-[#ff4a2a] drop-shadow-xl">DESIGN</span>
+        </motion.h2>
+
+        <motion.p
+          className="text-lg text-gray-300 mb-12 max-w-xl leading-relaxed"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
+          Get Your Dream House Design Plans with the Expertise of the Best Architects.
+        </motion.p>
+
+        {/* Buttons */}
+        <motion.div
+          className="flex gap-4"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.4 }}
+        >
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-[#ff4a2a] text-white py-3 px-8 rounded-md text-lg font-medium flex items-center gap-2 transition hover:bg-[#ff5a3b]"
+          >
+            TALK TO US <HiChevronRight size={20} />
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-gray-800 text-white py-3 px-8 rounded-md text-lg font-medium flex items-center gap-2 transition hover:bg-gray-700"
+          >
+            GET A QUOTATION <HiChevronRight size={20} />
+          </motion.button>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 

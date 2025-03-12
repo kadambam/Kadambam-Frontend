@@ -9,6 +9,7 @@ import ExteriorDesigns from './ExteriorDesigns'
 import Footer from '../Page-1/Footer'
 import LongImg from '../Page-1/LongImg'
 import NavbarBlack from './Navbar'
+import Hexagon from './Hero'
 
 
 const Page2 = () => {
@@ -16,6 +17,7 @@ const Page2 = () => {
     <div> 
       <NavbarBlack/>
       <ArchitectDesign/>
+      <Hexagon/>
       <TabbedNav/>
       <PricingPage/>
       <DesignProcess/>

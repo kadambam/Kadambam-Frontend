@@ -11,7 +11,7 @@ const fadeIn = {
   }
 };
 
-const HeroSection = () => {
+const Hexagon = () => {
   const navigate = useNavigate();
 
   return (
@@ -132,4 +132,4 @@ const styleSheet = document.createElement("style");
 styleSheet.innerText = styles;
 document.head.appendChild(styleSheet);
 
-export default HeroSection;
+export default Hexagon;

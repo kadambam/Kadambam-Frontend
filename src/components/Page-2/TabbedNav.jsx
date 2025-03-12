@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { ArrowRight } from "lucide-react";
@@ -7,37 +7,19 @@ import { useNavigate } from "react-router-dom";
 const words = ["Residence", "Villa", "Bungalow", "Apartment", "Farmhouse", "Penthouse"];
 
 const tabs = [
-    {
-        title: "Floor Plan",
-        content: "A well-labeled floor plan ensures efficient space utilization and functionality in residential designs.",
-        image: "https://picsum.photos/400/200",
-    },
-    {
-        title: "Structural Design",
-        content: "Structural design includes the analysis and planning of load-bearing elements to ensure durability and safety.",
-        image: "https://picsum.photos/400/200",
-    },
-    {
-        title: "Civil Drawings",
-        content: "Civil drawings provide precise layouts for foundations, walls, beams, and overall site planning.",
-        image: "https://picsum.photos/400/200",
-    },
-    {
-        title: "3D Elevation",
-        content: "A 3D elevation offers a realistic preview of how the architectural structure will look post-construction.",
-        image: "https://picsum.photos/400/200",
-    },
-    {
-        title: "3D Interior Design",
-        content: "Interior design in 3D helps visualize space aesthetics, lighting, and furniture placements.",
-        image: "https://picsum.photos/400/200",
-    }
+    { title: "Floor Plan", content: "A well-labeled floor plan ensures efficient space utilization and functionality in residential designs.", image: "https://picsum.photos/400/200" },
+    { title: "Structural Design", content: "Structural design includes the analysis and planning of load-bearing elements to ensure durability and safety.", image: "https://picsum.photos/400/200" },
+    { title: "Civil Drawings", content: "Civil drawings provide precise layouts for foundations, walls, beams, and overall site planning.", image: "https://picsum.photos/400/200" },
+    { title: "3D Elevation", content: "A 3D elevation offers a realistic preview of how the architectural structure will look post-construction.", image: "https://picsum.photos/400/200" },
+    { title: "3D Interior Design", content: "Interior design in 3D helps visualize space aesthetics, lighting, and furniture placements.", image: "https://picsum.photos/400/200" }
 ];
 
 const TabbedNav = () => {
     const [activeTab, setActiveTab] = useState(0);
     const [changingWord, setChangingWord] = useState(words[0]);
     const navigate = useNavigate();
+    const [tabPosition, setTabPosition] = useState({ left: 0, width: 0 });
+    const tabRefs = useRef([]);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -46,9 +28,16 @@ const TabbedNav = () => {
         return () => clearInterval(interval);
     }, []);
 
+    useLayoutEffect(() => {
+        if (tabRefs.current[activeTab]) {
+            const { offsetLeft, offsetWidth } = tabRefs.current[activeTab];
+            setTabPosition({ left: offsetLeft, width: offsetWidth });
+        }
+    }, [activeTab]);
+
     return (
         <section className="relative bg-white py-10 px-5 md:px-20">
-            {/* Title Section with Scroll Animation */}
+            {/* Title Section */}
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -85,27 +74,32 @@ const TabbedNav = () => {
                 </p>
             </motion.div>
 
-            {/* Tabs Section with Animation */}
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
-                transition={{ duration: 0.6 }}
-                className="flex space-x-4 pb-3 border-b border-gray-300"
-            >
+            {/* Tabs Section with Animated Underline */}
+            <div className="relative flex space-x-4 pb-3 ">
                 {tabs.map((tab, index) => (
                     <button
                         key={index}
-                        className={`py-2 px-4 text-lg font-medium transition ${activeTab === index
-                                ? "text-black border-b-2 border-red-500"
-                                : "text-gray-500 hover:text-gray-800"
-                            }`}
+                        className={`relative py-2 px-4 text-lg font-medium transition ${
+                            activeTab === index ? "text-black" : "text-gray-500 hover:text-gray-800"
+                        }`}
                         onClick={() => setActiveTab(index)}
+                        ref={(el) => (tabRefs.current[index] = el)}
                     >
                         {tab.title}
                     </button>
                 ))}
-            </motion.div>
+
+                {/* Moving Underline */}
+                <motion.div
+                    className="absolute bottom-0 h-[3px] bg-red-500"
+                    initial={{ left: 0, width: 0 }}
+                    animate={{
+                        left: tabPosition.left,
+                        width: tabPosition.width,
+                    }}
+                    transition={{ type: "spring", stiffness: 120, damping: 14 }}
+                />
+            </div>
 
             {/* Animated Content Section */}
             <motion.div
@@ -122,7 +116,7 @@ const TabbedNav = () => {
                     className="w-full md:w-1/2 h-auto rounded-lg"
                 />
 
-                <div className="flex-1">
+                <div className="flex-1 text-left">
                     <h3 className="text-lg font-semibold text-gray-800">{tabs[activeTab].title}</h3>
                     <p className="text-gray-700 mt-2 leading-relaxed">{tabs[activeTab].content}</p>
                     <p className="text-gray-700 mt-2">
@@ -132,7 +126,7 @@ const TabbedNav = () => {
                         Let’s create your perfect space with high-quality architectural solutions.
                     </p>
                     <button
-                        className="flex items-center gap-2 px-6 py-2 mt-4 bg-white text-black border border-gray-400 rounded-lg hover:bg-gray-800 hover:text-white transition mx-auto"
+                        className="flex items-center gap-2 px-6 py-2 mt-4 bg-white text-black border border-gray-400 rounded-lg hover:bg-gray-800 hover:text-white transition"
                         onClick={() => navigate("/quotation")}
                     >
                         Get a Quotation <ArrowRight className="w-5 h-5" />
