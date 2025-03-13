@@ -3,6 +3,8 @@ import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import SingleCard from "./SingleCard";
 import { Section2Images } from "../../utils/data1";
+import { HiChevronRight } from "react-icons/hi";
+
 
 const images = [
   { id: 1, src: Section2Images[0].image, path: "/page2" },
@@ -45,7 +47,7 @@ const OnlineShop = () => {
                 className="absolute bottom-4 right-4 bg-[#ff4a2a] text-white p-2 rounded-full shadow-lg hover:bg-[#e03e1d]"
                 onClick={() => navigate(image.path)}
               >
-                <ArrowRight size={20} />
+                 <HiChevronRight className="w-5 h-5" />
               </button>
             </motion.div>
           ))}
@@ -104,7 +106,7 @@ const OnlineShop = () => {
           className="flex items-center gap-2 px-6 py-2 bg-white text-black rounded-lg hover:bg-gray-300 transition"
           onClick={() => navigate("/quotation")}
         >
-          Shop Now <ArrowRight className="w-5 h-5" />
+          Shop Now  <HiChevronRight className="w-5 h-5" />
         </button>
         <SingleCard/>
       </motion.div>

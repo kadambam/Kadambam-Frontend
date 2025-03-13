@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { HiChevronRight } from "react-icons/hi";
+
 
 const services = [
   { id: 1, title: "Interior Design", desc: "Transforming spaces with stunning interior designs.", img: "https://picsum.photos/300/200?random=1" },
@@ -64,7 +66,9 @@ const OurServices = () => {
             transition={{ duration: 0.8, delay: index * 0.1 }}
             viewport={{ once: false }}
           >
-            ✅ {text}
+           <li className="flex items-center">
+              <span className="w-2 h-2 bg-[#ff4a2a] rounded-full mr-2"></span> {text}
+            </li>
           </motion.p>
         ))}
 
@@ -109,7 +113,7 @@ const OurServices = () => {
               whileHover={{ scale: 1.2 }}
               onClick={() => navigate(`/services/${service.id}`)}
             >
-              <ArrowRight size={24} />
+               <HiChevronRight className="w-5 h-5" />
             </motion.button>
           </motion.div>
         ))}
