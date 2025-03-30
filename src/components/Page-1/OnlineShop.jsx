@@ -17,7 +17,7 @@ const OnlineShop = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative p-10 bg-[#F8F8F8] flex flex-col md:flex-row items-start  space-x-10">
+    <section className="relative p-10 bg-white flex flex-col md:flex-row items-start  space-x-10">
       {/* Title */}
      
 
@@ -44,7 +44,7 @@ const OnlineShop = () => {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
               {/* Navigation Icon */}
               <button
-                className="absolute bottom-4 right-4 bg-[#ff4a2a] text-white p-2 rounded-full shadow-lg hover:bg-[#e03e1d]"
+                className="absolute bottom-4 right-4 bg-gray-100 text-black p-2 rounded-lg shadow-lg hover:text-[#ff4a2a]"
                 onClick={() => navigate(image.path)}
               >
                  <HiChevronRight className="w-5 h-5" />
@@ -82,12 +82,15 @@ const OnlineShop = () => {
         <div className="p-6 border border-gray-400 rounded-lg shadow-lg bg-white">
           <ul className="list-none space-y-2">
             <li className="flex items-center">
-              <span className="w-2 h-2 bg-[#ff4a2a] rounded-full mr-2"></span> 2D Plan & 3D Elevation 
+              <span className="w-2 h-2 bg-[#ff4a2a] rounded-full mr-2"></span> 2D Plan 
             </li>
-            
             <li className="flex items-center">
-              <span className="w-2 h-2 bg-[#ff4a2a] rounded-full mr-2"></span> Easy Download & Available All Faces
+              <span className="w-2 h-2 bg-[#ff4a2a] rounded-full mr-2"></span> 3D Elevation
             </li>
+            <li className="flex items-center">
+              <span className="w-2 h-2 bg-[#ff4a2a] rounded-full mr-2"></span> Easy Download
+            </li>
+           
             <li className="flex items-center">
               <span className="w-2 h-2 bg-[#ff4a2a] rounded-full mr-2"></span> 100% Vastu & Manayadi Sastram
             </li>

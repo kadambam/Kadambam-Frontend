@@ -24,7 +24,7 @@ const Navbar = () => {
         isScrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="container px-6 py-1 mx-auto md:flex md:justify-between md:items-center">
+      <div className="container  py-1 mx-auto md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
           <a href="#">
             <img
@@ -79,18 +79,18 @@ const Navbar = () => {
         </div>
 
         <div
-          className={`absolute inset-x-0 w-full px-6 py-4 transition-all duration-300 ease-in-out md:relative md:w-auto md:flex md:items-center ${
+          className={`absolute inset-x-0 w-full py-4 transition-all duration-300 ease-in-out md:relative md:w-auto md:flex md:items-center ${
             isOpen
               ? "translate-x-0 opacity-100"
               : "opacity-0 -translate-x-full md:opacity-100 md:translate-x-0"
           }`}
         >
-          <div className="flex flex-col md:flex-row md:mx-6">
+          <div className="flex flex-col md:flex-row">
             <a
               className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
                 isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
               }`}
-              style={{ fontFamily: "Cinzel, serif" }}
+              style={{ fontFamily: "Poppins, serif" }}
               href="#"
             >
               Home
@@ -99,7 +99,8 @@ const Navbar = () => {
               className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
                 isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
               }`}
-              style={{ fontFamily: "Cinzel, serif" }}
+              style={{ fontFamily: "Poppins, serif" }}
+
               href="#"
             >
               Services
@@ -108,7 +109,8 @@ const Navbar = () => {
               className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
                 isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
               }`}
-              style={{ fontFamily: "Cinzel, serif" }}
+              style={{ fontFamily: "Poppins, serif" }}
+
               href="#"
             >
               Online shop
@@ -117,7 +119,8 @@ const Navbar = () => {
               className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
                 isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
               }`}
-              style={{ fontFamily: "Cinzel, serif" }}
+              style={{ fontFamily: "Poppins, serif" }}
+
               href="#"
             >
               Contact

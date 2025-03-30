@@ -11,6 +11,7 @@ import TestimonialSection from './Testimonial'
 import LongImg from './LongImg'
 import Footer from './Footer'
 
+
 const Page1 = () => {
   return (
     <div>

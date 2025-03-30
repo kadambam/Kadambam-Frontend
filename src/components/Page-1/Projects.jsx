@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
 import { HiChevronRight } from "react-icons/hi";
 
+import { Section4Images } from '../../utils/data1';
+
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -35,9 +37,8 @@ const Projects = () => {
           <span className="text-[#ff4a2a]"> Projects</span>
         </h2>
         <p className="mt-6 text-gray-600 font-bold">
-          Here are a Few of our Outstanding Design Projects
+        Give your home a new look with these design ideas curated for you
         </p>
-        <p className="text-gray-600">Give your home a new look...</p>
       </motion.div>
 
       {/* Project Grid */}
@@ -50,20 +51,20 @@ const Projects = () => {
           viewport={{ once: false, amount: 0.2 }}
         >
           <div className="flex w-1/2 flex-wrap">
-            {[70, 72, 73].map((num, index) => (
-              <motion.div
-                key={index}
-                className={`w-${index === 2 ? 'full' : '1/2'} p-1 md:p-2 relative group`}
-                variants={imageVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: false, amount: 0.2 }}
-              >
-                <img
-                  alt="gallery"
-                  className="block h-full w-full rounded-lg object-cover object-center transition-transform duration-300 group-hover:scale-105"
-                  src={`https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(${num}).webp`}
-                />
+  {Section4Images.slice(0, 3).map((img, index) => (
+    <motion.div
+      key={index}
+      className={`w-${index === 2 ? 'full' : '1/2'} p-1 md:p-2 relative group`}
+      variants={imageVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.2 }}
+    >
+      <img
+        alt="gallery"
+        className="block h-full w-full rounded-lg object-cover object-center transition-transform duration-300 group-hover:scale-105"
+        src={img.image}
+      />
 
 <div className="absolute bottom-2 left-2 right-2 flex justify-between items-center p-2">
   {/* Project title with light gray background */}
@@ -72,7 +73,7 @@ const Projects = () => {
   </p>
 
   {/* Arrow icon with its own round background */}
-  <div className="bg-white/80 backdrop-blur-lg p-2 text-[#ff4a2a]  hover:text-black transition rounded-full">
+  <div className="hover:bg-gray-50 p-2 text-white  hover:text-black transition rounded-lg">
   <HiChevronRight className="w-5 h-5 " />
 </div>
 
@@ -84,20 +85,20 @@ const Projects = () => {
           </div>
 
           <div className="flex w-1/2 flex-wrap">
-            {[74, 75, 77].map((num, index) => (
-              <motion.div
-                key={index}
-                className={`w-${index === 0 ? 'full' : '1/2'} p-1 md:p-2 relative group`}
-                variants={imageVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: false, amount: 0.2 }}
-              >
-                <img
-                  alt="gallery"
-                  className="block h-full w-full rounded-lg object-cover object-center transition-transform duration-300 group-hover:scale-105"
-                  src={`https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(${num}).webp`}
-                />
+  {Section4Images.slice(3, 6).map((img, index) => (
+    <motion.div
+      key={index}
+      className={`w-${index === 0 ? 'full' : '1/2'} p-1 md:p-2 relative group`}
+      variants={imageVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.2 }}
+    >
+      <img
+        alt="gallery"
+        className="block h-full w-full rounded-lg object-cover object-center transition-transform duration-300 group-hover:scale-105"
+        src={img.image}
+      />
 
                 {/* Project title and arrow at the bottom */}
                 <div className="absolute bottom-2 left-2 right-2 flex justify-between items-center p-2">
@@ -107,7 +108,7 @@ const Projects = () => {
   </p>
 
   {/* Arrow icon with round background */}
-  <div className="bg-white/80 backdrop-blur-lg p-2 rounded-full  text-[#ff4a2a]  hover:text-black transition">
+  <div className="hover:bg-gray-50 p-2 text-white  hover:text-black transition rounded-lg">
   <HiChevronRight className="w-5 h-5" />
   </div>
 </div>

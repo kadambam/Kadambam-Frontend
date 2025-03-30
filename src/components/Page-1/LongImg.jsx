@@ -5,7 +5,7 @@ const LongImg = () => {
   return (
     <div className="flex justify-center items-center">
       <div 
-        className="relative w-[1250px] h-[200px] bg-cover bg-center rounded-lg shadow-lg"
+        className="relative w-[1300px] h-[200px] bg-cover bg-center rounded-lg shadow-lg"
         style={{ backgroundImage: `url(${img})` }}
       >
         {/* Overlay (optional) */}

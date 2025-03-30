@@ -9,7 +9,8 @@ const Footer = () => {
           
           {/* Logo and Socials */}
           <div>
-            <h1 className="text-2xl font-bold mb-4">YourLogo</h1>
+            {/* <h1 className="text-2xl font-bold ">YourLogo</h1> */}
+            <img src="logowhite.png" alt="" className='mb-4 w-40'/>
             <div className="flex gap-4 mb-6">
               <FaFacebookF className="cursor-pointer hover:text-[#ff4a2a]" />
               <FaTwitter className="cursor-pointer hover:text-[#ff4a2a]" />

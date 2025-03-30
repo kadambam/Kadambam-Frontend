@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import { FaPlay } from "react-icons/fa";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { HiChevronRight } from "react-icons/hi";
+
 
 const videos = [
     { id: "dQw4w9WgXcQ", title: "How to Grow Your Business Online", description: "Learn the top strategies to expand your business digitally." },
@@ -42,8 +44,9 @@ const LatestVids = () => {
             <h2 className="font-bold mb-6 text-gray-600 text-2xl">
        <p>Check out some of our customer reviews</p>
       </h2>
-      <p className='text-[#ff4a2a] font-bold flex'>View More  <ArrowRight size={24} /></p>
+      <p className='text-[#ff4a2a] font-bold flex'>View More  <HiChevronRight className="m-1 w-5 h-5" /></p>
                 </div>
+                       
       
       <motion.div 
         className="relative overflow-hidden py-6"
@@ -56,13 +59,13 @@ const LatestVids = () => {
           {repeatedVideos.map((video, index) => (
             <motion.div 
               key={index} 
-              className="video-card"
+              className="video-card hover:shadow-lg"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: false }}
             >
-              <div className="video-thumbnail" onClick={() => setPlayingVideo(video.id)}>
+              <div className="video-thumbnail p-2" onClick={() => setPlayingVideo(video.id)}>
                 {playingVideo === video.id ? (
                   <iframe
                     className="w-full h-full"
@@ -72,7 +75,7 @@ const LatestVids = () => {
                   ></iframe>
                 ) : (
                   <>
-                    <img className="w-full h-full object-cover" src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`} alt={video.title} />
+                    <img className="w-full h-full object-cover rounded-md" src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`} alt={video.title} />
                     <FaPlay className="play-icon" />
                   </>
                 )}
