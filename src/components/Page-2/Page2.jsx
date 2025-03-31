@@ -8,8 +8,12 @@ import DesignProcess from './DesignProcess'
 import ExteriorDesigns from './ExteriorDesigns'
 import Footer from '../Page-1/Footer'
 import LongImg from '../Page-1/LongImg'
-import NavbarBlack from './Navbar'
+import NavbarBlack from './NavbarBlack'
 import Hexagon from './Hero'
+import InteriorDesigns from './InteriorDesigns'
+
+import ImageGrid from './Hero'
+import InfogramProcess from './Infogramprocess'
 
 
 const Page2 = () => {
@@ -17,11 +21,13 @@ const Page2 = () => {
     <div> 
       <NavbarBlack/>
       <ArchitectDesign/>
-      
+      <ImageGrid/>
       <TabbedNav/>
       <PricingPage/>
-      <DesignProcess/>
+      {/* <DesignProcess/> */}
+      <InfogramProcess/>
       <ExteriorDesigns/>
+      <InteriorDesigns/>
       <LongImg/>
       <Footer/>
     </div>

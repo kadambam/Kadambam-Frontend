@@ -27,14 +27,14 @@ const exteriorImages = [
     "https://picsum.photos/400/225?random=18",
 ];
 
-export default function ExteriorDesigns() {
+export default function InteriorDesigns() {
     const swiperRef = useRef(null);
 
     return (
         <section className="text-center py-10 relative">
             {/* Title */}
-            <h2 className="text-3xl font-semibold mb-4 text-gray-800">
-            Exterior  <span className="text-red-500">Designs</span>
+            <h2 className="text-3xl font-semibold mb-4 text-gray-800 ">
+                Interior <span className="text-red-500">Designs</span>
             </h2>
 
             {/* Slider with One Navigation Button */}

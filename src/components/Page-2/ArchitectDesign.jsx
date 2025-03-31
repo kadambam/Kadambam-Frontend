@@ -37,7 +37,7 @@ const ArchitectDesign = () => {
             style={{ zIndex: index === currentImage ? 1 : 0 }}
           />
         ))}
-        <div className="absolute inset-0 bg-black opacity-100"></div>
+        <div className="absolute inset-0 bg-black opacity-1"></div>
       </div>
 
       {/* Top Left Title */}
@@ -47,9 +47,9 @@ const ArchitectDesign = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1 className="text-5xl font-bold text-white uppercase tracking-wider font-[Cinzel, serif]">
-          ARCHITEC
-        </h1>
+        {/* <h1 className="text-5xl font-bold text-white uppercase tracking-wider font-[Cinzel, serif]">
+          ARCHITECT
+        </h1> */}
       </motion.div>
 
 
@@ -71,7 +71,7 @@ const ArchitectDesign = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          Get Your Dream House Design Plans with the Expertise of the Best Architects.
+          Designed & Built in One Place
         </motion.p>
 
         {/* Buttons */}
@@ -94,7 +94,7 @@ const ArchitectDesign = () => {
             whileTap={{ scale: 0.95 }}
             className="bg-gray-800 text-white py-3 px-8 rounded-md text-lg font-medium flex items-center gap-2 transition hover:bg-gray-700"
           >
-            GET A QUOTATION <HiChevronRight size={20} />
+            BOOK FREE CONSULTATION <HiChevronRight size={20} />
           </motion.button>
         </motion.div>
       </div>

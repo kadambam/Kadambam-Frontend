@@ -4,32 +4,65 @@ import { useState } from "react";
 
 const pricingPlans = [
   {
-    title: "Standard",
-    price: "499",
+    title: "Budget",
+    // price: "499",
     features: [
-      "Basic floor plan design",
-      "2D Elevation drawings",
-      "Consultation for design improvements",
+      "2D Floor Plan - Vasthu",
+      "3D Elevation",
+      "Floor Plan Revision Upto 2 Times",
+    ],
+    buttonLabel: "Get Started",
+  },
+  {
+    title: "Standard",
+    
+    features: [
+      "2D Floor Plan - Vasthu",
+      "3D Elevation",
+      "Floor Plan Revision Upto 3 Times",
+      "Electrical Design",
+      "Compound wall Design and details",
     ],
     buttonLabel: "Get Started",
   },
   {
     title: "Premium",
-    price: "999",
+    
     features: [
-      "3D Elevation design",
-      "Structural & Civil Drawings",
-      "Personalized consultation with experts",
+      "2D Floor Plan - Vasthu",
+      "3D Elevation",
+      "Floor Plan Revision Upto 10 Times",
+      "Structural Design",
+      "Plumbing Design",
+      "Electrical Design",
+      "Exterior colors/finishes",
+      "Furniture Layout",
+      "Civil Drawings",
+      "Compound wall Design and details",
+      "Site Visits by Architects Upto 2 Times",
     ],
     buttonLabel: "Get Started",
   },
   {
     title: "Elite",
-    price: "1999",
+    
     features: [
-      "Complete architectural design",
-      "High-quality 3D rendering",
-      "Custom interior design consultation",
+      "2D Floor Plan - Vasthu",
+      "3D Floor Plan - Vasthu",
+      "3D Elevation",
+      "2D Elevation",
+      "3D Walkthrough",
+      "Floor Plan Revision Unlimited",
+      "Structural Design",
+      "Civil Drawings",
+      "Plumbing Design",
+      "Electrical Design",
+      "Furniture Layout",
+      "Compound wall Design and details",
+      "Entrance Gate and details",
+      "Exterior colors/finishes",
+      "Site Visits by Architects Upto 5 Times",
+      
     ],
     buttonLabel: "Get Started",
   },
@@ -59,11 +92,11 @@ const PricingPage = () => {
         transition={{ duration: 0.8, delay: 0.2 }}
         viewport={{ once: false, amount: 0.2 }}
       >
-        Choose the perfect architectural solution that fits your vision and budget.
+        Simple solutions, stylish results-start your journey here.
       </motion.p>
 
       {/* Pricing Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
         {pricingPlans.map((plan, index) => (
           <motion.div
             key={index}
