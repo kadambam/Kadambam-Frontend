@@ -27,14 +27,14 @@ const exteriorImages = [
     "https://picsum.photos/400/225?random=18",
 ];
 
-export default function ExteriorDesigns() {
+export default function InteriorRenders() {
     const swiperRef = useRef(null);
 
     return (
         <section className="text-center py-10 relative">
             {/* Title */}
-            <h2 className="text-3xl font-semibold mb-4 text-gray-800">
-            Exterior  <span className="text-red-500">Designs</span>
+            <h2 className="text-3xl font-bold mb-6 border-b border-gray-300 inline-block">
+                Interior <span className="text-red-500">Renders</span>
             </h2>
 
             {/* Slider with One Navigation Button */}
@@ -42,7 +42,7 @@ export default function ExteriorDesigns() {
                 {/* Left Button */}
                 <button
                     id="prev-slide"
-                    className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-gray-100 bg-transperent text-gray-700 w-12 h-12 squared-full rounded-lg flex items-center justify-center shadow-lg hover:shadow transition z-50"
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-700 transition z-50"
                 >
                     <FontAwesomeIcon icon={faChevronLeft} />
                 </button>
@@ -78,7 +78,7 @@ export default function ExteriorDesigns() {
                 {/* Right Button */}
                 <button
                     id="next-slide"
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-transperent bg-gray-100 text-gray-700 w-12 h-12 square-full rounded-lg flex items-center justify-center shadow-lg hover:shadow transition z-50"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-gray-700 transition z-50"
                 >
                     <FontAwesomeIcon icon={faChevronRight} />
                 </button>

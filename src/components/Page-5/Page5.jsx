@@ -10,12 +10,13 @@ import FAQ from './Faq'
 import FAQSection from './Faq'
 import LongImg from './LongImg'
 import Footer from '../Page-1/Footer'
-import NavbarBlack from '../Page-2/Navbar'
+import NavbarBlack from '../Page-2/NavbarBlack'
+// import NavbarBlack from '../Page-2/Navbar'
 
 const Page5 = () => {
   return (
     <div>
-      <NavbarBlack/>
+    <NavbarBlack/>
     <HeroWithGallery/>
     <Carousel/>
     <HomeInteriors/>

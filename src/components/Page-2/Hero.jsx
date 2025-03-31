@@ -11,7 +11,38 @@ const fadeIn = {
   }
 };
 
-const Hexagon = () => {
+const cardData = [
+  {
+    title: "Find Your Dream Home",
+    description: "Luxury apartments and villas",
+    buttonText: "Explore now",
+    bgColor: "bg-green-600",
+    img: "https://picsum.photos/400/300?random=1",
+  },
+  {
+    title: "Discover Scenic Retreats",
+    description: "Stay in picturesque locations",
+    buttonText: "Learn More",
+    bgColor: "bg-purple-600",
+    img: "https://picsum.photos/400/300?random=2",
+  },
+  {
+    title: "Luxury Living Spaces",
+    description: "Experience modern architecture",
+    buttonText: "View More",
+    bgColor: "bg-red-600",
+    img: "https://picsum.photos/400/300?random=3",
+  },
+  {
+    title: "Investment Opportunities",
+    description: "Secure profitable real estate deals",
+    buttonText: "Get started",
+    bgColor: "bg-blue-600",
+    img: "https://picsum.photos/400/300?random=4",
+  },
+];
+
+const ImageGrid = () => {
   const navigate = useNavigate();
 
   return (
@@ -22,48 +53,47 @@ const Hexagon = () => {
       viewport={{ once: false, amount: 0.3 }}
       variants={fadeIn}
     >
-      {/* Left Hexagonal Images */}
+      {/* Left Section - Full Split Card Grid */}
       <motion.div
-        className="relative flex flex-col items-center gap-3 w-full md:w-1/2"
+        className="relative grid grid-cols-2 gap-4 w-full md:w-1/2"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
         variants={fadeIn}
       >
-        <div className="grid grid-cols-2 gap-3">
-          {["Sample 1", "Sample 2"].map((alt, index) => (
-            <motion.div
-              key={index}
-              className="hexagon"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.3 }}
-              viewport={{ once: false, amount: 0.3 }}
-            >
-              <img
-                src={`https://picsum.photos/250/250?random=${index}`}
-                alt={alt}
-                className="hex-img"
-              />
-            </motion.div>
-          ))}
-        </div>
-        <motion.div
-          className="hexagon mt-[-35px]"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ duration: 0.3 }}
-          viewport={{ once: false, amount: 0.3 }}
-        >
-          <img
-            src="https://picsum.photos/250/250?random=3"
-            alt="Sample 3"
-            className="hex-img"
-          />
-        </motion.div>
+        {cardData.map((card, index) => (
+          <motion.div
+            key={index}
+            className="rounded-lg overflow-hidden shadow-lg w-full h-64 flex"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.3 }}
+          >
+            {/* Split Card Layout for All Cards */}
+            <>
+              {/* Left Text Section */}
+              <div className={`w-2/3 p-4 ${card.bgColor} text-white flex flex-col justify-between`}>
+                <div>
+                  <h3 className="text-lg font-semibold">{card.title}</h3>
+                  <p className="text-sm mt-2">{card.description}</p>
+                </div>
+                <button 
+                  className="mt-4 px-4 py-2 bg-white text-black rounded-md text-sm font-medium"
+                  onClick={() => navigate("/quotation")}
+                >
+                  {card.buttonText}
+                </button>
+              </div>
+              {/* Right Image Section */}
+              <div className="w-2/3">
+                <img src={card.img} alt={card.title} className="w-full h-full object-cover" />
+              </div>
+            </>
+          </motion.div>
+        ))}
       </motion.div>
 
-      {/* Right Side Content */}
+      {/* Right Side Content - Unchanged */}
       <motion.div
         className="w-full md:w-1/2 text-center mt-6 md:mt-0 px-4"
         initial="hidden"
@@ -106,30 +136,4 @@ const Hexagon = () => {
   );
 };
 
-// Hexagon CSS
-const styles = `
-.hexagon {
-  width: 180px;
-  height: 208px;
-  background-color: white;
-  position: relative;
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-}
-
-.hex-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-`;
-
-const styleSheet = document.createElement("style");
-styleSheet.innerText = styles;
-document.head.appendChild(styleSheet);
-
-export default Hexagon;
+export default ImageGrid;

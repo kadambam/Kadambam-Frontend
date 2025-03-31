@@ -7,11 +7,12 @@ import { useNavigate } from "react-router-dom";
 const words = ["Residence", "Villa", "Bungalow", "Apartment", "Farmhouse", "Penthouse"];
 
 const tabs = [
-    { title: "Floor Plan", content: "A well-labeled floor plan ensures efficient space utilization and functionality in residential designs.", image: "https://picsum.photos/400/200" },
-    { title: "Structural Design", content: "Structural design includes the analysis and planning of load-bearing elements to ensure durability and safety.", image: "https://picsum.photos/400/200" },
-    { title: "Civil Drawings", content: "Civil drawings provide precise layouts for foundations, walls, beams, and overall site planning.", image: "https://picsum.photos/400/200" },
-    { title: "3D Elevation", content: "A 3D elevation offers a realistic preview of how the architectural structure will look post-construction.", image: "https://picsum.photos/400/200" },
-    { title: "3D Interior Design", content: "Interior design in 3D helps visualize space aesthetics, lighting, and furniture placements.", image: "https://picsum.photos/400/200" }
+    { title: "Floor Plan", content: "Kadamban Architect is dedicated to transforming your space with expertly tailored floor plans! Designed for maximum space efficiency, natural light, and seamless functionality, our plans combine style with practicality. Whether for modern homes or multi-generational living, we guide and assist you in all stages to bring your dream home to life!", image: "https://picsum.photos/400/200" },
+    { title: "Structural Design", content: "Our expert structural designers are committed to delivering precise and reliable drawings tailored to your project’s needs. Kadamban collaborates with top designers at every stage, from planning to execution, ensuring the structural design aligns with the expected creativity. From foundation details to framing specifications, we ensure every element is designed with accuracy and strength in mind. With a focus on durability and safety, we guide and assist you in all stages to create a structure that stands strong for years to come.", image: "https://picsum.photos/400/200" },
+    { title: "Civil Drawings", content: "Civil drawings are essential as they provide detailed structural information required for building permits. At Kadamban Architect, our expert designers specialize in transforming ideas into clear, precise drawings that balance simplicity with purpose. These detailed plans ensure your dream home's layout is accurate, functional, and aligned with your vision.", image: "https://picsum.photos/400/200" },
+    { title: "MEP Drawings", content: "MEP (Mechanical, Electrical, and Plumbing) drawings are crucial for ensuring the efficient functioning of your building’s vital systems. At Kadamban Architect, we collaborate with top designers and engineers at every stage, from planning to execution, to deliver MEP designs that integrate seamlessly with your structure. Our meticulously planned designs ensure optimal performance, energy efficiency, and safety. From electrical layouts to plumbing networks and HVAC systems, we provide clear and precise drawings to support smooth execution at every stage of your project.", image: "https://picsum.photos/400/200" },
+    { title: "Floor Plan", content: "Kadamban Architect is dedicated to transforming your space with expertly tailored floor plans! Designed for maximum space efficiency, natural light, and seamless functionality, our plans combine style with practicality. Whether for modern homes or multi-generational living, we guide and assist you in all stages to bring your dream home to life!", image: "https://picsum.photos/400/200" },
+    { title: "3D Interior Design", content: "Interior design is all about transforming your space into a comfortable, stylish, and functional living environment. At Kadamban Architect, we focus on smart space planning to make your home feel spacious and inviting. Our expert designers carefully blend aesthetics with practicality, ensuring your home meets all your needs while creating a warm and welcoming ambiance — a place you’ll always love to return to.", image: "https://picsum.photos/400/200" }
 ];
 
 const TabbedNav = () => {
@@ -51,7 +52,7 @@ const TabbedNav = () => {
                 <h1 className="text-3xl font-medium mt-3">
                     <span className="relative inline-block">
                         <span className="text-red-500">Architectural Services</span>
-                        <span className="absolute left-1/2 transform -translate-x-1/2 bottom-[-8px] w-2/3 h-[2px] bg-red-500"></span>
+                        <span className="absolute left-1/2 transform -translate-x-1/2 bottom-[-8px] w-75 h-[2px] bg-red-500"></span>
                     </span>{" "}
                     For Your{" "}
                     <span className="inline-block relative w-[150px] h-[40px] overflow-hidden align-middle">
@@ -70,12 +71,12 @@ const TabbedNav = () => {
                     </span>
                 </h1>
                 <p className="text-gray-600 mt-3 text-lg">
-                    Connect with us for limitless designs to build your dream palace.
+                Let's get started with us for limitless designs to build your dream palace
                 </p>
             </motion.div>
 
             {/* Tabs Section with Animated Underline */}
-            <div className="relative flex space-x-4 pb-3 ">
+            <div className="relative flex space-x-4 pb-3 justify-end">
                 {tabs.map((tab, index) => (
                     <button
                         key={index}
@@ -119,12 +120,12 @@ const TabbedNav = () => {
                 <div className="flex-1 text-left">
                     <h3 className="text-lg font-semibold text-gray-800">{tabs[activeTab].title}</h3>
                     <p className="text-gray-700 mt-2 leading-relaxed">{tabs[activeTab].content}</p>
-                    <p className="text-gray-700 mt-2">
+                    {/* <p className="text-gray-700 mt-2">
                         Our experts ensure precision, sustainability, and modern design elements.
-                    </p>
-                    <p className="text-gray-700 mt-2">
+                    </p> */}
+                    {/* <p className="text-gray-700 mt-2">
                         Let’s create your perfect space with high-quality architectural solutions.
-                    </p>
+                    </p> */}
                     <button
                         className="flex items-center gap-2 px-6 py-2 mt-4 bg-white text-black border border-gray-400 rounded-lg hover:bg-gray-800 hover:text-white transition"
                         onClick={() => navigate("/quotation")}
