@@ -11,7 +11,8 @@ import LatestBlog from './LatestBlog'
 import FAQSection from './FaqSection'
 import LongImg from './LongImg'
 import Footer from '../Page-1/Footer'
-import NavbarBlack from '../Page-2/Navbar'
+import NavbarBlack from '../Page-2/NavbarBlack'
+// import NavbarBlack from '../Page-2/Navbar'
 
 
 
@@ -20,7 +21,7 @@ const Page3 = () => {
   return (
     <div>
       
-     <NavbarBlack/>
+      <NavbarBlack/>
       <HeroSection/>
       <ServicesSection/>
       <ServicesSection1/>
