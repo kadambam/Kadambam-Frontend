@@ -1,13 +1,18 @@
 import { HiChevronRight } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import img1 from "../../assets/images/page2/section1home/img1.png"
+import img2 from "../../assets/images/page2/section1home/img2.jpg"
+import img3 from "../../assets/images/page2/section1home/img3.png"
+import img4 from "../../assets/images/page2/section1home/img4.jpg"
 
 // Background images
 const backgroundImages = [
-  "https://picsum.photos/1920/1080?random=1",
-  "https://picsum.photos/1920/1080?random=2",
-  "https://picsum.photos/1920/1080?random=3",
-  "https://picsum.photos/1920/1080?random=4",
+  img1,
+  img2,
+  img3,
+  img4,
+  
 ];
 
 const ArchitectDesign = () => {
@@ -24,7 +29,7 @@ const ArchitectDesign = () => {
   return (
     <section className="relative bg-black h-screen text-white overflow-hidden">
       {/* Background Images Sliding Effect */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 bg-black opacity-60">
         {backgroundImages.map((image, index) => (
           <motion.img
             key={index}

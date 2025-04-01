@@ -3,16 +3,22 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import img1 from "../../assets/images/page2/section3tabbednav/Floor Plan.png"
+import img2 from "../../assets/images/page2/section3tabbednav/Structural design.jpg"
+import img3 from "../../assets/images/page2/section3tabbednav/Civil drawing.jpg"
+import img4 from "../../assets/images/page2/section3tabbednav/MEP.jpg"
+import img5 from "../../assets/images/page2/section3tabbednav/3dElevation.png"
+import img6 from "../../assets/images/page2/section3tabbednav/Interior design.jpg"
 
 const words = ["Residence", "Villa", "Bungalow", "Apartment", "Farmhouse", "Penthouse"];
 
 const tabs = [
-    { title: "Floor Plan", content: "Kadamban Architect is dedicated to transforming your space with expertly tailored floor plans! Designed for maximum space efficiency, natural light, and seamless functionality, our plans combine style with practicality. Whether for modern homes or multi-generational living, we guide and assist you in all stages to bring your dream home to life!", image: "https://picsum.photos/400/200" },
-    { title: "Structural Design", content: "Our expert structural designers are committed to delivering precise and reliable drawings tailored to your project’s needs. Kadamban collaborates with top designers at every stage, from planning to execution, ensuring the structural design aligns with the expected creativity. From foundation details to framing specifications, we ensure every element is designed with accuracy and strength in mind. With a focus on durability and safety, we guide and assist you in all stages to create a structure that stands strong for years to come.", image: "https://picsum.photos/400/200" },
-    { title: "Civil Drawings", content: "Civil drawings are essential as they provide detailed structural information required for building permits. At Kadamban Architect, our expert designers specialize in transforming ideas into clear, precise drawings that balance simplicity with purpose. These detailed plans ensure your dream home's layout is accurate, functional, and aligned with your vision.", image: "https://picsum.photos/400/200" },
-    { title: "MEP Drawings", content: "MEP (Mechanical, Electrical, and Plumbing) drawings are crucial for ensuring the efficient functioning of your building’s vital systems. At Kadamban Architect, we collaborate with top designers and engineers at every stage, from planning to execution, to deliver MEP designs that integrate seamlessly with your structure. Our meticulously planned designs ensure optimal performance, energy efficiency, and safety. From electrical layouts to plumbing networks and HVAC systems, we provide clear and precise drawings to support smooth execution at every stage of your project.", image: "https://picsum.photos/400/200" },
-    { title: "Floor Plan", content: "Kadamban Architect is dedicated to transforming your space with expertly tailored floor plans! Designed for maximum space efficiency, natural light, and seamless functionality, our plans combine style with practicality. Whether for modern homes or multi-generational living, we guide and assist you in all stages to bring your dream home to life!", image: "https://picsum.photos/400/200" },
-    { title: "3D Interior Design", content: "Interior design is all about transforming your space into a comfortable, stylish, and functional living environment. At Kadamban Architect, we focus on smart space planning to make your home feel spacious and inviting. Our expert designers carefully blend aesthetics with practicality, ensuring your home meets all your needs while creating a warm and welcoming ambiance — a place you’ll always love to return to.", image: "https://picsum.photos/400/200" }
+    { title: "Floor Plan", content: "Kadamban Architect is dedicated to transforming your space with expertly tailored floor plans! Designed for maximum space efficiency, natural light, and seamless functionality, our plans combine style with practicality. Whether for modern homes or multi-generational living, we guide and assist you in all stages to bring your dream home to life!", image: img1 },
+    { title: "Structural Design", content: "Our expert structural designers are committed to delivering precise and reliable drawings tailored to your project’s needs. Kadamban collaborates with top designers at every stage, from planning to execution, ensuring the structural design aligns with the expected creativity. From foundation details to framing specifications, we ensure every element is designed with accuracy and strength in mind. With a focus on durability and safety, we guide and assist you in all stages to create a structure that stands strong for years to come.", image:img2},
+    { title: "Civil Drawings", content: "Civil drawings are essential as they provide detailed structural information required for building permits. At Kadamban Architect, our expert designers specialize in transforming ideas into clear, precise drawings that balance simplicity with purpose. These detailed plans ensure your dream home's layout is accurate, functional, and aligned with your vision.", image: img3 },
+    { title: "MEP Drawings", content: "MEP (Mechanical, Electrical, and Plumbing) drawings are crucial for ensuring the efficient functioning of your building’s vital systems. At Kadamban Architect, we collaborate with top designers and engineers at every stage, from planning to execution, to deliver MEP designs that integrate seamlessly with your structure. Our meticulously planned designs ensure optimal performance, energy efficiency, and safety. From electrical layouts to plumbing networks and HVAC systems, we provide clear and precise drawings to support smooth execution at every stage of your project.", image: img4 },
+    { title: "3D Elevation", content: "Kadamban Architect is dedicated to transforming your space with expertly tailored floor plans! Designed for maximum space efficiency, natural light, and seamless functionality, our plans combine style with practicality. Whether for modern homes or multi-generational living, we guide and assist you in all stages to bring your dream home to life!", image: img5 },
+    { title: "Interior Design", content: "Interior design is all about transforming your space into a comfortable, stylish, and functional living environment. At Kadamban Architect, we focus on smart space planning to make your home feel spacious and inviting. Our expert designers carefully blend aesthetics with practicality, ensuring your home meets all your needs while creating a warm and welcoming ambiance — a place you’ll always love to return to.", image: img6 }
 ];
 
 const TabbedNav = () => {
@@ -76,7 +82,7 @@ const TabbedNav = () => {
             </motion.div>
 
             {/* Tabs Section with Animated Underline */}
-            <div className="relative flex space-x-4 pb-3 justify-end">
+            <div className="relative flex space-x-4 pb-3 justify-around">
                 {tabs.map((tab, index) => (
                     <button
                         key={index}
@@ -114,7 +120,7 @@ const TabbedNav = () => {
                 <img
                     src={tabs[activeTab].image}
                     alt={tabs[activeTab].title}
-                    className="w-full md:w-1/2 h-auto rounded-lg"
+                    className="w-full md:w-[400px] h-[200px] object-cover rounded-lg"
                 />
 
                 <div className="flex-1 text-left">

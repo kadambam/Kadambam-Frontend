@@ -1,5 +1,5 @@
 import React from "react";
-import architectImage from "../../assets/architect.png"; // Importing the image
+import architectImage from "../../assets/images/page2/process/Architect.png" // Importing the image
 
 const InfogramProcess = () => {
   return (
