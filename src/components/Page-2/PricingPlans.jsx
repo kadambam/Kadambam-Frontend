@@ -5,7 +5,6 @@ import { useState } from "react";
 const pricingPlans = [
   {
     title: "Budget",
-    // price: "499",
     features: [
       "2D Floor Plan - Vasthu",
       "3D Elevation",
@@ -15,11 +14,10 @@ const pricingPlans = [
   },
   {
     title: "Standard",
-    
     features: [
       "2D Floor Plan - Vasthu",
       "3D Elevation",
-      "Floor Plan Revision Upto 3 Times",
+      "Floor Plan Revision",
       "Electrical Design",
       "Compound wall Design and details",
     ],
@@ -27,11 +25,10 @@ const pricingPlans = [
   },
   {
     title: "Premium",
-    
     features: [
       "2D Floor Plan - Vasthu",
       "3D Elevation",
-      "Floor Plan Revision Upto 10 Times",
+      "Floor Plan Revision ",
       "Structural Design",
       "Plumbing Design",
       "Electrical Design",
@@ -45,7 +42,6 @@ const pricingPlans = [
   },
   {
     title: "Elite",
-    
     features: [
       "2D Floor Plan - Vasthu",
       "3D Floor Plan - Vasthu",
@@ -62,7 +58,6 @@ const pricingPlans = [
       "Entrance Gate and details",
       "Exterior colors/finishes",
       "Site Visits by Architects Upto 5 Times",
-      
     ],
     buttonLabel: "Get Started",
   },
@@ -70,11 +65,15 @@ const pricingPlans = [
 
 const PricingPage = () => {
   const navigate = useNavigate();
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [expandedPlan, setExpandedPlan] = useState(null);
+
+  const toggleViewMore = (index) => {
+    setExpandedPlan(expandedPlan === index ? null : index);
+  };
 
   return (
     <section className="bg-[#f8f8f8] py-16 px-5 md:px-20 text-center">
-      {/* Animated Title */}
+      {/* Title Section */}
       <motion.h2
         className="text-3xl font-semibold mb-6 text-gray-800"
         initial={{ opacity: 0, y: -50 }}
@@ -92,51 +91,65 @@ const PricingPage = () => {
         transition={{ duration: 0.8, delay: 0.2 }}
         viewport={{ once: false, amount: 0.2 }}
       >
-        Simple solutions, stylish results-start your journey here.
+        Simple solutions, stylish results—start your journey here.
       </motion.p>
 
       {/* Pricing Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
-        {pricingPlans.map((plan, index) => (
-          <motion.div
-            key={index}
-            className="relative bg-white p-8 rounded-2xl shadow-lg text-center border-t-4 border-gray-800"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            viewport={{ once: false, amount: 0.2 }}
-          >
-            {/* Hover text for Premium plan */}
-            {index === 1 && hoveredIndex === index && (
-              <motion.div
-                className="absolute top-0 left-0 w-full bg-gray-700 text-white text-sm py-2 rounded-t-2xl"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-              >
-                ⭐ This is the best plan for you!
-              </motion.div>
-            )}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        {pricingPlans.map((plan, index) => {
+          const isExpanded = expandedPlan === index;
+          const isExpandable = index >= 2; // Expandable for Premium & Elite
 
-            <h3 className="text-2xl font-semibold text-gray-800 mb-3">{plan.title}</h3>
-            <p className="text-4xl font-bold text-gray-900">{plan.price}</p>
-            <ul className="mt-5 space-y-2 text-gray-600">
-              {plan.features.map((feature, i) => (
-                <li key={i} className="flex justify-center items-center gap-2">
-                  ✓ {feature}
-                </li>
-              ))}
-            </ul>
-
-            <motion.button
-              className="mt-6 px-6 py-3 text-gray-900 rounded-lg text-lg transition bg-gray-300 hover:bg-gray-900 hover:text-white"
-              whileTap={{ scale: 0.9 }}
-              onClick={() => navigate("/contact")}
+          return (
+            <motion.div
+              key={index}
+              className="relative bg-white p-8 rounded-2xl shadow-lg text-center border-t-4 border-gray-800 flex flex-col h-auto"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: false, amount: 0.2 }}
             >
-              {plan.buttonLabel}
-            </motion.button>
-          </motion.div>
-        ))}
+              {/* Plan Title */}
+              <h3 className="text-2xl font-semibold text-gray-800 mb-3">{plan.title}</h3>
+
+              {/* Features List */}
+              <ul className="mt-5 space-y-2 text-gray-600 text-left mx-auto w-full max-w-xs">
+                {plan.features.slice(0, isExpanded ? plan.features.length : 4).map((feature, i) => (
+                  <li key={i} className="flex gap-2 items-center">
+                    ✓ {feature}
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA Button */}
+              <motion.button
+                className="mt-6 px-6 py-3 text-gray-900 rounded-lg text-lg transition bg-gray-300 hover:bg-gray-900 hover:text-white"
+                whileTap={{ scale: 0.9 }}
+                onClick={() => navigate("/contact")}
+              >
+                {plan.buttonLabel}
+              </motion.button>
+
+              {/* View More / View Less Button Below CTA */}
+              {isExpandable && (
+                <button
+                  className="mt-4 text-gray-500 text-sm font-medium flex items-center justify-center gap-1 hover:text-gray-700"
+                  onClick={() => toggleViewMore(index)}
+                >
+                  {isExpanded ? (
+                    <>
+                      View Less <span className="text-lg">▲</span>
+                    </>
+                  ) : (
+                    <>
+                      View More <span className="text-lg">▼</span>
+                    </>
+                  )}
+                </button>
+              )}
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );

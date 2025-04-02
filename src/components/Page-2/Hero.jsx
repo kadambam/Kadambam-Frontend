@@ -53,9 +53,9 @@ const ImageGrid = () => {
       viewport={{ once: false, amount: 0.3 }}
       variants={fadeIn}
     >
-      {/* Left Section - Full Split Card Grid */}
+      {/* Left Section - Split Card Layout (Extracted from HeroWithGallery) */}
       <motion.div
-        className="relative grid grid-cols-2 gap-4 w-full md:w-1/2"
+        className="grid grid-cols-2 gap-4 w-full md:w-1/2"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
@@ -64,31 +64,29 @@ const ImageGrid = () => {
         {cardData.map((card, index) => (
           <motion.div
             key={index}
-            className="rounded-lg overflow-hidden shadow-lg w-full h-64 flex"
+            className="flex rounded-lg overflow-hidden shadow-lg border border-gray-300 transition hover:shadow-xl"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.3 }}
           >
-            {/* Split Card Layout for All Cards */}
-            <>
-              {/* Left Text Section */}
-              <div className={`w-2/3 p-4 ${card.bgColor} text-white flex flex-col justify-between`}>
-                <div>
-                  <h3 className="text-lg font-semibold">{card.title}</h3>
-                  <p className="text-sm mt-2">{card.description}</p>
-                </div>
-                <button 
-                  className="mt-4 px-4 py-2 bg-white text-black rounded-md text-sm font-medium"
-                  onClick={() => navigate("/quotation")}
-                >
-                  {card.buttonText}
-                </button>
+            {/* Left Image Section */}
+            <div className="w-1/2">
+              <img src={card.img} alt={card.title} className="w-full h-full object-cover" />
+            </div>
+
+            {/* Right Text Section */}
+            <div className={`w-1/2 p-4 ${card.bgColor} text-white flex flex-col justify-between`}>
+              <div>
+                <h3 className="text-lg font-semibold">{card.title}</h3>
+                <p className="text-sm mt-2">{card.description}</p>
               </div>
-              {/* Right Image Section */}
-              <div className="w-2/3">
-                <img src={card.img} alt={card.title} className="w-full h-full object-cover" />
-              </div>
-            </>
+              <button 
+                className="mt-4 px-4 py-2 bg-white text-black rounded-md text-sm font-medium"
+                onClick={() => navigate("/quotation")}
+              >
+                {card.buttonText}
+              </button>
+            </div>
           </motion.div>
         ))}
       </motion.div>

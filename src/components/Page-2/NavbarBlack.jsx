@@ -7,8 +7,8 @@ const NavbarBlack = () => {
     const handleScroll = () => {
       const heroSection = document.getElementById("hero");
       if (heroSection) {
-        const heroBottom = heroSection.offsetHeight; // Get hero section height
-        setIsScrolled(window.scrollY > heroBottom); // Set scrolled state
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight; // Get bottom position
+        setIsScrolled(window.scrollY > heroBottom - 100); // Change state when past hero section
       }
     };
 
@@ -24,7 +24,7 @@ const NavbarBlack = () => {
         isScrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="container px-6 py-1 mx-auto md:flex md:justify-between md:items-center">
+      <div className="container py-1 mx-auto md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
           <a href="#">
             <img
@@ -79,49 +79,25 @@ const NavbarBlack = () => {
         </div>
 
         <div
-          className={`absolute inset-x-0 w-full px-6 py-4 transition-all duration-300 ease-in-out md:relative md:w-auto md:flex md:items-center ${
+          className={`absolute inset-x-0 w-full py-4 transition-all duration-300 ease-in-out md:relative md:w-auto md:flex md:items-center ${
             isOpen
               ? "translate-x-0 opacity-100"
               : "opacity-0 -translate-x-full md:opacity-100 md:translate-x-0"
           }`}
         >
-          <div className="flex flex-col md:flex-row md:mx-6">
-            <a
-              className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
-              }`}
-              style={{ fontFamily: "Cinzel, serif" }}
-              href="#"
-            >
-              Home
-            </a>
-            <a
-              className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
-              }`}
-              style={{ fontFamily: "Cinzel, serif" }}
-              href="#"
-            >
-              Services
-            </a>
-            <a
-              className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
-              }`}
-              style={{ fontFamily: "Cinzel, serif" }}
-              href="#"
-            >
-              Online shop
-            </a>
-            <a
-              className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
-              }`}
-              style={{ fontFamily: "Cinzel, serif" }}
-              href="#"
-            >
-              Contact
-            </a>
+          <div className="flex flex-col md:flex-row">
+            {["Home", "Services", "Online Shop", "Contact"].map((item, index) => (
+              <a
+                key={index}
+                className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
+                  isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
+                }`}
+                style={{ fontFamily: "Poppins, serif" }}
+                href="#"
+              >
+                {item}
+              </a>
+            ))}
           </div>
         </div>
       </div>
