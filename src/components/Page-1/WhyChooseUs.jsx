@@ -22,19 +22,20 @@ const WhyChooseUs = () => {
     return (
         <div ref={ref} className="why-choose-us p-10 text-center bg-gray-50">
             <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                transition={{ duration: 0.8 }}
-                className="why-choose-title"
-            >
-                <h2 className="top-4 left-10 text-4xl font-bold">
-                    <span className="relative">
-                        Why
-                        <span className="absolute left-0 bottom-0 w-full h-1 bg-[#ff4a2a]"></span>
-                    </span>
-                    <span className="text-[#ff4a2a]"> Choose Us</span> ?
-                </h2>
-            </motion.div>
+  initial={{ opacity: 0, y: 50 }}
+  animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+  transition={{ duration: 0.8 }}
+  className="why-choose-title"
+>
+  <h2 className="top-4 left-10 text-4xl font-bold">
+    <span className="relative inline-block pb-1">
+      Why
+      <span className="absolute left-0 bottom-[-6px] w-full h-1 bg-[#ff4a2a]"></span>
+    </span>
+    <span className="text-[#ff4a2a]"> Choose Us</span> ?
+  </h2>
+</motion.div>
+
 
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}

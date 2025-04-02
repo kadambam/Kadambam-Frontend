@@ -63,18 +63,19 @@ const OnlineShop = () => {
         viewport={{ once: false }}
       >
          <motion.h2 
-        className=" text-4xl font-bold"
-        initial={{ opacity: 0, y: 50 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        transition={{ duration: 0.8 }}
-        viewport={{ once: false }}
-      >
-        <span className="relative">
-          Welcome
-          <span className="absolute left-0 bottom-0 w-full h-1 bg-[#ff4a2a]"></span>
-        </span>
-        <span className="text-[#ff4a2a]"> to Online Shop</span>
-      </motion.h2>
+  className="text-4xl font-bold"
+  initial={{ opacity: 0, y: 50 }} 
+  whileInView={{ opacity: 1, y: 0 }} 
+  transition={{ duration: 0.8 }}
+  viewport={{ once: false }}
+>
+  <span className="relative mb-2 inline-block">
+    Welcome
+    <span className="absolute left-0 bottom-[-6px] w-full h-1 bg-[#ff4a2a]"></span>
+  </span>
+  <span className="text-[#ff4a2a]"> to Online Shop</span>
+</motion.h2>
+
         <p className="text-lg font-bold">
         Explore and download high-quality, ready-to-use 2D/3D designs for architecture, interiors, and more – available anytime, anywhere in just a few clicks...
         </p>

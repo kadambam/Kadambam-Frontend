@@ -17,9 +17,8 @@ const HeroWithGallery = () => {
         {/* Left Section - Real Estate Services */}
         <div className="max-w-lg text-left">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-800 mb-8">
-            Real Estate <span className="text-[#ff4a2a]">Services</span> at Your Fingertips
+          End-to-End <span className="text-[#ff4a2a]"> Solutions, </span>at your doorstep…!
           </h1>
-
           <p className="text-lg text-gray-600 dark:text-gray-900 mb-6">
             Discover tailored property solutions — whether you're buying, selling, or investing, we make real estate simple.
           </p>
@@ -70,3 +69,4 @@ const HeroWithGallery = () => {
 };
 
 export default HeroWithGallery;
+  

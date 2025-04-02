@@ -67,26 +67,27 @@ const OurServices = () => {
   return (
     <section className="relative p-10 bg-gray-50 flex flex-col md:flex-row items-start justify-between space-x-10">
       <motion.div
-        className="w-full md:w-1/3 text-black space-y-4"
+        className="w-full md:w-1/3 text-black space-y-4 mt-10"
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: false }}
       >
         <div className="flex justify-between items-start">
-          <motion.h2
-            className="text-4xl font-bold"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: false }}
-          >
-            <span className="relative">
-            Our 
-              <span className="absolute left-0 bottom-0 w-full h-1 bg-[#ff4a2a]"></span>
-            </span>
-            <span className="text-[#ff4a2a]"> Specialization</span>
-          </motion.h2>
+        <motion.h2
+  className="text-4xl font-bold"
+  initial={{ opacity: 0, y: -20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  viewport={{ once: false }}
+>
+  <span className="relative inline-block pb-1">
+    Our
+    <span className="absolute left-0 bottom-[-6px] w-full h-1 bg-[#ff4a2a]"></span>
+  </span>
+  <span className="text-[#ff4a2a]"> Specialization</span>
+</motion.h2>
+
         </div>
 
         <motion.p
