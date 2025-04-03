@@ -1,9 +1,11 @@
 import React from 'react'
 
-import Hero from './Hero'
-import ContactForm from './ContactForm'
-import NavbarBlack from '../Page-2/NavbarBlack'
+// import Hero from './Hero'
+// import ContactForm from './ContactForm'
+
 import Footer from '../Page-1/Footer'
+import ContactUs from './Contactus'
+import NavbarBlack from './NavbarBlack'
 
 
 
@@ -11,8 +13,10 @@ const Page6 = () => {
   return (
     <div>
       <NavbarBlack/>
-      <Hero/>
-      <ContactForm/>
+      <ContactUs/>
+
+      {/* <Hero/>
+      <ContactForm/> */}
       <Footer/>
     </div>
   )
