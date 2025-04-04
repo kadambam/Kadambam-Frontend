@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { HiChevronRight } from "react-icons/hi";
 
 const blogs = [
     { id: 1, image: "https://picsum.photos/300/200?random=1", title: "The Future of Digital Marketing", description: "Explore upcoming trends in online marketing." },
@@ -17,7 +17,7 @@ const repeatedBlogs = [...blogs, ...blogs];
 const LatestBlog = () => {
   return (
     <motion.div 
-      className="latest-blog-container "
+      className="latest-blog-container bg-gray-100"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -39,9 +39,8 @@ const LatestBlog = () => {
             <h2 className="font-bold mb-6 text-gray-600 text-2xl">
               <p>Check out our latest insights</p>
             </h2>
-            <p className="text-[#ff4a2a] font-bold flex">
-              View More <ArrowRight size={24} />
-            </p>
+                  <p className='text-[#ff4a2a] font-bold flex'>View More  <HiChevronRight className="m-1 w-5 h-5" /></p>
+            
           </div>
 
           <div className="relative overflow-hidden pb-10">
@@ -61,17 +60,17 @@ const LatestBlog = () => {
               {repeatedBlogs.map((blog, index) => (
                 <motion.div 
                   key={index} 
-                  className="blog-card"
+                  className="blog-card p-2 bg-gray-50 hover:shadow-lg"
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5 }}
                   viewport={{ once: false }}
                 >
                   <div className="blog-thumbnail">
-                    <img className="w-full h-full object-cover" src={blog.image} alt={blog.title} />
+                    <img className="w-full h-full object-cover " src={blog.image} alt={blog.title} />
                   </div>
-                  <p className="mt-4 font-semibold text-lg">{blog.title}</p>
-                  <p className="text-gray-600">{blog.description}</p>
+                  <p className="mt-4 font-semibold text-lg px-4">{blog.title}</p>
+                  <p className="text-gray-600 p-4">{blog.description}</p>
                 </motion.div>
               ))}
             </motion.div>

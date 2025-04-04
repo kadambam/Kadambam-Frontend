@@ -32,7 +32,7 @@ const Page4 = () => {
       <ExteriorImg/>
       <InteriorDesigns/>
       <InteriorImg/>
-      <InteriorCategories/>
+     <InteriorCategories/>
       <BenefitsSection/>
       <ContactUs/>
       <LatestBlog/>

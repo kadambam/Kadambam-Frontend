@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Plus, Minus } from 'lucide-react';
+import React, { useState } from "react";
+import { ChevronUp, ChevronDown } from "lucide-react";
 
 const faqs = [
   { question: "Why do I need an interior designer?", answer: "An interior designer helps you make the most of your space by combining functionality with aesthetics." },
@@ -18,19 +18,21 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="py-12 bg-gray-100 px-4">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold mb-6">FAQs About Home Interior Design</h2>
+    <section className="py-12 bg-gray-100 px-4" id="faq-section">
+      <div className="max-w-6xl mx-auto flex flex-col">
+        <span className="text-orange-500 font-semibold">Frequently Asked Questions</span>
+        <h2 className="text-3xl font-bold text-gray-800 mt-2">Get the Answers You Need</h2>
+        <p className="text-gray-600 mt-2">We have compiled some of the most common questions about our interior design services.</p>
 
-        <div className="space-y-4">
+        <div className="mt-6 space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-white rounded-lg shadow p-4">
+            <div key={index} className="bg-white rounded-lg shadow p-4 border border-gray-200">
               <button
                 className="w-full flex justify-between items-center text-left font-medium text-lg"
                 onClick={() => toggleFAQ(index)}
               >
                 <span className="text-gray-800">{index + 1}. {faq.question}</span>
-                {openIndex === index ? <Minus size={20} /> : <Plus size={20} />}
+                {openIndex === index ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
               </button>
 
               {openIndex === index && (

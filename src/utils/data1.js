@@ -15,13 +15,26 @@ import sec2img3 from "../assets/images/page1/section2/sec2img3.jpg";
 import sec2img4 from "../assets/images/page1/section2/sec2img4.jpg";
 
 
-//Section 4 Images
+//Section 3 Images
+import sec3img1 from "../assets/images/page3/section1/sec1img1.jpg";
+// import sec8img1 from "../assets/images/page3/section8/sec8img1.jpg";
+// import sec8img2 from "../assets/images/page3/section8/sec8img2.jpg";
+// import sec8img3 from "../assets/images/page3/section8/sec8img3.jpg";
+// import sec8img4 from "../assets/images/page3/section8/sec8img4.jpg";
+// import sec8img5 from "../assets/images/page3/section8/sec8img5.jpg";
+// import sec8img6 from "../assets/images/page3/section8/sec8img6.jpg";
+
+
+//Section 4 I8ages
 import sec4img1 from "../assets/images/page1/section4/img1.jpg";
 import sec4img2 from "../assets/images/page1/section4/img2.jpg";
 import sec4img3 from "../assets/images/page1/section4/img3.jpg";
 import sec4img4 from "../assets/images/page1/section4/img4.jpg";
 import sec4img5 from "../assets/images/page1/section4/img5.jpg";
 import sec4img6 from "../assets/images/page1/section4/img6.jpg";
+
+
+
 
 export const Section1Images = [
   {
@@ -109,4 +122,19 @@ export const Section4Images=[
             image:sec4img6
           }
 
+]
+
+
+export const Section3Images=[
+  {
+    id:1,
+    name:"Section 1 img 1",
+    image:sec3img1
+    
+  },
+  // {
+  //   id:2,
+  //   name:"Section 8 img 1",
+  //   image:sec8img1
+  // }
 ]

@@ -5,10 +5,12 @@ import { Download } from 'lucide-react';
 const InspirationSection = () => {
   return (
     <section className="p-4 max-w-6xl mx-auto mt-10 ">
-      <h2 className="text-2xl font-bold">Inspiration for home interior designs</h2>
-      <p className="text-gray-500 mb-6">
-        Give your home a new look with these interior design ideas curated for you
-      </p>
+      <h2 className="top-4 left-10 text-4xl font-bold py-6">
+            <span className="relative">
+              Our <span className="absolute left-0 bottom-0 w-full h-1 bg-[#ff4a2a]"></span>
+            </span>
+            <span className="text-[#ff4a2a]"> recent Projects</span>
+          </h2>
 
       <div className="grid grid-cols-12 gap-3">
         {/* Row 1 */}
