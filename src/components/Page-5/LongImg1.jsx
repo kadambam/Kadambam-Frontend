@@ -1,7 +1,7 @@
 import React from 'react';
 import img from '/img.png'; // Ensure the path is correct
 
-const LongImg = () => {
+const LongImg1 = () => {
   return (
     <div className="flex justify-center items-center">
       <div 
@@ -23,4 +23,4 @@ const LongImg = () => {
   );
 };
 
-export default LongImg;
+export default LongImg1;

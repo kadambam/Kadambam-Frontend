@@ -20,7 +20,7 @@ const HeroWithGallery = () => {
           End-to-End <span className="text-[#ff4a2a]"> Solutions, </span>at your doorstep…!
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-900 mb-6">
-            Discover tailored property solutions — whether you're buying, selling, or investing, we make real estate simple.
+          Worried about managing your property in Chennai, Bangalore, Salem, Erode, Namakkal, or Karur? Whether you're an NRI or too busy, we take care of it all – hassle-free!"
           </p>
 
           <div className="grid grid-cols-2 gap-4">
@@ -34,7 +34,7 @@ const HeroWithGallery = () => {
         </div>
 
         {/* Right Section - Gallery */}
-        <div className="bg-white w-full lg:w-1/2">
+        <div className="bg-white w-full ">
           <div className="max-w-screen-2xl px-4 md:px-8">
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8 shadow-lg">
               {[
