@@ -1,6 +1,7 @@
 import React from 'react';
 import { HiChevronRight } from "react-icons/hi";
 import { Download } from 'lucide-react';
+import { Page3Sec8Images } from '../../utils/data1';
 
 const InspirationSection = () => {
   return (
@@ -16,7 +17,7 @@ const InspirationSection = () => {
         {/* Row 1 */}
         <div className="col-span-6 relative">
           <img
-            src="https://picsum.photos/600/400"
+            src={Page3Sec8Images[0].image}
             alt="Living Room"
             className="w-full h-full rounded-lg object-cover"
           />
@@ -24,7 +25,7 @@ const InspirationSection = () => {
         </div>
         <div className="col-span-3 relative">
           <img
-            src="https://picsum.photos/300/400"
+            src={Page3Sec8Images[1].image}
             alt="Master Bedroom"
             className="w-full h-full rounded-lg object-cover"
           />
@@ -32,7 +33,7 @@ const InspirationSection = () => {
         </div>
         <div className="col-span-3 relative">
           <img
-            src="https://picsum.photos/300/400"
+            src={Page3Sec8Images[2].image}
             alt="False Ceiling"
             className="w-full h-full rounded-lg object-cover"
           />
@@ -42,7 +43,7 @@ const InspirationSection = () => {
         {/* Row 2 */}
         <div className="col-span-4 relative">
           <img
-            src="https://picsum.photos/400/300"
+            src={Page3Sec8Images[3].image}
             alt="Dining Room"
             className="w-full h-full rounded-lg object-cover"
           />
@@ -50,7 +51,7 @@ const InspirationSection = () => {
         </div>
         <div className="col-span-5 relative">
           <img
-            src="https://picsum.photos/500/300"
+            src={Page3Sec8Images[4].image}
             alt="Kitchen"
             className="w-full h-full rounded-lg object-cover"
           />
@@ -58,7 +59,7 @@ const InspirationSection = () => {
         </div>
         <div className="col-span-3 relative">
           <img
-            src="https://picsum.photos/300/300"
+            src={Page3Sec8Images[5].image}
             alt="Wardrobe"
             className="w-full h-full rounded-lg object-cover"
           />

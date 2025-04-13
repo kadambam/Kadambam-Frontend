@@ -15,15 +15,16 @@ import ContactUs from './Contact'
 import LatestBlog from './Blogs'
 import FAQSection from './FaqSection'
 import Footer from '../Page-1/Footer'
-import NavbarBlack from '../Page-2/NavbarBlack'
-// import NavbarBlack from '../Page-2/Navbar'
+import Navbar from './Navbar'
+
+
 
 
 
 const Page4 = () => {
   return (
     <div> 
-      <NavbarBlack/>
+    <Navbar/>
       <OnlineShopping/>
       <HowWeWork/>
       <FloorPlanSection/>

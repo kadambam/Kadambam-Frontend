@@ -90,7 +90,8 @@ const Navbar = () => {
               className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
                 isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
               }`}
-              style={{ fontFamily: "Poppins, serif" }}
+              style={{ fontFamily: "Unbounded, sans-serif" }}
+
               href="#"
             >
               Home
@@ -99,7 +100,7 @@ const Navbar = () => {
               className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
                 isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
               }`}
-              style={{ fontFamily: "Poppins, serif" }}
+              style={{ fontFamily: "Unbounded, sans-serif" }}
 
               href="#"
             >
@@ -109,7 +110,7 @@ const Navbar = () => {
               className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
                 isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
               }`}
-              style={{ fontFamily: "Poppins, serif" }}
+              style={{ fontFamily: "Unbounded, sans-serif" }}
 
               href="#"
             >
@@ -119,7 +120,7 @@ const Navbar = () => {
               className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
                 isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
               }`}
-              style={{ fontFamily: "Poppins, serif" }}
+              style={{ fontFamily: "Unbounded, sans-serif" }}
 
               href="#"
             >

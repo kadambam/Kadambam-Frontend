@@ -25,7 +25,21 @@ import sec3img1 from "../assets/images/page3/section1/sec1img1.jpg";
 // import sec8img6 from "../assets/images/page3/section8/sec8img6.jpg";
 
 
-//Section 4 I8ages
+//Section 3 Page 3
+import sec3img1p3 from "../assets/images/page3/section3/sec3img1.jpeg";
+import sec3img2p3 from "../assets/images/page3/section3/sec3img2.jpeg";
+
+
+//Page 3 Section 8
+import sec8img1p3 from "../assets/images/page3/section8/sec8img1.jpg"
+import sec8img2p3 from "../assets/images/page3/section8/sec8img2.jpg"
+import sec8img3p3 from "../assets/images/page3/section8/sec8img3.jpg"
+import sec8img4p3 from "../assets/images/page3/section8/sec8img4.jpg"
+import sec8img5p3 from "../assets/images/page3/section8/sec8img5.jpg"
+import sec8img6p3 from "../assets/images/page3/section8/sec8img6.jpg"
+
+
+//Section 4 Images
 import sec4img1 from "../assets/images/page1/section4/img1.jpg";
 import sec4img2 from "../assets/images/page1/section4/img2.jpg";
 import sec4img3 from "../assets/images/page1/section4/img3.jpg";
@@ -132,9 +146,48 @@ export const Section3Images=[
     image:sec3img1
     
   },
-  // {
-  //   id:2,
-  //   name:"Section 8 img 1",
-  //   image:sec8img1
-  // }
+  {
+    id:2,
+    name:"Section 3 img 1",
+    image:sec3img1p3,
+    },
+    {
+      id:3,
+      name:"Section 3 img 2",
+      image:sec3img2p3
+      },
+]
+
+
+export const Page3Sec8Images=[
+  {
+    id:1,
+    name:"Section 8 img 1",
+    image:sec8img1p3,
+  },
+  {
+    id:2,
+    name:"Section 8 img 2",
+    image:sec8img2p3
+    },
+    {
+      id:3,
+      name:"Section 8 img 3",
+      image:sec8img3p3
+    },
+    {
+      id:4,
+      name:"Section 8 img 4",
+      image:sec8img4p3
+    },
+    {
+      id:5,
+      name:"Section 8 img 5",
+      image:sec8img5p3
+      },
+      {
+        id:6,
+        name:"Section 8 img 6",
+        image:sec8img6p3
+      }
 ]

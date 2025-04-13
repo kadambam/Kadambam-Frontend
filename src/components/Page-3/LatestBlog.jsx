@@ -17,7 +17,7 @@ const repeatedBlogs = [...blogs, ...blogs];
 const LatestBlog = () => {
   return (
     <motion.div 
-      className="latest-blog-container bg-gray-100"
+      className="latest-blog-container bg-white"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}

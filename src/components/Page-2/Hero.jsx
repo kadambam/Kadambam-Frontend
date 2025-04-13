@@ -48,6 +48,7 @@ const ImageGrid = () => {
   return (
     <motion.section
       className="relative flex flex-wrap items-center justify-center min-h-screen bg-gray-100 p-6"
+      id="hero-2"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, amount: 0.3 }}

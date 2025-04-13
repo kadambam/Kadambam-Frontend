@@ -2,13 +2,32 @@ import React, { useState } from "react";
 import { ChevronUp, ChevronDown } from "lucide-react";
 
 const faqs = [
-  { question: "Why do I need an interior designer?", answer: "An interior designer helps you make the most of your space by combining functionality with aesthetics." },
-  { question: "Why is Livspace perfect for your home interior design?", answer: "Livspace offers end-to-end solutions, from design consultation to final execution." },
-  { question: "What services are included under home interior design?", answer: "Interior design services include space planning, furniture selection, color consultation, and decor styling." },
-  { question: "How much does home interiors cost?", answer: "The cost varies based on the size of your space, design preferences, and material choices." },
-  { question: "What will be the timelines for my project completion?", answer: "Project timelines depend on the scope of work but typically range from 4 to 12 weeks." },
-  { question: "What are the trending interior design styles?", answer: "Popular styles include modern, minimalist, bohemian, industrial, and Scandinavian designs." }
+  {
+    question: "Why is Kadamban Group the best construction contractor, interior, and PMC consultant in Bangalore and Tamil Nadu?",
+    answer: "Kadamban Group offers expert residential and commercial construction, customized interiors, and efficient project management with timely delivery and top-notch quality—all under one roof.",
+  },
+  {
+    question: "What services does Kadamban Group provide?",
+    answer: "We offer house construction, interior design, PMC, architectural consulting, vastu advice, turnkey solutions, estimation & budgeting, and property management services.",
+  },
+  {
+    question: "What construction packages are available at Kadamban Construction?",
+    answer: "We offer Basic (budget-friendly), Premium (modern finishes), Luxury (custom interiors), and Turnkey (all-inclusive) construction packages tailored to your needs.",
+  },
+  {
+    question: "How is Kadamban Construction different from other contractors?",
+    answer: "We focus on quality, transparency, timely delivery, vastu-compliant modern designs, and complete end-to-end solutions from planning to interiors.",
+  },
+  {
+    question: "Why should you choose Kadamban to build your dream home?",
+    answer: "We provide expert execution, customized planning, legal compliance, and full support from design to handover—ensuring peace of mind.",
+  },
+  {
+    question: "How long does it take to complete a new home with Kadamban?",
+    answer: "Timelines vary by project type: Basic – 6-8 months, Premium – 8-12 months, Turnkey – 10-14 months.",
+  },
 ];
+
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(null);

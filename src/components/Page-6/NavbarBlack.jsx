@@ -26,7 +26,7 @@ const NavbarBlack = () => {
               <a
                 key={index}
                 className="my-2 md:my-0 text-lg font-medium text-black hover:text-gray-600 transition"
-                style={{ fontFamily: "Poppins, serif" }}
+                style={{ fontFamily: "Unbounded, sans-serif" }}
                 href="#"
               >
                 {item}
@@ -40,7 +40,7 @@ const NavbarBlack = () => {
           <a
             href="#"
             className="px-6 py-2 bg-[#ff4a2a] text-white text-lg font-medium rounded-full hover:bg-[#e63e1f] transition"
-            style={{ fontFamily: "Poppins, serif" }}
+            
           >
             Get Free Consultation
           </a>

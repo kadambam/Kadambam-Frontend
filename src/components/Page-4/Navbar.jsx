@@ -5,7 +5,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroSection = document.getElementById("hero-3");
+      const heroSection = document.getElementById("hero-4");
       if (heroSection) {
         const heroBottom = heroSection.offsetHeight; // Get hero section height
         setIsScrolled(window.scrollY > heroBottom); // Set scrolled state
@@ -29,7 +29,7 @@ const Navbar = () => {
           <a href="#">
             <img
               className="w-auto h-14 sm:h-12"
-              src={isScrolled ? "logo3black.png" : "logo3white.png"}
+              src={isScrolled ? "logo4black.png" : "logo4black.png"}
               alt="Logo"
             />
           </a>
@@ -39,7 +39,7 @@ const Navbar = () => {
               onClick={() => setIsOpen(!isOpen)}
               type="button"
               className={`${
-                isScrolled ? "text-black" : "text-white"
+                isScrolled ? "text-black" : "text-black"
               } hover:opacity-75 focus:outline-none`}
               aria-label="toggle menu"
             >
@@ -88,7 +88,7 @@ const Navbar = () => {
           <div className="flex flex-col md:flex-row">
             <a
               className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
+                isScrolled ? "text-black hover:text-gray-600" : "text-black hover:text-gray-300"
               }`}
               style={{ fontFamily: "Unbounded, sans-serif" }}
               href="#"
@@ -97,7 +97,7 @@ const Navbar = () => {
             </a>
             <a
               className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
+                isScrolled ? "text-black hover:text-gray-600" : "text-black hover:text-gray-300"
               }`}
               style={{ fontFamily: "Unbounded, sans-serif" }}
 
@@ -107,7 +107,7 @@ const Navbar = () => {
             </a>
             <a
               className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
+                isScrolled ? "text-black hover:text-gray-600" : "text-black hover:text-gray-300"
               }`}
               style={{ fontFamily: "Unbounded, sans-serif" }}
 
@@ -117,7 +117,7 @@ const Navbar = () => {
             </a>
             <a
               className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
+                isScrolled ? "text-black hover:text-gray-600" : "text-black hover:text-gray-300"
               }`}
               style={{ fontFamily: "Unbounded, sans-serif" }}
 

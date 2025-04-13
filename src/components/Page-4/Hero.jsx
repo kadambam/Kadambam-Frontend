@@ -17,7 +17,7 @@ const OnlineShopping = () => {
     ];
 
     return (
-        <div className="relative min-h-screen bg-white">
+        <div className="relative min-h-screen bg-white" id="hero-4">
             {/* Navbar */}
            
 

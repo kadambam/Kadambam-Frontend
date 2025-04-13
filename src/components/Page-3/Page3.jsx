@@ -13,6 +13,7 @@ import LongImg from './LongImg'
 import Footer from '../Page-1/Footer'
 import Navbar from './Navbar'
 import InteriorImg from './InterirorImg'
+import TabbedNav from './TabbedNav'
 
 
 
@@ -28,14 +29,14 @@ const Page3 = () => {
       <Navbar/>
       <HeroSection/>
       <ServicesSection/>
-  
+  <TabbedNav/>
       <ServicesSection1/>
       <Inspiration/>
       <InteriorImg/>
       <PricingPage/>
       <LatestVids/>
-      <HowWeWork/>
-<WhyChooseUs/>
+      {/* <HowWeWork/> */}
+{/* <WhyChooseUs/> */}
 <LatestBlog/>
 <FAQSection/>
 <LongImg/>

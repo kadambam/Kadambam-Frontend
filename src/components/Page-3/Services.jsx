@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { HiChevronRight } from "react-icons/hi";
+import { MdDownload } from 'react-icons/md'; 
+
 import { FaLeaf, FaRulerCombined } from "react-icons/fa";
 
 const serviceData = [
@@ -46,7 +48,7 @@ const ServicesSection = () => {
               View More <HiChevronRight size={20} />
             </button>
             <button className="bg-[#ff4a2a] text-white py-3 px-8 rounded-md text-lg font-medium flex items-center gap-2 transition hover:bg-opacity-90">
-              Download File <HiChevronRight size={20} />
+              Download File <MdDownload className="w-5 h-5" />
             </button>
           </div>
         </div>
