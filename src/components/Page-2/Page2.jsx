@@ -14,6 +14,7 @@ import InteriorDesigns from './InteriorDesigns'
 
 import ImageGrid from './Hero'
 import InfogramProcess from './Infogramprocess'
+import Hero2 from './Hero2'
 
 
 const Page2 = () => {
@@ -24,6 +25,7 @@ const Page2 = () => {
       <ImageGrid/>
       <TabbedNav/>
       <PricingPage/>
+      <Hero2/>
       <InfogramProcess/>
       <ExteriorDesigns/>
       <InteriorDesigns/>
