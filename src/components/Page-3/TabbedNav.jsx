@@ -5,10 +5,7 @@ import { MdDownload } from 'react-icons/md';
 
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import img1 from "../../assets/images/page2/section3tabbednav/Floor Plan.png"
-import img2 from "../../assets/images/page2/section3tabbednav/Structural design.jpg"
-import img3 from "../../assets/images/page2/section3tabbednav/Civil drawing.jpg"
-import img4 from "../../assets/images/page2/section3tabbednav/MEP.jpg"
+
 
 import { Section3Images } from "../../utils/data1";
 
@@ -19,7 +16,7 @@ const tabs = [
     title: "Residential Interior Design",
     content:
       "Kadamban Interior specializes in residential interior design, creating functional and personalized living spaces. We offer a variety of designs including: Modular Kitchen, Bedroom, Living Room, Dining Room, Wardrobe Design, Home Theatre, False Ceiling, Wallpaper, and Wall Cladding.",
-    image: img1,
+    image: "img1",
     boxes: [
       {
         img: Section3Images[1].image,
@@ -37,7 +34,7 @@ const tabs = [
     title: "Commercial Interior Design",
     content:
       "Kadamban Interior specializes in commercial interior design, offering solutions that enhance productivity and reflect your brand identity. Our services include Café / Showroom, Resort / Restaurant, Studio, and Office designs.",
-    image: img2,
+    image: "img2",
     boxes: [
       {
         img: "office_space.jpg",
@@ -55,7 +52,7 @@ const tabs = [
     title: "Sustainable Interior Design",
     content:
       "Kadamban Interior specializes in sustainable interior design, focusing on eco-friendly materials and energy-efficient solutions. Our designs incorporate smart practices for a healthy and eco-conscious environment.",
-    image: img3,
+    image: "img3",
     boxes: [
       {
         img: "eco_materials.jpg",
@@ -73,7 +70,7 @@ const tabs = [
     title: "Space Planning",
     content:
       "Kadamban Interior specializes in space planning, optimizing layouts for efficiency and aesthetics. We focus on maximizing the utility of your space while maintaining a stylish and functional design.",
-    image: img4,
+    image: "img4",
     boxes: [
       {
         img: "space_layout.jpg",
