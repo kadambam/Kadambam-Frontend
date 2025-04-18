@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 
-const Navbar = () => {
+const NavbarBlack = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroSection = document.getElementById("hero-2");
+      const heroSection = document.getElementById("hero");
       if (heroSection) {
-        const heroBottom = heroSection.offsetHeight; // Get hero section height
-        setIsScrolled(window.scrollY > heroBottom); // Set scrolled state
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight; // Get bottom position
+        setIsScrolled(window.scrollY > heroBottom - 100); // Change state when past hero section
       }
     };
 
@@ -24,12 +24,12 @@ const Navbar = () => {
         isScrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="container  py-1 mx-auto md:flex md:justify-between md:items-center">
+      <div className="container py-1 mx-auto md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
           <a href="#">
             <img
-              className="w-auto h-14 sm:h-12"
-              src={isScrolled ? "logo2black.png" : "logo2white.png"}
+              className="w-auto h-9 sm:h-7"
+              src={isScrolled ? "logoblack.png" : "logowhite.png"}
               alt="Logo"
             />
           </a>
@@ -86,45 +86,18 @@ const Navbar = () => {
           }`}
         >
           <div className="flex flex-col md:flex-row">
-            <a
-              className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
-              }`}
-              style={{ fontFamily: "Unbounded, sans-serif" }}
-              href="#"
-            >
-              Home
-            </a>
-            <a
-              className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
-              }`}
-              style={{ fontFamily: "Unbounded, sans-serif" }}
-
-              href="#"
-            >
-              Services
-            </a>
-            <a
-              className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
-              }`}
-              style={{ fontFamily: "Unbounded, sans-serif" }}
-
-              href="#"
-            >
-              Online shop
-            </a>
-            <a
-              className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
-              }`}
-              style={{ fontFamily: "Unbounded, sans-serif" }}
-
-              href="#"
-            >
-              Contact
-            </a>
+            {["Home", "Services", "Online Shop", "Contact"].map((item, index) => (
+              <a
+                key={index}
+                className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
+                  isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
+                }`}
+                style={{ fontFamily: "Poppins, serif" }}
+                href="#"
+              >
+                {item}
+              </a>
+            ))}
           </div>
         </div>
       </div>
@@ -132,4 +105,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarBlack;

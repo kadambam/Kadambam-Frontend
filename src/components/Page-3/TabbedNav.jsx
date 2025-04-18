@@ -5,10 +5,10 @@ import { MdDownload } from 'react-icons/md';
 
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import img1 from "../../assets/images/page2/section3tabbednav/Floor Plan.png";
-import img2 from "../../assets/images/page2/section3tabbednav/Structural design.jpg";
-import img3 from "../../assets/images/page2/section3tabbednav/Civil drawing.jpg";
-import img4 from "../../assets/images/page2/section3tabbednav/MEP.jpg";
+import img1 from "../../assets/images/page2/section3tabbednav/Floor Plan.png"
+import img2 from "../../assets/images/page2/section3tabbednav/Structural design.jpg"
+import img3 from "../../assets/images/page2/section3tabbednav/Civil drawing.jpg"
+import img4 from "../../assets/images/page2/section3tabbednav/MEP.jpg"
 
 import { Section3Images } from "../../utils/data1";
 
