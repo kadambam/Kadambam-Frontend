@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { HiChevronRight } from "react-icons/hi";
-import { MdDownload } from 'react-icons/md'; 
-
+import { MdDownload } from 'react-icons/md';
 import { FaLeaf, FaRulerCombined } from "react-icons/fa";
 
 const serviceData = [
@@ -29,39 +28,39 @@ const ServicesSection = () => {
 
   return (
     <section className="bg-white py-20">
-      <div className="max-w-6xl mx-auto px-2 flex flex-col md:flex-row items-center justify-between gap-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-12">
         <div className="text-left md:w-1/2">
-          <h2 className="top-4 left-10 text-4xl font-bold py-6">
+          <h2 className="top-4 left-10 text-3xl sm:text-4xl font-bold py-6">
             <span className="relative">
               Our <span className="absolute left-0 bottom-0 w-full h-1 bg-[#ff4a2a]"></span>
             </span>
             <span className="text-[#ff4a2a]"> Construction Services</span>
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl">
-          Kadamban construction is a multidisciplinary firm specializing in innovative and practical design solutions for residential and commercial projects. We offer hassle-free civil construction services in <span className='font-bold'>Salem, Namakkal, Karur, Chennai, Erode and Bangalore,</span> ensuring quality, transparency, and timely completion. Our expert team delivers customized solutions within your budget, backed by a reliable warranty.
- <span className='font-bold'>Build your dream home with 
- Kadamban Group – where innovation meets excellence!</span>
-
+            Kadamban construction is a multidisciplinary firm specializing in innovative and practical design solutions for residential and commercial projects. We offer hassle-free civil construction services in <span className='font-bold'>Salem, Namakkal, Karur, Chennai, Erode and Bangalore,</span> ensuring quality, transparency, and timely completion. Our expert team delivers customized solutions within your budget, backed by a reliable warranty.
+            <span className='font-bold'>Build your dream home with
+            Kadamban Group – where innovation meets excellence!</span>
           </p>
-          <div className="mt-8 flex gap-4">
-            <button className="bg-[#ff4a2a] text-white py-3 px-8 rounded-md text-lg font-medium flex items-center gap-2 transition hover:bg-opacity-90">
-              View More <HiChevronRight size={20} />
-            </button>
-            <button className="bg-[#ff4a2a] text-white py-3 px-8 rounded-md text-lg font-medium flex items-center gap-2 transition hover:bg-opacity-90">
-              Download File <MdDownload className="w-5 h-5" />
-            </button>
-          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 md:w-1/2">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 md:w-1/2">
           {serviceData.slice(index, index + 2).map((service, i) => (
-            <div key={i} className="bg-white text-[#ff4a2a] p-8 rounded-lg shadow-lg border border-gray-200">
+            <div key={i} className="bg-white text-[#ff4a2a] p-6 sm:p-8 rounded-lg shadow-lg border border-gray-200">
               {service.icon}
-              <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-              <p className="text-gray-600">{service.description}</p>
+              <h3 className="text-xl sm:text-2xl font-bold mb-4">{service.title}</h3>
+              <p className="text-gray-600 text-sm sm:text-base">{service.description}</p>
             </div>
           ))}
         </div>
+      </div>
+      {/* Buttons Section - Moved Outside the Flex Container */}
+      <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto max-w-6xl mx-auto px-4 sm:px-6 md:justify-start">
+        <button className="bg-[#ff4a2a] text-white py-3 px-6 rounded-md text-lg font-medium flex items-center justify-center gap-2 transition hover:bg-opacity-90 w-full sm:w-auto">
+          View More <HiChevronRight size={20} />
+        </button>
+        <button className="bg-[#ff4a2a] text-white py-3 px-6 rounded-md text-lg font-medium flex items-center justify-center gap-2 transition hover:bg-opacity-90 w-full sm:w-auto">
+          Download File <MdDownload className="w-5 h-5" />
+        </button>
       </div>
     </section>
   );

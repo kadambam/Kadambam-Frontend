@@ -8,7 +8,7 @@ const SingleCard = () => {
     };
   
     return (
-      <div className="flex w-110 h-52 rounded-lg overflow-hidden shadow-md">
+      <div className="flex w-110 h-52 rounded-lg overflow-hidden shadow-md ">
         <div className={`p-6 flex-1 text-white ${card.bgColor}`}>
           <h2 className="text-xl font-bold">{card.title}</h2>
           <p className="text-sm mt-2">{card.description}</p>

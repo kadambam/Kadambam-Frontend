@@ -1,4 +1,9 @@
 import React from 'react';
+import p5sec1img1 from "../../assets/images/page5/section01/p5sec1img1.jpeg"
+import p5sec1img2 from "../../assets/images/page5/section01/p5sec1img2.jpeg"
+import p5sec1img3 from "../../assets/images/page5/section01/p5sec1img3.jpeg"
+import p5sec1img4 from "../../assets/images/page5/section01/p5sec1img4.jpeg"
+
 
 const HeroWithGallery = () => {
   const services = [
@@ -38,10 +43,10 @@ const HeroWithGallery = () => {
           <div className="max-w-screen-2xl px-4 md:px-8">
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8 shadow-lg">
               {[
-                { src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620", label: "Modern Homes" },
-                { src: "https://images.unsplash.com/photo-1542759564-7ccbb6ac450a", label: "Urban Spaces" },
-                { src: "https://images.unsplash.com/photo-1610465299996-30f240ac2b1c", label: "Luxury Villas" },
-                { src: "https://images.unsplash.com/photo-1550745165-9bc0b252726f", label: "Cozy Apartments" },
+                { src:p5sec1img2, label: "Modern Homes" },
+                { src: p5sec1img3, label: "Urban Spaces" },
+                { src: p5sec1img4, label: "Luxury Villas" },
+                { src: p5sec1img1, label: "Cozy Apartments" },
               ].map((item, index) => (
                 <a
                   key={index}

@@ -3,7 +3,7 @@ import img from '/img.png'; // Ensure the path is correct
 
 const LongImg = () => {
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center p-5">
       <div 
         className="relative w-[1300px] h-[200px] bg-cover bg-center rounded-lg shadow-lg"
         style={{ backgroundImage: `url(${img})` }}

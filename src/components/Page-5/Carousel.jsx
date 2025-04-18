@@ -114,30 +114,34 @@ const Carousel = () => {
   ];
 
   return (
-    <section className="flex items-center justify-center space-x-4 p-6">
-      <button className="p-2 bg-gray-200 rounded-full shadow-md" onClick={prevSlide}>
+    <section className="flex items-center justify-center p-4 md:p-6">
+      <button className="p-2 bg-gray-200 rounded-full shadow-md hidden md:block" onClick={prevSlide}>
         <FaChevronLeft />
       </button>
 
-      <div className="flex space-x-4 transition-transform duration-700 ease-in-out">
-        {visibleCards.map((card, index) => (
-          <div key={index} className="flex w-96 h-52 rounded-lg overflow-hidden shadow-md">
-            <div className={`p-6 flex-1 text-white ${card.bgColor}`}>
-              <h2 className="text-xl font-bold">{card.title}</h2>
-              <p className="text-sm mt-2">{card.description}</p>
-              <button className="mt-4 px-4 py-2 bg-white text-black font-medium rounded-lg">
+      <div className="flex overflow-x-auto md:overflow-hidden space-x-4 md:space-x-4 transition-transform duration-700 ease-in-out">
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            className="flex md:w-96 md:h-52 rounded-lg overflow-hidden shadow-md flex-shrink-0 w-full sm:w-80 h-auto sm:h-48"
+            style={{ transform: `translateX(-${startIndex * (320 + 16)}px)` }} // Adjust for mobile width + margin
+          >
+            <div className={`p-4 sm:p-6 flex-1 text-white ${card.bgColor}`}>
+              <h2 className="text-lg sm:text-xl font-bold">{card.title}</h2>
+              <p className="text-xs sm:text-sm mt-2">{card.description}</p>
+              <button className="mt-2 sm:mt-4 px-3 py-1 sm:px-4 sm:py-2 bg-white text-black font-medium rounded-lg text-xs sm:text-sm">
                 {card.buttonText}
               </button>
             </div>
             <div
-              className="w-1/2 bg-cover bg-center"
+              className="w-1/2 sm:w-40 bg-cover bg-center flex-shrink-0"
               style={{ backgroundImage: `url(${card.image})` }}
             ></div>
           </div>
         ))}
       </div>
 
-      <button className="p-2 bg-gray-200 rounded-full shadow-md" onClick={nextSlide}>
+      <button className="p-2 bg-gray-200 rounded-full shadow-md hidden md:block" onClick={nextSlide}>
         <FaChevronRight />
       </button>
     </section>
