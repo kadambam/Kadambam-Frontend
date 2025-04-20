@@ -1,11 +1,27 @@
 import React from "react";
-import { FaShieldAlt, FaHome, FaUsers, FaTools } from "react-icons/fa";
+import { FaClock, FaCogs, FaCompass, FaPhoneAlt } from "react-icons/fa";
 
 const benefits = [
-  { icon: <FaShieldAlt />, title: "10-Year Warranty", description: "All our products come with a 10-year warranty for any manufacturing defects." },
-  { icon: <FaHome />, title: "On-Time Installation", description: "Get your chosen products installed in 45 days, or we pay your rent. That’s a promise!" },
-  { icon: <FaUsers />, title: "Expert Designers", description: "Create your dream home, fitting your lifestyle, with the help of our top designers." },
-  { icon: <FaTools />, title: "Ongoing Support", description: "Enjoy unwavering support and services from our skilled team for up to 10 years." },
+  {
+    icon: <FaClock />,
+    title: "Time Saving",
+    description: "Streamlined processes to ensure faster delivery without compromising on quality.",
+  },
+  {
+    icon: <FaCogs />,
+    title: "Easy Customized",
+    description: "Tailor every detail to your preference with our user-friendly customization options.",
+  },
+  {
+    icon: <FaCompass />,
+    title: "As per Vastu",
+    description: "Designs aligned with Vastu principles to bring harmony and positive energy.",
+  },
+  {
+    icon: <FaPhoneAlt />,
+    title: "Dedicated Call Support",
+    description: "Get personalized assistance anytime from our expert customer support team.",
+  },
 ];
 
 const BenefitsSection = () => {
