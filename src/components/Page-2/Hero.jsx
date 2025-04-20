@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import contemporary from "../../assets/images/page2/section2/img1.jpeg";
 import Modern from "../../assets/images/page2/section2/img2.jpeg";
-import Minimalist  from "../../assets/images/page2/section2/img3.jpeg";
+import Minimalist from "../../assets/images/page2/section2/img3.jpeg";
 import KeralaStyle from "../../assets/images/page2/section2/img4.jpeg";
 import EcoFriendly from "../../assets/images/page2/section2/img5.jpeg";
 import Combiningstyle from "../../assets/images/page2/section2/img6.jpeg";
@@ -86,21 +86,21 @@ const ImageGrid = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setStartIndex((prev) => (prev === 0 ? 4 : 0));
-    }, 4000); // change every 4 seconds
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <motion.section
-      className="relative flex flex-wrap items-center justify-center min-h-screen bg-gray-100 p-6"
+      className="relative flex flex-col-reverse md:flex-row items-center justify-center min-h-screen bg-gray-100 p-6"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: false, amount: 0.3 }}
       variants={fadeIn}
     >
-      {/* Left Section - 8 Split Cards with Sliding Effect */}
+      {/* Left Section - Grid of Cards */}
       <motion.div
-        className="grid grid-cols-2 gap-4 w-full md:w-1/2"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full md:w-1/2"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
@@ -109,13 +109,13 @@ const ImageGrid = () => {
         {cardData.slice(startIndex, startIndex + 4).map((card, index) => (
           <motion.div
             key={index}
-            className="flex h-56 md:h-64 lg:h-72 xl:h-80 w-full rounded-lg overflow-hidden shadow-lg border border-gray-300 transition hover:shadow-xl"
+            className="flex flex-col sm:flex-row h-auto sm:h-56 md:h-64 lg:h-72 xl:h-80 w-full rounded-lg overflow-hidden shadow-lg border border-gray-300 transition hover:shadow-xl"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.3 }}
           >
             {/* Left Image */}
-            <div className="w-1/2 h-full">
+            <div className="w-full sm:w-1/2 h-40 sm:h-full">
               <img
                 src={card.img}
                 alt={card.title}
@@ -125,7 +125,7 @@ const ImageGrid = () => {
 
             {/* Right Text */}
             <div
-              className={`w-1/2 p-4 ${card.bgColor} text-white flex flex-col justify-between h-full`}
+              className={`w-full sm:w-1/2 p-4 ${card.bgColor} text-white flex flex-col justify-between`}
             >
               <div>
                 <h3 className="text-xl font-semibold">{card.title}</h3>
@@ -142,9 +142,9 @@ const ImageGrid = () => {
         ))}
       </motion.div>
 
-      {/* Right Side Text Section */}
+      {/* Right Section - Heading + CTA */}
       <motion.div
-        className="w-full md:w-1/2 text-center mt-6 md:mt-0 px-4"
+        className="w-full md:w-1/2 text-center mt-10 md:mt-0 px-4"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: false, amount: 0.3 }}
@@ -153,20 +153,23 @@ const ImageGrid = () => {
         <p className="text-sm uppercase tracking-wider text-gray-500">
           Elegant & High Quality
         </p>
-        <h1 className="text-4xl md:text-5xl font-semibold text-gray-800 leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-800 leading-tight">
           OUR <span className="text-red-500">CREATIVE</span> <br />
           <span className="text-red-500">DESIGNS</span> THAT BUILD <br />
           YOUR DREAM HOME
         </h1>
 
-        <motion.button
-          className="flex items-center gap-2 px-6 py-2 border border-gray-800 mt-6 bg-white text-black rounded-lg hover:bg-gray-800 hover:text-white transition mx-auto"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          onClick={() => navigate("/quotation")}
-        >
-          Get a Quotation <ArrowRight className="w-5 h-5" />
-        </motion.button>
+        {/* Centered CTA button */}
+        <motion.div className="mt-6 flex justify-center">
+          <motion.button
+            className="flex items-center gap-2 px-6 py-2 border border-gray-800 bg-white text-black rounded-lg hover:bg-gray-800 hover:text-white transition"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => navigate("/quotation")}
+          >
+            Get a Quotation <ArrowRight className="w-5 h-5" />
+          </motion.button>
+        </motion.div>
 
         <motion.div
           className="mt-10 text-gray-600 flex justify-center gap-2"

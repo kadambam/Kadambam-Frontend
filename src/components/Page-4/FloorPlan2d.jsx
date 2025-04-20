@@ -1,137 +1,154 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 
-const FloorPlan2D = () => {
-    const navigate = useNavigate();
-    const [activeTab, setActiveTab] = useState("floorPlan");
+const tabs = ["North", "East", "South", "West"];
 
-    const tabs = [
-        {
-            id: "floorPlan",
-            name: "Floor Plan",
-            content: (
-                <p className="text-gray-600 mt-3">
-                    A well-labeled **2D floor plan** ensures **maximum space utilization**. 
-                    Keeping **functionality** and **natural lighting** in mind, our designs 
-                    cater to multi-generational living while ensuring **aesthetic excellence**.
-                </p>
-            ),
-        },
-        {
-            id: "structuralDesign",
-            name: "Structural Design",
-            content: (
-                <p className="text-gray-600 mt-3">
-                    Our **structural designs** combine **durability, safety, and elegance**. 
-                    With a strong foundation and high-quality materials, we ensure buildings 
-                    stand the test of time.
-                </p>
-            ),
-        },
-        {
-            id: "civilDrawings",
-            name: "Civil Drawings",
-            content: (
-                <p className="text-gray-600 mt-3">
-                    We provide **detailed civil drawings** that guide precise construction. 
-                    Every measurement is crafted with accuracy for **seamless execution**.
-                </p>
-            ),
-        },
-        {
-            id: "3dElevation",
-            name: "3D Elevation",
-            content: (
-                <p className="text-gray-600 mt-3">
-                    Our **realistic 3D elevation** services bring your architectural vision to life. 
-                    Experience your project **before it's built** with **stunning, high-quality renders**.
-                </p>
-            ),
-        },
-        {
-            id: "3dInteriorDesign",
-            name: "3D Interior Design",
-            content: (
-                <p className="text-gray-600 mt-3">
-                    Step inside your future space with **high-quality 3D interior designs**. 
-                    We ensure a **harmonious blend** of aesthetics, comfort, and functionality.
-                </p>
-            ),
-        },
-    ];
-
-    return (
-        <section className="flex flex-col lg:flex-row-reverse items-center justify-between px-8 md:px-16 lg:px-24 py-16 bg-gray-100 gap-12 lg:gap-24">
-            {/* Right Side - Typography & Text */}
-            <div className="lg:w-1/3 text-left">
-                <h2 className="text-2xl font-semibold text-gray-600">Some of</h2>
-                <motion.h1 
-                    className="text-5xl font-bold text-gray-900 leading-tight transition duration-300"
-                    whileHover={{ scale: 1.05 }}
-                >
-                    Our <span className="text-red-600">repeat clients</span>
-                </motion.h1>
-                <p className="text-lg text-gray-500 mt-3 italic leading-relaxed">
-                    "Experience the **ultimate blend of precision & elegance** with our 
-                    <span className="text-red-600 font-semibold"> 2D Floor Plans</span>. 
-                    Every detail is crafted to perfection, ensuring **functionality & visual appeal**."
-                </p>
-                <p className="mt-6 text-xl font-medium text-gray-700">🏠 Floor Plan 2D</p>
-            </div>
-
-            {/* Left Side - Interactive Section */}
-            <div className="lg:w-2/3 bg-gradient-to-br from-gray-50 to-gray-200 shadow-lg rounded-xl p-8">
-                {/* Tab Navigation */}
-                <div className="flex space-x-6 border-b pb-4">
-                    {tabs.map((tab) => (
-                        <button
-                            key={tab.id}
-                            className={`text-lg font-semibold ${
-                                activeTab === tab.id ? "text-red-600 border-b-2 border-red-600" : "text-gray-500"
-                            } pb-2 transition-all duration-300`}
-                            onClick={() => setActiveTab(tab.id)}
-                        >
-                            {tab.name}
-                        </button>
-                    ))}
-                </div>
-
-                {/* Display Content Based on Selected Tab with Sliding Effect */}
-                <AnimatePresence mode="wait">
-                    <motion.div
-                        key={activeTab}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: 20 }}
-                        transition={{ duration: 0.5 }}
-                        className="mt-6 flex flex-col lg:flex-row items-center"
-                    >
-                        <img
-                            src={`https://picsum.photos/600/400?random=${tabs.findIndex((t) => t.id === activeTab) + 1}`}
-                            alt={tabs.find((t) => t.id === activeTab)?.name}
-                            className="w-full lg:w-1/2 rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
-                        />
-                        <div className="lg:w-1/2 lg:pl-6 mt-6 lg:mt-0">
-                            <h3 className="text-2xl font-bold text-gray-800">
-                                {tabs.find((t) => t.id === activeTab)?.name}
-                            </h3>
-                            {tabs.find((t) => t.id === activeTab)?.content}
-                            
-                            {/* Updated Gray Button with Motion Effects */}
-                            <motion.button 
-                                className="mt-6 px-6 py-3 bg-gray-700 text-white rounded-lg shadow-md hover:bg-gray-800 transition relative"
-                                whileHover={{ scale: 1.05, boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.4)" }}
-                                onClick={() => navigate("/quotation")}
-                            >
-                                Get A Quote
-                            </motion.button>
-                        </div>
-                    </motion.div>
-                </AnimatePresence>
-            </div>
-        </section>
-    );
+const images = {
+  North: [
+    "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg",
+    "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
+    "https://images.pexels.com/photos/259600/pexels-photo-259600.jpeg",
+    "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg",
+    "https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg",
+  ],
+  East: [
+    "https://images.pexels.com/photos/207929/pexels-photo-207929.jpeg",
+    "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg",
+    "https://images.pexels.com/photos/271743/pexels-photo-271743.jpeg",
+    "https://images.pexels.com/photos/280222/pexels-photo-280222.jpeg",
+    "https://images.pexels.com/photos/534164/pexels-photo-534164.jpeg",
+  ],
+  South: [
+    "https://images.pexels.com/photos/2462015/pexels-photo-2462015.jpeg",
+    "https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg",
+    "https://images.pexels.com/photos/2102589/pexels-photo-2102589.jpeg",
+    "https://images.pexels.com/photos/276554/pexels-photo-276554.jpeg",
+    "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg",
+  ],
+  West: [
+    "https://images.pexels.com/photos/276667/pexels-photo-276667.jpeg",
+    "https://images.pexels.com/photos/323775/pexels-photo-323775.jpeg",
+    "https://images.pexels.com/photos/2121121/pexels-photo-2121121.jpeg",
+    "https://images.pexels.com/photos/280221/pexels-photo-280221.jpeg",
+    "https://images.pexels.com/photos/2102588/pexels-photo-2102588.jpeg",
+  ],
 };
 
-export default FloorPlan2D;
+const allDesigns = {
+    North: Array(4).fill({
+      title: "North Villa",
+      location: "Chennai",
+      price: "28.5 Lakhs onwards",
+      area: "800 Sq.Ft.",
+    }),
+    East: [
+      ...Array(3).fill({
+        title: "East Villa",
+        location: "Coimbatore",
+        price: "30.8 Lakhs onwards",
+        area: "751 Sq.Ft.",
+      }),
+      {
+        title: "New East Villa",
+        location: "Coimbatore",
+        price: "35.0 Lakhs onwards",
+        area: "900 Sq.Ft.",
+      },
+    ],
+    South: Array(4).fill({
+      title: "South Villa",
+      location: "Madurai",
+      price: "26.4 Lakhs onwards",
+      area: "720 Sq.Ft.",
+    }),
+    West: Array(4).fill({
+      title: "West Villa",
+      location: "Salem",
+      price: "32.0 Lakhs onwards",
+      area: "860 Sq.Ft.",
+    }),
+  };
+
+const FloorPlanSection = () => {
+  const [activeTab, setActiveTab] = useState("North");
+  const selectedDesigns = allDesigns[activeTab];
+  const selectedImages = images[activeTab];
+
+  return (
+    <section className="bg-[#F8F8F8] py-16 px-6">
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-4xl font-bold mb-6 tracking-wide text-gray-800">
+          2D Floor <span className="text-red-500">Plan</span> + Exterior <span className="text-red-500">Elevation</span>
+        </h2>
+
+        <div className="flex justify-center gap-16 mb-14 border-b border-gray-300">
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`px-6 pb-3 text-2xl font-medium transition-all duration-300 ${
+                activeTab === tab
+                  ? "border-b-4 border-red-500 text-black"
+                  : "text-gray-500 hover:text-black"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        {/* Cards Layout */}
+        <div className="flex flex-wrap justify-around gap-6">
+          {selectedDesigns.map((design, index) => (
+            <div
+              key={index}
+              className="w-[270px] bg-white rounded-2xl p-5 shadow-xl border border-gray-100 transition-transform duration-300 hover:scale-105"
+            >
+              <img
+                src={selectedImages[index % selectedImages.length]}
+                alt={design.title}
+                className="w-full h-44 object-cover rounded-xl mb-4"
+              />
+
+              <h3 className="text-lg font-semibold text-black mb-1">{design.title}</h3>
+              <p className="text-sm text-gray-600 flex items-center gap-1 mb-3">
+                <span className="text-pink-500 text-xl leading-none">•</span>
+                {design.location}
+              </p>
+
+              <div className="bg-gray-100 px-3 py-2 rounded-xl mb-4 flex items-center gap-3 text-left">
+                <div className="text-lg text-black">₹</div>
+                <div>
+                  <p className="text-xs text-gray-500">Price Range</p>
+                  <p className="text-sm font-semibold text-black">{design.price}</p>
+                </div>
+              </div>
+
+              <div className="flex justify-between items-center text-xs text-gray-700 mb-4">
+                <div className="flex items-center gap-1">
+                  🏘️ <span>Villa Plots</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  📐 <span>{design.area}</span>
+                </div>
+              </div>
+
+              {/* Contact Icons */}
+              <div className="flex justify-between items-center px-6 mb-4">
+                <i className="fas fa-phone hover:text-black hover:scale-110 transition-transform cursor-pointer text-gray-600 text-lg"></i>
+                <i className="fas fa-envelope hover:text-black hover:scale-110 transition-transform cursor-pointer text-gray-600 text-lg"></i>
+                <i className="fab fa-whatsapp hover:text-green-600 hover:scale-110 transition-transform cursor-pointer text-lg"></i>
+              </div>
+
+              {/* Add to Cart Button */}
+              <button className="w-full bg-black text-white py-2 rounded-xl text-sm font-medium hover:bg-gray-800 transition">
+                Add to Cart
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FloorPlanSection;

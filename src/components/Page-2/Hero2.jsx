@@ -104,99 +104,97 @@ const Hero2 = () => {
 
     return (
         <motion.section
-            className="relative flex flex-wrap items-center justify-center min-h-screen bg-white p-6"
-            id="hero-6"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
-            variants={fadeInRight}
-        >
-            {/* Left Text Section */}
-           <motion.div
-    className="w-full md:w-1/2 text-center mt-6 md:mt-0 px-4 flex flex-col items-center"
+  className="relative flex flex-col md:flex-row items-center justify-center min-h-screen bg-white px-4 py-8 gap-10"
+  id="hero-6"
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: false, amount: 0.3 }}
+  variants={fadeInRight}
+>
+  {/* Left Text Section */}
+  <motion.div
+    className="w-full md:w-1/2 text-center px-2 sm:px-6 flex flex-col items-center"
     initial="hidden"
     whileInView="visible"
     viewport={{ once: false, amount: 0.3 }}
     variants={fadeIn}
->
-    <p className="text-sm uppercase tracking-widest text-gray-500 font-medium">
-        Stylish & Superior
+  >
+    <p className="text-xs sm:text-sm uppercase tracking-widest text-gray-500 font-medium">
+      Stylish & Superior
     </p>
 
-    <h1 className="text-4xl md:text-5xl font-semibold text-gray-800 leading-tight mt-3">
-        INNOVATIVE <span className="text-red-500">DESIGNS</span> <br />
-        TO ELEVATE YOUR <br />
-        <span className="text-red-500">LIVING</span>
+    <h1 className="text-3xl sm:text-4xl font-semibold text-gray-800 leading-tight mt-3">
+      INNOVATIVE <span className="text-red-500">DESIGNS</span> <br />
+      TO ELEVATE YOUR <br />
+      <span className="text-red-500">LIVING</span>
     </h1>
 
-    <p className="text-lg text-gray-600 mt-4 font-medium">
-        Upgrade Your Lifestyle With Us
+    <p className="text-base sm:text-lg text-gray-600 mt-4 font-medium">
+      Upgrade Your Lifestyle With Us
     </p>
 
     <motion.button
-        className="flex items-center gap-2 px-6 py-2 border border-gray-800 mt-6 bg-white text-black rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-300 ease-in-out"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={() => navigate("/quotation")}
+      className="flex items-center gap-2 px-5 py-2 border border-gray-800 mt-6 bg-white text-black rounded-md hover:bg-gray-800 hover:text-white transition-all duration-300 ease-in-out"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={() => navigate("/quotation")}
     >
-        Get a Quotation <ArrowRight className="w-5 h-5" />
+      Get a Quotation <ArrowRight className="w-4 h-4" />
     </motion.button>
 
     <motion.div
-        className="mt-10 flex items-center justify-center gap-2 text-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
-        variants={fadeIn}
+      className="mt-8 flex items-center justify-center gap-2 text-center"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.3 }}
+      variants={fadeIn}
     >
-        <p className="text-lg font-medium text-gray-600">Our Signature</p>
-        <p className="text-lg font-medium text-red-500">Interior Theme</p>
+      <p className="text-base font-medium text-gray-600">Our Signature</p>
+      <p className="text-base font-medium text-red-500">Interior Theme</p>
     </motion.div>
-</motion.div>
+  </motion.div>
 
-            {/* Right Cards Section */}
-            <motion.div
-                className="grid grid-cols-2 gap-4 w-full md:w-1/2 mt-6 md:mt-0"
-                initial="hidden"
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-            >
-                {cardData.slice(startIndex, startIndex + 4).map((card, index) => (
-                    <motion.div
-                        key={index}
-                        className="flex h-56 md:h-64 w-full rounded-lg overflow-hidden shadow-md border border-gray-300 transition hover:shadow-xl"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        transition={{ duration: 0.3 }}
-                    >
-                        {/* Image Section */}
-                        <div className="w-1/2 h-full">
-                            <img
-                                src={card.img}
-                                alt={card.title}
-                                className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                            />
-                        </div>
+  {/* Right Cards Section */}
+  <motion.div
+    className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full md:w-1/2"
+    initial="hidden"
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.5 }}
+  >
+    {cardData.slice(startIndex, startIndex + 4).map((card, index) => (
+      <motion.div
+        key={index}
+        className="flex flex-col sm:flex-row h-auto w-full rounded-lg overflow-hidden shadow-md border border-gray-300 transition hover:shadow-xl"
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.97 }}
+        transition={{ duration: 0.3 }}
+      >
+        {/* Image Section */}
+        <div className="w-full sm:w-1/2 h-44 sm:h-auto">
+          <img
+            src={card.img}
+            alt={card.title}
+            className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+          />
+        </div>
 
-                        {/* Text Section */}
-                        <div
-                            className={`w-1/2 p-4 ${card.bgColor} text-white flex flex-col justify-between h-full`}
-                        >
-                            <div>
-                                <h3 className="text-xl font-semibold">{card.title}</h3>
-                                <p className="text-sm mt-2">{card.description}</p>
-                            </div>
-                            <button
-                                className="mt-4 px-4 py-2 bg-white text-black rounded-md text-sm font-medium"
-                                onClick={() => navigate("/quotation")}
-                            >
-                                {card.buttonText}
-                            </button>
-                        </div>
-                    </motion.div>
-                ))}
-            </motion.div>
-        </motion.section>
+        {/* Text Section */}
+        <div className={`w-full sm:w-1/2 p-4 ${card.bgColor} text-white flex flex-col justify-between`}>
+          <div>
+            <h3 className="text-lg font-semibold">{card.title}</h3>
+            <p className="text-sm mt-2">{card.description}</p>
+          </div>
+          <button
+            className="mt-4 px-3 py-2 bg-white text-black rounded-md text-sm font-medium"
+            onClick={() => navigate("/quotation")}
+          >
+            {card.buttonText}
+          </button>
+        </div>
+      </motion.div>
+    ))}
+  </motion.div>
+</motion.section>
     );
 };
 
