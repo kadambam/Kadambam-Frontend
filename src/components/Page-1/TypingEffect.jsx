@@ -6,7 +6,7 @@ const TypingEffect = () => {
 
   useEffect(() => {
     const typed = new Typed(typedRef.current, {
-      strings: ["Group", "Architect", "Construction","Maintenance","PMC Consultancy"],
+      strings: ["Group", "Architect", "Construction","Maintenance","Consultancy"],
       typeSpeed: 100,
       backSpeed: 80,
       backDelay: 2000,

@@ -6,10 +6,10 @@ import { Section2Images } from "../../utils/data1";
 import { HiChevronRight } from "react-icons/hi";
 
 const images = [
-  { id: 1, src: Section2Images[0].image, path: "/page2" },
-  { id: 2, src: Section2Images[1].image, path: "/page2" },
-  { id: 3, src: Section2Images[2].image, path: "/page2" },
-  { id: 4, src: Section2Images[3].image, path: "/page2" }
+  { id: 1, src: Section2Images[0].image, path: "/page4" },
+  { id: 2, src: Section2Images[1].image, path: "/page4" },
+  { id: 3, src: Section2Images[2].image, path: "/page4" },
+  { id: 4, src: Section2Images[3].image, path: "/page4" }
 ];
 
 const OnlineShop = () => {
@@ -123,7 +123,7 @@ const OnlineShop = () => {
 
         <button
           className="flex items-center gap-2 px-6 py-2 bg-white text-black rounded-lg hover:bg-gray-300 transition"
-          onClick={() => navigate("/quotation")}
+          onClick={() => navigate("/page4")}
         >
           Shop Now <HiChevronRight className="w-5 h-5" />
         </button>

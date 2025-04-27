@@ -6,10 +6,10 @@ import { HiChevronRight } from "react-icons/hi";
 import { Section1Images } from "../../utils/data1";
 
 const images = [
-  { id: 1, src: Section1Images[1].image, title: "Architect Design", link: "/project-1" },
-  { id: 2, src: Section1Images[2].image, title: "Construction and Consultancy (PMC)", link: "/project-2" },
-  { id: 3, src: Section1Images[3].image, title: "Online 2D/3D Shop", link: "/project-3" },
-  { id: 4, src: Section1Images[4].image, title: "Maintenance Services", link: "/project-4" }
+  { id: 1, src: Section1Images[1].image, title: "Architect Design", link: "/page2" },
+  { id: 2, src: Section1Images[2].image, title: "Construction and Consultancy (PMC)", link: "/page3" },
+  { id: 3, src: Section1Images[3].image, title: "Online 2D/3D Shop", link: "/page4" },
+  { id: 4, src: Section1Images[4].image, title: "Maintenance Services", link: "/page5" }
 ];
 
 const HeroSection = () => {
@@ -59,7 +59,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="block">Welcome to</span>
-            <span className="text-[#ff4a2a] drop-shadow-xl block text-4xl my-2">Kadambam</span>
+            <span className="text-[#ff4a2a] drop-shadow-xl block text-4xl my-2">KADAMBAN</span>
             <span className="block text-xl min-w-[180px]">
               <TypingEffect />
             </span>
@@ -81,14 +81,15 @@ const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.7 }}
           >
             <button 
-              className="flex items-center justify-center gap-2 px-6 py-2 bg-white text-black rounded-lg hover:bg-gray-300 transition"
-              onClick={() => navigate("/contact")}
-            >
-              Talk Us <HiChevronRight className="w-5 h-5" />
-            </button>
+  className="flex items-center justify-center gap-2 px-6 py-2 bg-white text-black rounded-lg hover:bg-gray-300 transition"
+  onClick={() => window.open("tel:+919043672462")}
+>
+  Talk to Us <HiChevronRight className="w-5 h-5" />
+</button>
+
             <button 
               className="flex items-center justify-center gap-2 px-6 py-2 bg-white text-black rounded-lg hover:bg-gray-300 transition"
-              onClick={() => navigate("/quotation")}
+              onClick={() =>  window.open("https://wa.me/919043672462", "_blank")}
             >
               Get a Quotation <HiChevronRight className="w-5 h-5" />
             </button>
@@ -105,7 +106,7 @@ const HeroSection = () => {
           >
             <span className="block">Welcome to</span>
             <span className="flex items-baseline space-x-2">
-              <span className="text-[#ff4a2a] drop-shadow-xl text-5xl">Kadambam</span>
+              <span className="text-[#ff4a2a] drop-shadow-xl text-5xl">KADAMBAN</span>
               <span className="min-w-[180px] text-2xl md:text-5xl">
                 <TypingEffect />
               </span>
@@ -129,16 +130,17 @@ const HeroSection = () => {
           >
             <button 
               className="flex items-center gap-2 px-6 py-2 bg-white text-black rounded-lg hover:bg-gray-300 transition"
-              onClick={() => navigate("/contact")}
+              onClick={() => window.open("tel:+919043672462")}
             >
-              Talk Us <HiChevronRight className="w-5 h-5" />
+              Talk to Us <HiChevronRight className="w-5 h-5" />
             </button>
             <button 
-              className="flex items-center gap-2 px-6 py-2 bg-white text-black rounded-lg hover:bg-gray-300 transition"
-              onClick={() => navigate("/quotation")}
-            >
-              Get a Quotation <HiChevronRight className="w-5 h-5" />
-            </button>
+  className="flex items-center gap-2 px-6 py-2 bg-white text-black rounded-lg hover:bg-gray-300 transition"
+  onClick={() => window.open("https://wa.me/919043672462", "_blank")}
+>
+  Get a Quotation <HiChevronRight className="w-5 h-5" />
+</button>
+
           </motion.div>
         </div>
       </motion.div>
@@ -166,10 +168,10 @@ const HeroSection = () => {
                 
                 <div className="absolute bottom-0 w-full flex justify-end p-3">
                   <button
-                    className="p-2 rounded-lg bg-gray-100 transition"
+                    className="p-2 rounded-lg hover:bg-gray-100 transition"
                     onClick={() => navigate(image.link)}
                   >
-                    <HiChevronRight className="w-5 h-5 text-black hover:text-[#ff4a2a]" />
+                    <HiChevronRight className="w-5 h-5 text-white hover:text-[#ff4a2a]" />
                   </button>
                 </div>
               </motion.div>

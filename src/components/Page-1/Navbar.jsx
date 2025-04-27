@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,8 +27,6 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -40,7 +39,9 @@ const Navbar = () => {
             <img
               className={`w-auto ${isMobile ? "h-7" : "h-9 sm:h-7"}`}
               src={
-                isScrolled || (isMobile && isOpen) ? "logoblack.png" : "logowhite.png"
+                isScrolled || (isMobile && isOpen)
+                  ? "logoblack.png"
+                  : "logowhite.png"
               }
               alt="Logo"
             />
@@ -90,50 +91,27 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Menu */}
         <div
-          className={`absolute top-full left-0 transition-all duration-300 ease-in-out md:relative md:top-auto md:left-auto md:w-auto md:flex md:items-center ${
-            isOpen
-              ? "translate-x-0 opacity-100"
-              : "opacity-0 -translate-x-full md:opacity-100 md:translate-x-0"
+          className={`fixed top-14 right-0 w-2/3 ${
+            isScrolled ? "bg-white/90" : "bg-black/80"
+          } transition-transform duration-300 ease-in-out md:relative md:top-auto md:right-auto md:w-auto md:bg-transparent md:flex md:items-center ${
+            isOpen ? "translate-x-0" : "translate-x-full md:translate-x-0"
           }`}
         >
-          <div className="flex flex-col md:flex-row">
-            <a
-              className={`block my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isMobile && isOpen ? "text-black hover:text-gray-600" : isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
-              } ${isMobile && isOpen ? "bg-white px-4 py-2 rounded-md" : ""}`}
-              style={{ fontFamily: "Unbounded, sans-serif" }}
-              href="#"
-            >
-              Home
-            </a>
-            <a
-              className={`block my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isMobile && isOpen ? "text-black hover:text-gray-600" : isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
-              } ${isMobile && isOpen ? "bg-white px-4 py-2 rounded-md" : ""}`}
-              style={{ fontFamily: "Unbounded, sans-serif" }}
-              href="#"
-            >
-              Services
-            </a>
-            <a
-              className={`block my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isMobile && isOpen ? "text-black hover:text-gray-600" : isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
-              } ${isMobile && isOpen ? "bg-white px-4 py-2 rounded-md" : ""}`}
-              style={{ fontFamily: "Unbounded, sans-serif" }}
-              href="#"
-            >
-              Online shop
-            </a>
-            <a
-              className={`block my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isMobile && isOpen ? "text-black hover:text-gray-600" : isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
-              } ${isMobile && isOpen ? "bg-white px-4 py-2 rounded-md" : ""}`}
-              style={{ fontFamily: "Unbounded, sans-serif" }}
-              href="#"
-            >
-              Contact
-            </a>
+          <div className="flex flex-col md:flex-row md:items-center py-4 md:py-0">
+            {["Home", "Services", "Online shop", "Contact"].map((item, index) => (
+              <a
+                key={index}
+                className={`block my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
+                  isScrolled ? "text-black hover:text-gray-700" : "text-white hover:text-gray-300"
+                } text-center`}
+                style={{ fontFamily: "Poppins, sans-serif" }}
+                href="#"
+              >
+                {item}
+              </a>
+            ))}
           </div>
         </div>
       </div>

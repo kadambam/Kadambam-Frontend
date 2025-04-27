@@ -4,28 +4,27 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const allServices = [
-  { id: 1, title: "Architects", desc: "Innovative and customized designs tailored to your needs.", img: "https://picsum.photos/300/200?random=1" },
-  { id: 2, title: "Construction", desc: "High-quality construction for residential, commercial, and industrial projects.", img: "https://picsum.photos/300/200?random=2" },
-  { id: 3, title: "Maintenance", desc: "Reliable upkeep and repair services to keep your spaces functional and pristine.", img: "https://picsum.photos/300/200?random=3" },
-  { id: 4, title: "Concept Development", desc: "Transforming ideas into actionable, creative plans.", img: "https://picsum.photos/300/200?random=4" },
-  { id: 5, title: "Renovation & Re-Modelling", desc: "Modernize and upgrade your spaces with our expertise.", img: "https://picsum.photos/300/200?random=5" },
-  { id: 6, title: "Space Planning", desc: "Optimizing layouts for efficiency and style.", img: "https://picsum.photos/300/200?random=6" },
-  { id: 7, title: "Property Management", desc: "Seamless management and maintenance of your properties.", img: "https://picsum.photos/300/200?random=7" },
-  { id: 8, title: "Interior & Exterior Design", desc: "Stunning designs that reflect your personality and purpose.", img: "https://picsum.photos/300/200?random=8" },
-  { id: 9, title: "PMC Consultancy", desc: "Expert project management and consultancy for smooth execution.", img: "https://picsum.photos/300/200?random=9" },
-  { id: 10, title: "Estimation & Costing", desc: "Accurate budgeting and cost-effective solutions.", img: "https://picsum.photos/300/200?random=10" },
-  { id: 11, title: "Landscape Designing", desc: "Creating beautiful, sustainable outdoor spaces.", img: "https://picsum.photos/300/200?random=11" },
-  { id: 12, title: "Contracting Services", desc: "End-to-end contracting for hassle-free project delivery.", img: "https://picsum.photos/300/200?random=12" },
-  { id: 13, title: "Material Suggestion", desc: "Guidance on the best materials for durability and aesthetics.", img: "https://picsum.photos/300/200?random=13" },
+  { id: 1, title: "Architects", desc: "Innovative and customized designs tailored to your needs.", img: "https://picsum.photos/300/200?random=1", link: "/page1" },
+  { id: 2, title: "Construction", desc: "High-quality construction for residential, commercial, and industrial projects.", img: "https://picsum.photos/300/200?random=2", link: "/page2" },
+  { id: 3, title: "Maintenance", desc: "Reliable upkeep and repair services to keep your spaces functional and pristine.", img: "https://picsum.photos/300/200?random=3", link: "/page3" },
+  { id: 4, title: "Concept Development", desc: "Transforming ideas into actionable, creative plans.", img: "https://picsum.photos/300/200?random=4", link: "/page4" },
+  { id: 5, title: "Renovation & Re-Modelling", desc: "Modernize and upgrade your spaces with our expertise.", img: "https://picsum.photos/300/200?random=5", link: "/page5" },
+  { id: 6, title: "Space Planning", desc: "Optimizing layouts for efficiency and style.", img: "https://picsum.photos/300/200?random=6", link: "/page6" },
+  { id: 7, title: "Property Management", desc: "Seamless management and maintenance of your properties.", img: "https://picsum.photos/300/200?random=7", link: "/page7" },
+  { id: 8, title: "Interior & Exterior Design", desc: "Stunning designs that reflect your personality and purpose.", img: "https://picsum.photos/300/200?random=8", link: "/page8" },
+  { id: 9, title: "PMC Consultancy", desc: "Expert project management and consultancy for smooth execution.", img: "https://picsum.photos/300/200?random=9", link: "/page9" },
+  { id: 10, title: "Estimation & Costing", desc: "Accurate budgeting and cost-effective solutions.", img: "https://picsum.photos/300/200?random=10", link: "/page10" },
+  { id: 11, title: "Landscape Designing", desc: "Creating beautiful, sustainable outdoor spaces.", img: "https://picsum.photos/300/200?random=11", link: "/page11" },
+  { id: 12, title: "Contracting Services", desc: "End-to-end contracting for hassle-free project delivery.", img: "https://picsum.photos/300/200?random=12", link: "/page12" },
+  { id: 13, title: "Material Suggestion", desc: "Guidance on the best materials for durability and aesthetics.", img: "https://picsum.photos/300/200?random=13", link: "/page13" },
 ];
-
 
 const OurServices = () => {
   const navigate = useNavigate();
   const [currentPage1, setCurrentPage1] = useState(0);
   const [currentPage2, setCurrentPage2] = useState(0);
   const servicesPerLine = 3;
-  
+
   // Split services into two groups for two lines
   const line1Services = allServices.slice(0, allServices.length / 2);
   const line2Services = allServices.slice(allServices.length / 2);
@@ -62,8 +61,6 @@ const OurServices = () => {
     setCurrentPage2((prev) => (prev === 0 ? totalPagesLine2 - 1 : prev - 1));
   };
 
-
-
   return (
     <section className="relative p-10 bg-gray-50 flex flex-col md:flex-row items-start justify-between space-x-10">
       <motion.div
@@ -74,20 +71,19 @@ const OurServices = () => {
         viewport={{ once: false }}
       >
         <div className="flex justify-between items-start">
-        <motion.h2
-  className="text-4xl font-bold"
-  initial={{ opacity: 0, y: -20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8 }}
-  viewport={{ once: false }}
->
-  <span className="relative inline-block pb-1">
-    Our
-    <span className="absolute left-0 bottom-[-6px] w-full h-1 bg-[#ff4a2a]"></span>
-  </span>
-  <span className="text-[#ff4a2a]"> Specialization</span>
-</motion.h2>
-
+          <motion.h2
+            className="text-4xl font-bold"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: false }}
+          >
+            <span className="relative inline-block pb-1">
+              Our
+              <span className="absolute left-0 bottom-[-6px] w-full h-1 bg-[#ff4a2a]"></span>
+            </span>
+            <span className="text-[#ff4a2a]"> Specialization</span>
+          </motion.h2>
         </div>
 
         <motion.p
@@ -97,8 +93,7 @@ const OurServices = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: false }}
         >
-        We offer expert architectural, construction, and property services, ensuring innovation and sustainability.
-
+          We offer expert architectural, construction, and property services, ensuring innovation and sustainability.
         </motion.p>
 
         {["Best Quality", "Delivery On Time", "Skilled Team", "Professionalism", "Affordable Prices", "Perfect Execution", "Meticulous Planning"].map((text, index) => (
@@ -117,9 +112,9 @@ const OurServices = () => {
         ))}
       </motion.div>
 
-      <div className="w-full md:w-2/3 relative ">
+      <div className="w-full md:w-2/3 relative">
         {/* Navigation buttons for line 1 (top right) */}
-        <div className=" flex justify-end space-x-2 mb-4 z-10"> 
+        <div className="flex justify-end space-x-2 mb-4 z-10">
           <motion.button
             onClick={prevPage1}
             className="p-2 rounded-md bg-gray-50 hover:shadow-md hover:bg-white"
@@ -138,7 +133,7 @@ const OurServices = () => {
           </motion.button>
         </div>
 
-        {/* First line of services - removed fade animation */}
+        {/* First line of services */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
           {currentLine1Services.map((service) => (
             <div
@@ -155,7 +150,7 @@ const OurServices = () => {
               <motion.button
                 className="absolute bottom-4 right-4 text-[#ff4a2a] hover:text-black"
                 whileHover={{ scale: 1.2 }}
-                onClick={() => navigate(`/services/${service.id}`)}
+                onClick={() => navigate(service.link)}
               >
                 <HiChevronRight className="w-5 h-5" />
               </motion.button>
@@ -164,7 +159,7 @@ const OurServices = () => {
         </div>
 
         {/* Navigation buttons for line 2 */}
-        <div className=" flex justify-end space-x-2 mb-4 z-10"> 
+        <div className="flex justify-end space-x-2 mb-4 z-10">
           <motion.button
             onClick={prevPage2}
             className="p-2 rounded-md bg-gray-50 hover:shadow-md hover:bg-white"
@@ -183,7 +178,7 @@ const OurServices = () => {
           </motion.button>
         </div>
 
-        {/* Second line of services - removed fade animation */}
+        {/* Second line of services */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {currentLine2Services.map((service) => (
             <div
@@ -200,7 +195,7 @@ const OurServices = () => {
               <motion.button
                 className="absolute bottom-4 right-4 text-[#ff4a2a] hover:text-black"
                 whileHover={{ scale: 1.2 }}
-                onClick={() => navigate(`/services/${service.id}`)}
+                onClick={() => navigate(service.link)}
               >
                 <HiChevronRight className="w-5 h-5" />
               </motion.button>
