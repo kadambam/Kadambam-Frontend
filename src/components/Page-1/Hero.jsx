@@ -11,7 +11,7 @@ const images = [
   { id: 3, src: Section1Images[3].image, title: "Online 2D/3D Shop", link: "/page4" },
   { id: 4, src: Section1Images[4].image, title: "Maintenance Services", link: "/page5" }
 ];
-
+//testing
 const HeroSection = () => {
   const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
@@ -112,7 +112,7 @@ const HeroSection = () => {
               </span>
             </span>
           </motion.h1>
-
+      
           <motion.p 
             className="text-lg"
             initial={{ opacity: 0 }}
