@@ -2,7 +2,7 @@
 
 import sec1bg from "../assets/images/page1/section1/bg.webp";
 
-import sec1img1 from "../assets/images/page1/section1/img1.jpg";
+import sec1img1 from "../assets/images/page1/section1/img1.png";
 import sec1img2 from "../assets/images/page1/section1/img2.webp";
 import sec1img3 from "../assets/images/page1/section1/img3.jpg";
 import sec1img4 from "../assets/images/page1/section1/img4.jpeg";

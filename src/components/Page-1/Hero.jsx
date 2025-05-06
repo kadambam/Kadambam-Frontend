@@ -6,10 +6,10 @@ import { HiChevronRight } from "react-icons/hi";
 import { Section1Images } from "../../utils/data1";
 
 const images = [
-  { id: 1, src: Section1Images[1].image, title: "Architect Design", link: "/page2" },
+  { id: 1, src: Section1Images[4].image, title: "Architect Design", link: "/page2" },
   { id: 2, src: Section1Images[2].image, title: "Construction and Consultancy (PMC)", link: "/page3" },
   { id: 3, src: Section1Images[3].image, title: "Online 2D/3D Shop", link: "/page4" },
-  { id: 4, src: Section1Images[4].image, title: "Maintenance Services", link: "/page5" }
+  { id: 4, src: Section1Images[1].image, title: "Maintenance Services", link: "/page5" }
 ];
 //testing
 const HeroSection = () => {
@@ -41,7 +41,7 @@ const HeroSection = () => {
       transition={{ duration: 0.8 }}
     >
       {/* Overlay for better readability */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="absolute inset-0 bg-black/50 "></div>
 
       {/* Left Side - Company Info (Desktop: Original, Mobile: Improved) */}
       <motion.div 
@@ -154,28 +154,30 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <div className="grid grid-cols-2 gap-6 mt-10">
-            {images.map((image) => (
-              <motion.div
-                key={image.id}
-                className="relative group w-full h-[200px] lg:h-[250px] rounded-lg overflow-hidden shadow-lg cursor-pointer"
-                whileHover={{ scale: 1.05 }}
-              >
-                <img src={image.src} alt={image.title} className="w-full h-full object-cover" />
-                
-                <div className="absolute top-0 w-full bg-gradient-to-b from-black/80 to-transparent text-white p-3">
-                  <h3 className="text-sm lg:text-lg font-semibold">{image.title}</h3>
-                </div>
-                
-                <div className="absolute bottom-0 w-full flex justify-end p-3">
-                  <button
-                    className="p-2 rounded-lg hover:bg-gray-100 transition"
-                    onClick={() => navigate(image.link)}
-                  >
-                    <HiChevronRight className="w-5 h-5 text-white hover:text-[#ff4a2a]" />
-                  </button>
-                </div>
-              </motion.div>
-            ))}
+          {images.map((image) => (
+  <motion.div
+    key={image.id}
+    className="relative group w-full h-[200px] lg:h-[250px] rounded-lg overflow-hidden shadow-lg cursor-pointer"
+    whileHover={{ scale: 1.05 }}
+    onClick={() => navigate(image.link)}
+  >
+    {/* Background image */}
+    <img
+      src={image.src}
+      alt={image.title}
+      className="w-full h-full object-cover pointer-events-none"
+    />
+
+    {/* Hover overlay */}
+    {/* <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-opacity" /> */}
+    <div className="absolute top-0 left-0 w-full h-[60px] bg-gradient-to-b from-black/70 to-transparent z-0" />
+    {/* Title text */}
+    <div className="absolute top-0 w-full text-white p-3 z-10">
+      <h3 className="text-sm lg:text-lg font-semibold">{image.title}</h3>
+    </div>
+  </motion.div>
+))}
+
           </div>
         </motion.div>
       )}

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { HiChevronRight } from "react-icons/hi";
 import { Section4Images } from '../../utils/data1';
+import { useNavigate } from 'react-router-dom';
+
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -15,6 +17,9 @@ const imageVariants = {
 
 const Projects = () => {
   const [screenSize, setScreenSize] = useState('desktop');
+
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -82,9 +87,13 @@ const Projects = () => {
                   <p className="text-white bg-black text-xs font-semibold px-2 py-1 rounded">
                     Project {index + 1}
                   </p>
-                  <div className="hover:bg-gray-50 p-2 text-white hover:text-black transition rounded-lg">
-                    <HiChevronRight className="w-5 h-5" />
-                  </div>
+                  <div
+  onClick={() => navigate('/page4')}
+  className="hover:bg-gray-50 p-2 text-white hover:text-black transition rounded-lg cursor-pointer"
+>
+  <HiChevronRight className="w-5 h-5" />
+</div>
+
                 </div>
               </motion.div>
             ))}
@@ -116,9 +125,13 @@ const Projects = () => {
                     <p className="text-white bg-black text-xs font-semibold px-2 py-1 rounded">
                       Project {index + 1}
                     </p>
-                    <div className="hover:bg-gray-50 p-2 text-white  hover:text-black transition rounded-lg">
-                      <HiChevronRight className="w-5 h-5" />
-                    </div>
+                    <div
+  onClick={() => navigate('/page4')}
+  className="hover:bg-gray-50 p-2 text-white hover:text-black transition rounded-lg cursor-pointer"
+>
+  <HiChevronRight className="w-5 h-5" />
+</div>
+
                   </div>
                 </motion.div>
               ))}
@@ -143,9 +156,13 @@ const Projects = () => {
                     <p className="text-white bg-black text-xs font-semibold px-2 py-1 rounded">
                       Project {index + 4}
                     </p>
-                    <div className="hover:bg-gray-50 p-2 text-white hover:text-black transition rounded-lg">
-                      <HiChevronRight className="w-5 h-5" />
-                    </div>
+                    <div
+  onClick={() => navigate('/page4')}
+  className="hover:bg-gray-50 p-2 text-white hover:text-black transition rounded-lg cursor-pointer"
+>
+  <HiChevronRight className="w-5 h-5" />
+</div>
+
                   </div>
                 </motion.div>
               ))}

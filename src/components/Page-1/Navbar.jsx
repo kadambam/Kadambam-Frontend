@@ -34,20 +34,20 @@ const Navbar = () => {
       } ${isMobile ? "h-14" : "h-16"}`}
     >
       <div className="container py-1 mx-auto md:flex md:justify-between md:items-center h-full">
-        <div className="flex items-center justify-between h-full">
-          <a href="#" className="h-full flex items-center">
-            <img
-              className={`w-auto ${isMobile ? "h-7" : "h-9 sm:h-7"}`}
-              src={
-                isScrolled || (isMobile && isOpen)
-                  ? "logoblack.png"
-                  : "logowhite.png"
-              }
-              alt="Logo"
-            />
-          </a>
+        <div className="flex items-center justify-between h-full w-full">
+          {/* Logo for desktop only */}
+          {!isMobile && (
+            <a href="#" className="h-full flex items-center">
+              <img
+                className="w-auto h-9 sm:h-7"
+                src={isScrolled ? "logoblack.png" : "logowhite.png"}
+                alt="Logo"
+              />
+            </a>
+          )}
 
-          <div className="flex lg:hidden h-full items-center">
+          {/* Menu icon for mobile */}
+          <div className="flex lg:hidden h-full items-center ml-auto">
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
@@ -99,13 +99,13 @@ const Navbar = () => {
             isOpen ? "translate-x-0" : "translate-x-full md:translate-x-0"
           }`}
         >
-          <div className="flex flex-col md:flex-row md:items-center py-4 md:py-0">
+          <div className="flex flex-col md:flex-row md:items-center py-4 md:py-0 gap-y-2">
             {["Home", "Services", "Online shop", "Contact"].map((item, index) => (
               <a
                 key={index}
                 className={`block my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
                   isScrolled ? "text-black hover:text-gray-700" : "text-white hover:text-gray-300"
-                } text-center`}
+                } text-center whitespace-nowrap`}
                 style={{ fontFamily: "Poppins, sans-serif" }}
                 href="#"
               >

@@ -2,21 +2,35 @@ import { motion } from "framer-motion";
 import { HiChevronRight, HiChevronLeft } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import architects from "../../assets/images/page1/specialization/architects.jpg"
+import Concept from "../../assets/images/page1/specialization/Concept Development.jpg"
+import construct from "../../assets/images/page1/specialization/construct.jpg"
+import ContractingServices from "../../assets/images/page1/specialization/Contracting Services.jpg"
+import EstimationCosting from "../../assets/images/page1/specialization/Estimation & Costing.jpg"
+import InteriorExterior from "../../assets/images/page1/specialization/Interior & Exterior Design.jpg"
+import LandscapeDesigning from "../../assets/images/page1/specialization/Landscape Designing.jpg"
+import Maintenance from "../../assets/images/page1/specialization/Maintenance.jpg"
+import MaterialSuggestion from "../../assets/images/page1/specialization/Material Suggestion.jpg"
+import PMCConsultancy from "../../assets/images/page1/specialization/PMC Consultancy.jpg"
+import PropertyManagement from "../../assets/images/page1/specialization/Property Management.jpg"
+import RenovationReModelling from "../../assets/images/page1/specialization/Renovation & Re-Modelling.jpg"
+import SpacePlanning from "../../assets/images/page1/specialization/Space Planning.jpg"
+
 
 const allServices = [
-  { id: 1, title: "Architects", desc: "Innovative and customized designs tailored to your needs.", img: "https://picsum.photos/300/200?random=1", link: "/page1" },
-  { id: 2, title: "Construction", desc: "High-quality construction for residential, commercial, and industrial projects.", img: "https://picsum.photos/300/200?random=2", link: "/page2" },
-  { id: 3, title: "Maintenance", desc: "Reliable upkeep and repair services to keep your spaces functional and pristine.", img: "https://picsum.photos/300/200?random=3", link: "/page3" },
-  { id: 4, title: "Concept Development", desc: "Transforming ideas into actionable, creative plans.", img: "https://picsum.photos/300/200?random=4", link: "/page4" },
-  { id: 5, title: "Renovation & Re-Modelling", desc: "Modernize and upgrade your spaces with our expertise.", img: "https://picsum.photos/300/200?random=5", link: "/page5" },
-  { id: 6, title: "Space Planning", desc: "Optimizing layouts for efficiency and style.", img: "https://picsum.photos/300/200?random=6", link: "/page6" },
-  { id: 7, title: "Property Management", desc: "Seamless management and maintenance of your properties.", img: "https://picsum.photos/300/200?random=7", link: "/page7" },
-  { id: 8, title: "Interior & Exterior Design", desc: "Stunning designs that reflect your personality and purpose.", img: "https://picsum.photos/300/200?random=8", link: "/page8" },
-  { id: 9, title: "PMC Consultancy", desc: "Expert project management and consultancy for smooth execution.", img: "https://picsum.photos/300/200?random=9", link: "/page9" },
-  { id: 10, title: "Estimation & Costing", desc: "Accurate budgeting and cost-effective solutions.", img: "https://picsum.photos/300/200?random=10", link: "/page10" },
-  { id: 11, title: "Landscape Designing", desc: "Creating beautiful, sustainable outdoor spaces.", img: "https://picsum.photos/300/200?random=11", link: "/page11" },
-  { id: 12, title: "Contracting Services", desc: "End-to-end contracting for hassle-free project delivery.", img: "https://picsum.photos/300/200?random=12", link: "/page12" },
-  { id: 13, title: "Material Suggestion", desc: "Guidance on the best materials for durability and aesthetics.", img: "https://picsum.photos/300/200?random=13", link: "/page13" },
+  { id: 1, title: "Architects", desc: "Innovative and customized designs tailored to your needs.", img: architects, link: "/page2" },
+  { id: 2, title: "Construction", desc: "High-quality construction for residential, commercial, and industrial projects.", img: construct, link: "/page2" },
+  { id: 3, title: "Maintenance", desc: "Reliable upkeep and repair services to keep your spaces functional and pristine.", img: Maintenance, link: "/page5" },
+  { id: 4, title: "Concept Development", desc: "Transforming ideas into actionable, creative plans.", img: Concept, link: "/page3" },
+  { id: 5, title: "Renovation & Re-Modelling", desc: "Modernize and upgrade your spaces with our expertise.", img: RenovationReModelling, link: "/page5" },
+  { id: 6, title: "Space Planning", desc: "Optimizing layouts for efficiency and style.", img: SpacePlanning, link: "/page6" },
+  { id: 7, title: "Property Management", desc: "Seamless management and maintenance of your properties.", img: PropertyManagement, link: "/page2" },
+  { id: 8, title: "Interior & Exterior Design", desc: "Stunning designs that reflect your personality and purpose.", img:InteriorExterior, link: "/page2" },
+  { id: 9, title: "PMC Consultancy", desc: "Expert project management and consultancy for smooth execution.", img: PMCConsultancy, link: "/page3" },
+  { id: 10, title: "Estimation & Costing", desc: "Accurate budgeting and cost-effective solutions.", img:EstimationCosting, link: "/page4" },
+  { id: 11, title: "Landscape Designing", desc: "Creating beautiful, sustainable outdoor spaces.", img: LandscapeDesigning, link: "/page2" },
+  { id: 12, title: "Contracting Services", desc: "End-to-end contracting for hassle-free project delivery.", img: ContractingServices, link: "/page5" },
+  { id: 13, title: "Material Suggestion", desc: "Guidance on the best materials for durability and aesthetics.", img:MaterialSuggestion, link: "/page5" },
 ];
 
 const OurServices = () => {
