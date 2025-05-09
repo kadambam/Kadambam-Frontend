@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { HiChevronRight } from "react-icons/hi";
 import { MdDownload } from 'react-icons/md';
-import { FaLeaf, FaRulerCombined } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+
+import { FaHome, FaBuilding, FaCogs, FaTree, FaUsers, FaIndustry } from "react-icons/fa";
 
 const serviceData = [
-  { title: "Residences / Villa", description: "Top-rated residential building contractors providing qualitative and timely solutions.", icon: <FaLeaf size={40} className="mb-4 text-[#ff4a2a]" /> },
-  { title: "Apartment", description: "Well-planned and budget-friendly apartment projects with modern amenities.", icon: <FaRulerCombined size={40} className="mb-4 text-[#ff4a2a]" /> },
-  { title: "Bungalow", description: "Luxurious bungalows with classic and spectacular designs.", icon: <FaLeaf size={40} className="mb-4 text-[#ff4a2a]" /> },
-  { title: "Row House", description: "Plush row houses designed with world-class fittings and nature's elegance.", icon: <FaRulerCombined size={40} className="mb-4 text-[#ff4a2a]" /> },
-  { title: "Split-Level House", description: "Efficient space use, distinct living areas, and stylish designs for compact lots.", icon: <FaLeaf size={40} className="mb-4 text-[#ff4a2a]" /> },
-  { title: "Traditional House", description: "Classic design, pitched roofs, and timeless details for a warm ambiance.", icon: <FaRulerCombined size={40} className="mb-4 text-[#ff4a2a]" /> },
-  { title: "Cottage", description: "Cozy, charming design with rustic elements and inviting atmosphere.", icon: <FaLeaf size={40} className="mb-4 text-[#ff4a2a]" /> },
-  { title: "Duplex / Triplex", description: "Multiple independent living units offering spacious, functional layouts.", icon: <FaRulerCombined size={40} className="mb-4 text-[#ff4a2a]" /> },
-  { title: "Sustainable / Eco House", description: "Energy-efficient homes using eco-friendly materials and solar energy.", icon: <FaLeaf size={40} className="mb-4 text-[#ff4a2a]" /> },
-  { title: "Smart Home", description: "Advanced technology integration for automation, security, and efficiency.", icon: <FaRulerCombined size={40} className="mb-4 text-[#ff4a2a]" /> }
+  { title: "Residences / Villa", description: "Top-rated residential building contractors providing qualitative and timely solutions.", icon: <FaHome size={40} className="mb-4 text-[#ff4a2a]" /> },
+  { title: "Apartment", description: "Well-planned and budget-friendly apartment projects with modern amenities.", icon: <FaBuilding size={40} className="mb-4 text-[#ff4a2a]" /> },
+  { title: "Bungalow", description: "Luxurious bungalows with classic and spectacular designs.", icon: <FaHome size={40} className="mb-4 text-[#ff4a2a]" /> },
+  { title: "Row House", description: "Plush row houses designed with world-class fittings and nature's elegance.", icon: <FaBuilding size={40} className="mb-4 text-[#ff4a2a]" /> },
+  { title: "Split-Level House", description: "Efficient space use, distinct living areas, and stylish designs for compact lots.", icon: <FaCogs size={40} className="mb-4 text-[#ff4a2a]" /> },
+  { title: "Traditional House", description: "Classic design, pitched roofs, and timeless details for a warm ambiance.", icon: <FaHome size={40} className="mb-4 text-[#ff4a2a]" /> },
+  { title: "Cottage", description: "Cozy, charming design with rustic elements and inviting atmosphere.", icon: <FaTree size={40} className="mb-4 text-[#ff4a2a]" /> },
+  { title: "Duplex / Triplex", description: "Multiple independent living units offering spacious, functional layouts.", icon: <FaUsers size={40} className="mb-4 text-[#ff4a2a]" /> },
+  { title: "Sustainable / Eco House", description: "Energy-efficient homes using eco-friendly materials and solar energy.", icon: <FaTree size={40} className="mb-4 text-[#ff4a2a]" /> },
+  { title: "Smart Home", description: "Advanced technology integration for automation, security, and efficiency.", icon: <FaIndustry size={40} className="mb-4 text-[#ff4a2a]" /> }
 ];
 
 const ServicesSection = () => {
@@ -55,9 +57,12 @@ const ServicesSection = () => {
       </div>
       {/* Buttons Section - Moved Outside the Flex Container */}
       <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto max-w-6xl mx-auto px-4 sm:px-6 md:justify-start">
-        <button className="bg-[#ff4a2a] text-white py-3 px-6 rounded-md text-lg font-medium flex items-center justify-center gap-2 transition hover:bg-opacity-90 w-full sm:w-auto">
-          View More <HiChevronRight size={20} />
-        </button>
+      <Link to="/page2">
+  <button className="bg-[#ff4a2a] text-white py-3 px-6 rounded-md text-lg font-medium flex items-center justify-center gap-2 transition hover:bg-opacity-90 w-full sm:w-auto">
+    View More <HiChevronRight size={20} />
+  </button>
+</Link>
+
         <button className="bg-[#ff4a2a] text-white py-3 px-6 rounded-md text-lg font-medium flex items-center justify-center gap-2 transition hover:bg-opacity-90 w-full sm:w-auto">
           Download File <MdDownload className="w-5 h-5" />
         </button>
