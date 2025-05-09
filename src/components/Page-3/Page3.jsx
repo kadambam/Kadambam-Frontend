@@ -38,7 +38,9 @@ const Page3 = () => {
       {/* <HowWeWork/> */}
 {/* <WhyChooseUs/> */}
 <LatestBlog/>
+<div id='faq'>
 <FAQSection/>
+</div>
 <LongImg/>
 <Footer/>
     </div>

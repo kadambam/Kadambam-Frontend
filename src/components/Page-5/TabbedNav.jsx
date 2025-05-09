@@ -116,12 +116,13 @@ const TabbedNav = () => {
                                 <h3 className="text-2xl font-bold text-gray-800">{currentTab.name}</h3>
                                 {currentTab.content}
                                 <motion.button 
-                                    className="mt-6 px-6 py-3 bg-gray-700 text-white rounded-lg shadow-md hover:bg-gray-800 transition relative"
-                                    whileHover={{ scale: 1.05, boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.4)" }}
-                                    onClick={() => navigate("/quotation")}
-                                >
-                                    Get A Quote
-                                </motion.button>
+  className="mt-6 px-6 py-3 bg-gray-700 text-white rounded-lg shadow-md hover:bg-gray-800 transition relative"
+  whileHover={{ scale: 1.05, boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.4)" }}
+  onClick={() => window.open("https://wa.me/919043672462", "_blank")}
+>
+  Get A Quote
+</motion.button>
+
                             </div>
                         </motion.div>
                     )}

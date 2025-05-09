@@ -7,6 +7,12 @@ import Page3 from "./components/Page-3/Page3";
 import Page4 from "./components/Page-4/Page4";
 import Page5 from "./components/Page-5/Page5";
 import Page6 from "./components/Page-6/Page6";
+import AboutUs from "./components/extrapages/AboutUs";
+import PrivacyPolicy from "./components/extrapages/PrivacyPolicy";
+import FAQSection from "./components/extrapages/FaqPage";
+import ReturnsPolicy from "./components/extrapages/OnlineShop";
+import HowItWorks from "./components/extrapages/HowItWorks";
+import Careers from "./components/extrapages/Careers";
 
 
 function App() {
@@ -20,6 +26,13 @@ function App() {
         <Route path="/page3" element={<Page3/>} />
         <Route path="/page5" element={<Page5/>} />
         <Route path="/page6" element={<Page6/>} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/privacy" element={<PrivacyPolicy/>} />
+        <Route path="/faq" element={<FAQSection/>} />
+        <Route path="/returns-policy" element={<ReturnsPolicy/>} />
+        <Route path="/how-it-works" element={<HowItWorks/>} />
+        <Route path="/careers" element={<Careers/>} />
+
       </Routes>
     </>
   );

@@ -1,41 +1,34 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaQuoteLeft, FaStar } from "react-icons/fa";
+import { FaQuoteLeft, FaStar, FaUserCircle } from "react-icons/fa";
 
 const testimonials = [
   {
-    name: "Deepika",
+    name: "Goutham Reddy G H",
     review:
-      "Dusk & Dawn Construction exceeded my expectations! From start to finish, they handled my project with professionalism and care.",
+      "Am from Bangalore. Very good design and unique ideas given for my house. Very humble and best budget. Very trusted company.",
     rating: 5,
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    image: <FaUserCircle className="text-gray-500 text-6xl" />,
   },
   {
-    name: "Arjun",
+    name: "Balamurugan Ravichandran",
     review:
-      "I'm impressed by the attention to detail and commitment to quality displayed by Dusk & Dawn Construction. Highly recommended!",
+      "Kadambam group is the best and trustworthy place to tie up your project with them. They are very professional and dedicated in works. Their experience in this field is vast and also updated with current trends.",
     rating: 5,
-    image: "https://randomuser.me/api/portraits/men/46.jpg",
+    image: <FaUserCircle className="text-gray-500 text-6xl" />,
   },
   {
-    name: "Rahul",
+    name: "Er. Karthi",
     review:
-      "Excellent craftsmanship and timely delivery. They turned my vision into reality with precision and expertise.",
+      "I have a construction firm in Salem. Kadambam has been providing architectural design assistance for my project for the past two years and still continues to do so. My first choice will be Kadambam for architecture design.",
     rating: 5,
-    image: "https://randomuser.me/api/portraits/men/50.jpg",
-  },
-  {
-    name: "Priya",
-    review:
-      "The team was fantastic! They brought my ideas to life and delivered beyond what I expected.",
-    rating: 5,
-    image: "https://randomuser.me/api/portraits/women/47.jpg",
+    image: <FaUserCircle className="text-gray-500 text-6xl" />,
   },
 ];
 
 const TestimonialSection = () => {
   const [index, setIndex] = useState(0);
-  const testimonialsPerPage = 2;
+  const testimonialsPerPage = 3;
   const totalPages = Math.ceil(testimonials.length / testimonialsPerPage);
 
   // Auto-slide every 5 seconds
@@ -53,7 +46,7 @@ const TestimonialSection = () => {
   );
 
   return (
-    <div className="bg-gray-100 py-16 px-6 text-center">
+    <div className="py-16 px-6 text-center">
       <h3 className="text-gray-500 text-sm uppercase">Clients Testimonials</h3>
       <h2 className="top-4 left-10 text-4xl font-bold">
         <span className="relative">
@@ -63,7 +56,7 @@ const TestimonialSection = () => {
         <span className="text-[#ff4a2a]"> Clients Say !</span>
       </h2>
 
-      <div className="relative w-full max-w-4xl mx-auto mt-8">
+      <div className="relative w-full max-w-6xl mx-auto mt-8">
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
@@ -71,7 +64,7 @@ const TestimonialSection = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
             transition={{ duration: 0.5 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
           >
             {currentTestimonials.map((testimonial, i) => (
               <div
@@ -80,11 +73,9 @@ const TestimonialSection = () => {
               >
                 <FaQuoteLeft className="text-gray-300 text-3xl absolute top-4 right-4" />
                 <div className="flex items-center gap-4">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-14 h-14 rounded-full border-2 border-gray-300"
-                  />
+                  <div className="w-14 h-14 rounded-full border-2 border-gray-300 flex items-center justify-center">
+                    {testimonial.image}
+                  </div>
                   <div className="text-left">
                     <p className="font-semibold">{testimonial.name}</p>
                     <div className="flex text-yellow-500">
@@ -116,13 +107,14 @@ const TestimonialSection = () => {
 
       {/* Redirect to Google Business */}
       <button
-        onClick={() =>
-          window.open("https://g.page/YOUR-GOOGLE-BUSINESS-LINK", "_blank")
-        }
-        className="mt-6 px-6 py-2 bg-gray-700 text-white rounded-full hover:bg-gray-900 transition"
-      >
-        Put Your Review
-      </button>
+  onClick={() =>
+    window.open("https://www.google.com/search?q=Kadamban+Group&ludocid=xxxxxxxxxxxxxxxxxx#lrd=0x0xxxxxxxxxxxxxxxx:0x0&fid=0x0", "_blank")
+  }
+  className="mt-6 px-6 py-2 bg-gray-700 text-white rounded-full hover:bg-gray-900 transition"
+>
+  Put Your Review
+</button>
+
     </div>
   );
 };
