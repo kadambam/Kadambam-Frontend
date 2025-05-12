@@ -1,14 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { HiChevronRight } from "react-icons/hi";
-
 const blogs = [
-    { id: 1, image: "https://picsum.photos/300/200?random=1", title: "The Future of Digital Marketing", description: "Explore upcoming trends in online marketing." },
-    { id: 2, image: "https://picsum.photos/300/200?random=2", title: "Web Development Best Practices", description: "Improve your coding skills with these expert tips." },
-    { id: 3, image: "https://picsum.photos/300/200?random=3", title: "Social Media Growth Hacks", description: "Boost your engagement with these simple techniques." },
-    { id: 4, image: "https://picsum.photos/300/200?random=4", title: "Branding Strategies That Work", description: "Create a strong and memorable brand presence." },
-    { id: 5, image: "https://picsum.photos/300/200?random=5", title: "Content Creation Guide", description: "Learn how to produce high-quality content consistently." },
-    { id: 6, image: "https://picsum.photos/300/200?random=6", title: "SEO for Beginners", description: "Start ranking higher on search engines with these tips." },
+  { id: 1, image: "https://picsum.photos/300/200?random=1", title: "The Future of Real Estate Investment", description: "Explore emerging trends and opportunities in real estate investment." },
+  { id: 2, image: "https://picsum.photos/300/200?random=2", title: "Top Tips for First-Time Homebuyers", description: "Guidance and advice for purchasing your first home." },
+  { id: 3, image: "https://picsum.photos/300/200?random=3", title: "How to Increase Property Value", description: "Simple renovations and improvements to boost your property value." },
+  { id: 4, image: "https://picsum.photos/300/200?random=4", title: "Real Estate Market Trends 2025", description: "What to expect in the real estate market over the next few years." },
+  { id: 5, image: "https://picsum.photos/300/200?random=5", title: "Choosing the Right Neighborhood", description: "Factors to consider when selecting the perfect neighborhood for your next home." },
+  { id: 6, image: "https://picsum.photos/300/200?random=6", title: "Understanding Mortgages and Financing", description: "A beginner's guide to mortgages, loans, and real estate financing." },
 ];
 
 // Duplicate blogs for infinite loop effect
@@ -17,7 +16,7 @@ const repeatedBlogs = [...blogs, ...blogs];
 const LatestBlog = () => {
   return (
     <motion.div 
-      className="latest-blog-container bg-white"
+      className="latest-blog-container bg-gray-100"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}

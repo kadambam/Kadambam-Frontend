@@ -1,5 +1,7 @@
 import React from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaPinterest, FaYoutube } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+
 
 const Footer = () => {
   return (
@@ -26,9 +28,22 @@ const Footer = () => {
               Company
             </h3>
             <ul className="space-y-2 text-sm">
-              <li>About Us</li>
-              <li>Our Services</li>
-              <li>Privacy Policy</li>
+             <li>
+  <Link to="/about" className="hover:text-[#ff4a2a] duration-200">
+    About Us
+  </Link>
+</li>
+
+<li>
+  <Link to="/" className="hover:text-[#ff4a2a] duration-200">
+    Our Services
+  </Link>
+</li>
+<li>
+  <Link to="/privacy" className="hover:text-[#ff4a2a] duration-200">
+    Privacy Policy
+  </Link>
+</li>
             </ul>
           </div>
 
@@ -38,9 +53,17 @@ const Footer = () => {
               Get Help
             </h3>
             <ul className="space-y-2 text-sm">
-              <li>FAQ</li>
-              <li>Shipping</li>
-              <li>Returns</li>
+            <li>
+  <Link to="/faq" className="hover:text-[#ff4a2a] duration-200">
+    FAQ
+  </Link>
+</li>
+<li>
+  <Link to="/returns-policy" className="hover:text-[#ff4a2a] duration-200">
+    Online Shopping
+  </Link>
+</li>
+              
             </ul>
           </div>
 
@@ -50,9 +73,17 @@ const Footer = () => {
               Online Shop
             </h3>
             <ul className="space-y-2 text-sm">
-              <li>Refer a friend</li>
-              <li>How it works</li>
-              <li>Careers</li>
+              
+            <li>
+  <Link to="/how-it-works" className="hover:text-[#ff4a2a] duration-200">
+    How it Works
+  </Link>
+</li>
+<li>
+  <Link to="/careers" className="hover:text-[#ff4a2a] duration-200">
+    Careers
+  </Link>
+</li>
             </ul>
           </div>
 
@@ -62,9 +93,9 @@ const Footer = () => {
               Follow Us
             </h3>
             <p className="text-sm mb-2">Call us</p>
-            <p className="text-sm font-medium mb-4">1800-309-0930</p>
+            <p className="text-sm font-medium mb-4">+91 90436 72462</p>
             <p className="text-sm mb-2">Email us</p>
-            <p className="text-sm font-medium">care@yourcompany.com</p>
+            <p className="text-sm font-medium">kadambangroups@gmail.com</p>
           </div>
         </div>
       </div>

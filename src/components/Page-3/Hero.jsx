@@ -22,16 +22,22 @@ const HeroSection = () => {
           <span className="text-[#ff4a2a] drop-shadow-xl"> DREAM</span>
         </h2>
         <p className="text-lg text-gray-300 mb-12">
-          Get A Free Quote - <a href="#" className="underline">Click Here</a>
+          Get A Free Quote - <a href="https://wa.me/919043672462" className="underline">Click Here</a>
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-          <button className="bg-gray-800 text-white py-3 px-6 rounded-md text-lg font-medium flex items-center justify-center gap-2 transition hover:bg-gray-700 w-full sm:w-auto">
-            TALK TO EXPERT <HiChevronRight size={20} />
-          </button>
-          <button className="bg-gray-800 text-white py-3 px-6 rounded-md text-lg font-medium flex items-center justify-center gap-2 transition hover:bg-gray-700 w-full sm:w-auto">
-            QUOTATION <HiChevronRight size={20} />
-          </button>
+        <a href="tel:+919043672462">
+  <button className="bg-gray-800 text-white py-3 px-6 rounded-md text-lg font-medium flex items-center justify-center gap-2 transition hover:bg-gray-700 w-full sm:w-auto">
+    TALK TO EXPERT <HiChevronRight size={20} />
+  </button>
+</a>
+
+<a href="https://wa.me/919043672462" target="_blank" rel="noopener noreferrer">
+  <button className="bg-gray-800 text-white py-3 px-6 rounded-md text-lg font-medium flex items-center justify-center gap-2 transition hover:bg-gray-700 w-full sm:w-auto">
+    QUOTATION <HiChevronRight size={20} />
+  </button>
+</a>
+
         </div>
       </div>
     </section>

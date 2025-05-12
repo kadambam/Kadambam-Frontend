@@ -119,7 +119,7 @@ const TabbedNav1 = () => {
                                 <motion.button
                                     className="mt-6 px-6 py-3 bg-gray-700 text-white rounded-lg shadow-md hover:bg-gray-800 transition relative"
                                     whileHover={{ scale: 1.05, boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.4)" }}
-                                    onClick={() => navigate("/quotation")}
+                                    onClick={() => window.open("https://wa.me/919043672462", "_blank")}
                                 >
                                     Get A Quote
                                 </motion.button>

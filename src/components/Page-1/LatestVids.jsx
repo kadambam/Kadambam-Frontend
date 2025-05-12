@@ -44,7 +44,15 @@ const LatestVids = () => {
             <h2 className="font-bold mb-6 text-gray-600 text-2xl">
        <p>Check out some of our customer reviews</p>
       </h2>
-      <p className='text-[#ff4a2a] font-bold flex'>View More  <HiChevronRight className="m-1 w-5 h-5" /></p>
+      <a
+  href="https://yourbloglink.com" // ⬅️ Replace this with your blog URL
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-[#ff4a2a] font-bold flex items-center hover:underline"
+>
+  View More <HiChevronRight className="ml-1 w-5 h-5" />
+</a>
+
                 </div>
                        
       

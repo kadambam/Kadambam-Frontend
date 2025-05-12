@@ -3,6 +3,12 @@ import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 
 
+import p5sec6img1 from "../../assets/images/page5/section06/mvilla.jpg"
+import p5sec6img2 from "../../assets/images/page5/section06/cmanssion.jpg"
+import p5sec6img3 from "../../assets/images/page5/section06/chomes.jpg"
+import p5sec6img4 from "../../assets/images/page5/section06/aview.jpg"
+
+
 const categories = [
     { name: "ARCHITECTURAL DESIGNS", icon: "🏛️", color: "text-red-600" },
     { name: "CONSTRUCTION", icon: "🏗️", color: "text-blue-600" },
@@ -13,10 +19,10 @@ const categories = [
 ];
 
 const images = [
-    { id: 1, src: "https://picsum.photos/600/400?random=1", alt: "Modern Villa" },
-    { id: 2, src: "https://picsum.photos/600/400?random=2", alt: "Classic Mansion" },
-    { id: 3, src: "https://picsum.photos/600/400?random=3", alt: "Contemporary Homes" },
-    { id: 4, src: "https://picsum.photos/600/400?random=4", alt: "Aerial View" },
+    { id: 1, src: p5sec6img1, alt: "Modern Villa" },
+    { id: 2, src: p5sec6img2, alt: "Classic Mansion" },
+    { id: 3, src: p5sec6img3, alt: "Contemporary Homes" },
+    { id: 4, src: p5sec6img4, alt: "Aerial View" },
 ];
 
 const RealEstate= () => {

@@ -9,6 +9,16 @@ import { useNavigate } from "react-router-dom";
 
 import { Section3Images } from "../../utils/data1";
 
+import sec3img1 from "../../assets/images/page3/section3/kitchen.jpg"
+import sec3img2 from "../../assets/images/page3/section3/livingroom.jpg"
+import sec3img3 from "../../assets/images/page3/section3/office.jpg"
+import sec3img4 from "../../assets/images/page3/section3/cafe.jpg"
+import sec3img5 from "../../assets/images/page3/section3/ecomaterials.jpg"
+import sec3img6 from "../../assets/images/page3/section3/eelighting.jpg"
+import sec3img7 from "../../assets/images/page3/section3/layout.jpg"
+import sec3img8 from "../../assets/images/page3/section3/multi.jpg"
+
+
 const words = ["Residence", "Villa", "Bungalow", "Apartment", "Farmhouse", "Penthouse"];
 
 const tabs = [
@@ -19,12 +29,12 @@ const tabs = [
     image: "img1",
     boxes: [
       {
-        img: Section3Images[1].image,
+        img: sec3img1,
         title: "Modular Kitchen",
         description: "Stylish and space-efficient kitchen designs tailored to your lifestyle.",
       },
       {
-        img: Section3Images[2].image,
+        img: sec3img2,
         title: "Living Room",
         description: "Elegant and cozy spaces perfect for relaxing and entertaining.",
       },
@@ -37,12 +47,12 @@ const tabs = [
     image: "img2",
     boxes: [
       {
-        img: "office_space.jpg",
+        img: sec3img3,
         title: "Office",
         description: "Productive, stylish workspaces tailored to your business goals.",
       },
       {
-        img: "cafe_showroom.jpg",
+        img: sec3img4,
         title: "Café / Showroom",
         description: "Inviting designs that attract customers and reflect your brand identity.",
       },
@@ -55,12 +65,12 @@ const tabs = [
     image: "img3",
     boxes: [
       {
-        img: "eco_materials.jpg",
+        img: sec3img5,
         title: "Eco Materials",
         description: "Natural and sustainable materials for a healthy environment.",
       },
       {
-        img: "green_lighting.jpg",
+        img: sec3img6,
         title: "Energy Efficient Lighting",
         description: "Smart lighting solutions that reduce energy consumption.",
       },
@@ -73,12 +83,12 @@ const tabs = [
     image: "img4",
     boxes: [
       {
-        img: "space_layout.jpg",
+        img: sec3img7,
         title: "Layout Optimization",
         description: "Well-planned layouts that maximize space and flow.",
       },
       {
-        img: "multi_functional.jpg",
+        img: sec3img8,
         title: "Multi-Functional Areas",
         description: "Smart zones that serve multiple purposes without clutter.",
       },
@@ -181,11 +191,15 @@ const TabbedNav = () => {
                 <h3 className="text-lg font-medium text-gray-800">{box.title}</h3>
                 <p className="text-gray-500 text-sm">{box.description}</p>
                 <button
-                  className="mt-3 text-gray-600 hover:text-black transition"
-                  onClick={() => setSelectedDesign(box)}
-                >
-                  ➜
-                </button>
+  className="mt-3 text-gray-600 hover:text-black transition"
+  onClick={() => {
+      // keep this if you still need to track selected design
+    navigate('/page2');       // navigate to page2
+  }}
+>
+  ➜
+</button>
+
               </div>
             </div>
           ))}
@@ -214,15 +228,7 @@ const TabbedNav = () => {
         </div>
       </motion.div>
 
-      {/* WhatsApp Floating Button */}
-      <a
-        href="https://wa.me/1234567890"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-5 right-5 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition z-3"
-      >
-        <FaWhatsapp className="text-3xl" />
-      </a>
+      
     </section>
   );
 };

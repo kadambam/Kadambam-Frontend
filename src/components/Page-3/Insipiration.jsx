@@ -67,9 +67,17 @@ const InspirationSection = () => {
         </div>
       </div>
       <div className="mt-5 flex flex-col sm:flex-row gap-4 sm:gap-16 justify-center">
-        <button className="bg-[#ff4a2a] text-white py-3 px-8 rounded-md text-lg font-medium flex items-center justify-center gap-2 transition hover:bg-opacity-90 w-full sm:w-auto">
-          BOOK AN APPOINTMENT <HiChevronRight size={20} />
-        </button>
+      <a
+  href="https://wa.me/919043672462"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-full sm:w-auto"
+>
+  <button className="bg-[#ff4a2a] text-white py-3 px-8 cursor-pointer rounded-md text-lg font-medium flex items-center justify-center gap-2 transition hover:bg-opacity-90 w-full sm:w-auto">
+    BOOK AN APPOINTMENT <HiChevronRight size={20} />
+  </button>
+</a>
+
         <button className="bg-[#ff4a2a] text-white py-3 px-8 rounded-md text-lg font-medium flex items-center justify-center gap-2 transition hover:bg-opacity-90 w-full sm:w-auto">
           MORE PROJECT <Download size={20} />
         </button>
