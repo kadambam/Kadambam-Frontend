@@ -1,22 +1,20 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
-import ExteriorImg from "./ExteriorImg";
 
 const categories = [
-    { name: "ARCHITECTURAL DESIGNS", icon: "🏛️", color: "text-red-600" },
-    { name: "CONSTRUCTION", icon: "🏗️", color: "text-blue-600" },
-    { name: "INTERIOR DESIGNS", icon: "🏠", color: "text-pink-600" },
-    { name: "HOME AUTOMATION", icon: "📟", color: "text-green-500" },
-    { name: "GREEN BUILDING", icon: "🌿", color: "text-lime-600" },
-    { name: "BIOPHILIC DESIGNS", icon: "🌀", color: "text-indigo-600" },
+    { name: "Pack-1", description: "2D Floor plan - 2 samples", icon: "🏠", color: "text-red-600" },
+    { name: "Pack-2", description: "2D Floor plan - 3 samples", icon: "🏠", color: "text-blue-600" },
+    { name: "Pack-3", description: "2D Floor plan - 5 samples", icon: "🏠", color: "text-pink-600" },
+    { name: "Pack-4", description: "2D Floor plan - 10 samples", icon: "🏠", color: "text-green-500" },
+    { name: "Pack-5", description: "2D Floor plan - 15 samples", icon: "🏠", color: "text-lime-600" },
 ];
 
 const images = [
-    { id: 1, src: "https://picsum.photos/600/400?random=1", alt: "Modern Villa" },
-    { id: 2, src: "https://picsum.photos/600/400?random=2", alt: "Classic Mansion" },
-    { id: 3, src: "https://picsum.photos/600/400?random=3", alt: "Contemporary Homes" },
-    { id: 4, src: "https://picsum.photos/600/400?random=4", alt: "Aerial View" },
+    { id: 1, src: "https://picsum.photos/600/400?random=plan1", alt: "2D Floor Plan - Pack 1" },
+    { id: 2, src: "https://picsum.photos/600/400?random=plan2", alt: "2D Floor Plan - Pack 2" },
+    { id: 3, src: "https://picsum.photos/600/400?random=plan3", alt: "2D Floor Plan - Pack 3" },
+    { id: 4, src: "https://picsum.photos/600/400?random=plan4", alt: "2D Floor Plan - Pack 4" },
 ];
 
 const ExteriorDesigns = () => {
@@ -26,22 +24,26 @@ const ExteriorDesigns = () => {
         <section className="flex flex-col lg:flex-row px-6 md:px-16 lg:px-24 py-16 bg-gray-100">
             {/* Left Panel (Categories) */}
             <motion.div
-                className="w-full lg:w-[40%] bg-white shadow-lg rounded-xl p-8 lg:p-10 space-y-6 lg:mr-12" // Added lg:mr-12 for spacing
+                className="w-full lg:w-[40%] bg-white shadow-lg rounded-xl p-8 lg:p-10 space-y-6 lg:mr-12"
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
             >
+                <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
+                    <span className="text-red-500">Saving</span> <span className="text-gray-800">Pack</span>
+                </h2>
                 {categories.map((category) => (
                     <motion.div
                         key={category.name}
-                        className="flex items-center gap-4 py-4 px-6 rounded-lg cursor-pointer text-lg font-medium transition-all duration-300"
+                        className={`flex items-center gap-4 py-4 px-6 rounded-lg cursor-pointer text-lg font-medium transition-all duration-300 ${activeCategory === category.name ? 'bg-gray-100' : 'hover:bg-gray-50'}`}
                         onClick={() => setActiveCategory(category.name)}
                         whileHover={{ scale: 1.02 }}
                     >
                         <span className={`${category.color} text-2xl`}>{category.icon}</span>
-                        <p className="text-gray-700 tracking-wide leading-relaxed hover:text-gray-900"> {/* Only text color changes on hover */}
-                            {category.name}
-                        </p>
+                        <div className="flex justify-between w-full items-center">
+                            <p className="text-gray-700 tracking-wide leading-relaxed">{category.name}</p>
+                            <p className="text-gray-600 text-sm">{category.description}</p>
+                        </div>
                     </motion.div>
                 ))}
             </motion.div>
@@ -64,13 +66,7 @@ const ExteriorDesigns = () => {
                     </motion.div>
                 ))}
             </div>
-
-
-
-
         </section>
-
-
     );
 };
 
