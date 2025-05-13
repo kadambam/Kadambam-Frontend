@@ -2,21 +2,19 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 
-
 const categories = [
-    { name: "ARCHITECTURAL DESIGNS", icon: "🏛️", color: "text-red-600" },
-    { name: "CONSTRUCTION", icon: "🏗️", color: "text-blue-600" },
-    { name: "INTERIOR DESIGNS", icon: "🏠", color: "text-pink-600" },
-    { name: "HOME AUTOMATION", icon: "📟", color: "text-green-500" },
-    { name: "GREEN BUILDING", icon: "🌿", color: "text-lime-600" },
-    { name: "BIOPHILIC DESIGNS", icon: "🌀", color: "text-indigo-600" },
+    { name: "Combo-1", description: "2D Floor plan + Elevation", icon: "🏠", color: "text-red-600" },
+    { name: "Combo-2", description: "Combo-1 + Electrical + Plumbing", icon: "🏠", color: "text-blue-600" },
+    { name: "Combo-3", description: "Combo-2 + Joinery work", icon: "🏠", color: "text-pink-600" },
+    { name: "Combo-4", description: "2D + Elevation + Interior", icon: "🏠", color: "text-green-500" },
+    { name: "Combo-5", description: "Combo-3 + Interior", icon: "🏠", color: "text-lime-600" },
 ];
 
 const images = [
-    { id: 1, src: "https://picsum.photos/600/400?random=1", alt: "Modern Villa" },
-    { id: 2, src: "https://picsum.photos/600/400?random=2", alt: "Classic Mansion" },
-    { id: 3, src: "https://picsum.photos/600/400?random=3", alt: "Contemporary Homes" },
-    { id: 4, src: "https://picsum.photos/600/400?random=4", alt: "Aerial View" },
+    { id: 1, src: "https://picsum.photos/600/400?random=plan1", alt: "Combo - Pack 1" },
+    { id: 2, src: "https://picsum.photos/600/400?random=plan2", alt: "Combo - Pack 2" },
+    { id: 3, src: "https://picsum.photos/600/400?random=plan3", alt: "Combo - Pack 3" },
+    { id: 4, src: "https://picsum.photos/600/400?random=plan4", alt: "Combo - Pack 4" },
 ];
 
 const InteriorDesigns = () => {
@@ -26,24 +24,30 @@ const InteriorDesigns = () => {
         <section className="flex flex-col lg:flex-row-reverse px-6 md:px-16 lg:px-24 py-16 bg-gray-100">
             {/* Right Panel (Categories) */}
             <motion.div
-                className="w-full lg:w-[40%] bg-white shadow-lg rounded-xl p-8 lg:p-10 space-y-6 lg:ml-12" // Adjusted margin to left
-                initial={{ opacity: 0, x: 50 }} // Change animation direction
+                className="w-full lg:w-[40%] bg-white shadow-lg rounded-xl p-8 lg:p-10 space-y-8 lg:ml-12 flex flex-col items-start" // Adjusted spacing and layout
+                initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
             >
+                <h2 className="text-2xl font-semibold text-gray-800 mb-8 text-center w-full">
+                    <span className="text-red-500">Combo</span> <span className="text-gray-800">Collection</span>
+                </h2>
+                <div className="w-full space-y-4">
                 {categories.map((category) => (
                     <motion.div
                         key={category.name}
-                        className="flex items-center gap-4 py-4 px-6 rounded-lg cursor-pointer text-lg font-medium transition-all duration-300"
+                        className={`flex items-center gap-4 py-4 px-6 rounded-lg cursor-pointer text-lg font-medium transition-all duration-300 ${activeCategory === category.name ? 'bg-gray-100' : 'hover:bg-gray-50'}`}
                         onClick={() => setActiveCategory(category.name)}
                         whileHover={{ scale: 1.02 }}
                     >
                         <span className={`${category.color} text-2xl`}>{category.icon}</span>
-                        <p className="text-gray-700 tracking-wide leading-relaxed hover:text-gray-900">
-                            {category.name}
-                        </p>
+                        <div className="flex justify-between w-full items-center">
+                            <p className="text-gray-700 tracking-wide leading-relaxed">{category.name}</p>
+                            <p className="text-gray-600 text-sm">{category.description}</p>
+                        </div>
                     </motion.div>
                 ))}
+                </div>
             </motion.div>
 
             {/* Left Panel (Image Gallery) */}
