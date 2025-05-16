@@ -1,15 +1,16 @@
 import React, { useState, useRef, useLayoutEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import Nimg1 from "../../assets/images/page4/Section3/Nimg1.jpg";
+import Nimg2 from "../../assets/images/page4/Section3/Nimg2.jpeg";
+import Nimg3 from "../../assets/images/page4/Section3/Nimg3.jpg";
+import Nimg4 from "../../assets/images/page4/Section3/Nimg4.jpg";
 
 const tabs = ["North", "East", "South", "West"];
 
 const images = {
     North: [
-        "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg",
-        "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
-        "https://images.pexels.com/photos/259600/pexels-photo-259600.jpeg",
-        "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg",
-        "https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg",
+        Nimg1,Nimg2,Nimg3,Nimg4,
+       
     ],
     East: [
         "https://images.pexels.com/photos/207929/pexels-photo-207929.jpeg",
@@ -42,18 +43,13 @@ const allDesigns = {
         area: "800 Sq.Ft.",
     }),
     East: [
-        ...Array(3).fill({
+        ...Array(4).fill({
             title: "East Villa",
             location: "Coimbatore",
             price: "30.8 Lakhs onwards",
             area: "751 Sq.Ft.",
         }),
-        {
-            title: "New East Villa",
-            location: "Coimbatore",
-            price: "35.0 Lakhs onwards",
-            area: "900 Sq.Ft.",
-        },
+        
     ],
     South: Array(4).fill({
         title: "South Villa",

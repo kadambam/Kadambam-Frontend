@@ -1,5 +1,6 @@
 import React from "react";
 import { FaCalendarCheck, FaLock, FaHome } from "react-icons/fa";
+import img from "../../assets/images/page4/Section11/img.png";
 
 const ContactUs = () => {
     return (
@@ -7,7 +8,7 @@ const ContactUs = () => {
             {/* Background Overlay for Readability */}
             <div className="absolute inset-0">
                 <img
-                    src="https://picsum.photos/1920/1080"
+                    src={img}
                     alt="Background"
                     className="object-cover object-center w-full h-full"
                 />
@@ -15,7 +16,7 @@ const ContactUs = () => {
             </div>
 
             {/* Content Wrapper */}
-            <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 md:px-8 lg:px-32">
+            <div className="relative z-10 flex flex-col md:flex-row items-center justify-between h-full px-4 md:px-8 lg:px-32">
                 {/* Left - Contact Form */}
                 <div className="bg-white p-6 md:p-8 rounded-xl shadow-2xl max-w-md w-full">
                     <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 text-center mb-6 tracking-wide">
@@ -50,6 +51,31 @@ const ContactUs = () => {
                             Submit
                         </button>
                     </form>
+                </div>
+
+                {/* Right - Text & Icons (Hidden on small screens) */}
+                <div className="text-white max-w-lg space-y-6 mt-8 md:mt-0 hidden md:block">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-widest leading-tight uppercase">
+                        Book Your <br /> Professional Interior Designer
+                    </h2>
+                    <div className="space-y-4 md:space-y-6">
+                        <div className="flex items-center space-x-4">
+                            <FaCalendarCheck className="text-gray-300 text-2xl md:text-3xl" />
+                            <p className="text-base md:text-lg font-light tracking-wide">
+                                Book Free Design Consultation
+                            </p>
+                        </div>
+                        <div className="flex items-center space-x-4">
+                            <FaLock className="text-gray-300 text-2xl md:text-3xl" />
+                            <p className="text-base md:text-lg font-light tracking-wide">Confirm Booking</p>
+                        </div>
+                        <div className="flex items-center space-x-4">
+                            <FaHome className="text-gray-300 text-2xl md:text-3xl" />
+                            <p className="text-base md:text-lg font-light tracking-wide">
+                                We’ll Build It – Guaranteed 45 Days Installation
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

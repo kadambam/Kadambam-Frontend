@@ -2,13 +2,15 @@ import { useState, useEffect } from "react";
 
 const NavbarBlack = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const heroSection = document.getElementById("hero");
       if (heroSection) {
-        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight; // Get bottom position
-        setIsScrolled(window.scrollY > heroBottom - 100); // Change state when past hero section
+        const heroBottom = heroSection.offsetHeight;
+        setIsScrolled(window.scrollY > heroBottom);
       }
     };
 
@@ -16,25 +18,34 @@ const NavbarBlack = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-transparent"
-      }`}
+      } ${isMobile ? "h-14" : "h-16"}`}
     >
-      <div className="container py-1 mx-auto md:flex md:justify-between md:items-center">
-        <div className="flex items-center justify-between">
-          <a href="#">
+      <div className="container py-1 mx-auto md:flex md:justify-between md:items-center h-full">
+        <div className="flex items-center justify-between h-full w-full">
+          {/* Logo shown on both desktop and mobile */}
+          <a href="#" className="h-full flex items-center">
             <img
-              className="w-auto h-9 sm:h-7"
-              src={isScrolled ? "logoblack.png" : "logowhite.png"}
+              className={`w-auto ${isMobile ? "h-10" : "h-12"}`}
+              src={isScrolled ? "logo2black.png" : "logo2white.png"}
               alt="Logo"
             />
           </a>
 
-          <div className="flex lg:hidden">
+          {/* Menu icon for mobile */}
+          <div className="flex lg:hidden h-full items-center ml-auto">
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
@@ -78,21 +89,22 @@ const NavbarBlack = () => {
           </div>
         </div>
 
+        {/* Menu */}
         <div
-          className={`absolute inset-x-0 w-full py-4 transition-all duration-300 ease-in-out md:relative md:w-auto md:flex md:items-center ${
-            isOpen
-              ? "translate-x-0 opacity-100"
-              : "opacity-0 -translate-x-full md:opacity-100 md:translate-x-0"
+          className={`fixed top-14 right-0 w-2/3 ${
+            isScrolled ? "bg-white/90" : "bg-black/80"
+          } transition-transform duration-300 ease-in-out md:relative md:top-auto md:right-auto md:w-auto md:bg-transparent md:flex md:items-center ${
+            isOpen ? "translate-x-0" : "translate-x-full md:translate-x-0"
           }`}
         >
-          <div className="flex flex-col md:flex-row">
-            {["Home", "Services", "Online Shop", "Contact"].map((item, index) => (
+          <div className="flex flex-col md:flex-row md:items-center py-4 md:py-0 gap-y-2">
+            {["Home", "Services", "Online shop", "Contact"].map((item, index) => (
               <a
                 key={index}
-                className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                  isScrolled ? "text-black hover:text-gray-600" : "text-white hover:text-gray-300"
-                }`}
-                style={{ fontFamily: "Poppins, serif" }}
+                className={`block my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
+                  isScrolled ? "text-black hover:text-gray-700" : "text-white hover:text-gray-300"
+                } text-center whitespace-nowrap`}
+                style={{ fontFamily: "Poppins, sans-serif" }}
                 href="#"
               >
                 {item}
