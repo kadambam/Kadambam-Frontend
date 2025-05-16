@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { X } from "lucide-react";
+import modernvilla from "../../assets/images/page4/Section6/modernvilla.jpg"
+import minimalist from "../../assets/images/page4/Section6/minimalist.jpg"
+import contemporary from "../../assets/images/page4/Section6/contemporary.jpg"
+import mansion from "../../assets/images/page4/Section6/mansion.jpg"
 
 const exteriorDesigns = [
   {
     title: "Modern Villa",
     description: "Elegant modern design with spacious outdoor views.",
-    img: "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg", // Pexels
+    img: modernvilla, // Pexels
     gallery: [
       "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg",
       "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg",
@@ -16,7 +20,7 @@ const exteriorDesigns = [
   {
     title: "Luxury Mansion",
     description: "A perfect blend of luxury and comfort.",
-    img: "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg",
+    img: mansion,
     gallery: [
       "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg",
       "https://picsum.photos/400/300?random=6",
@@ -27,7 +31,7 @@ const exteriorDesigns = [
   {
     title: "Contemporary Home",
     description: "Minimalist aesthetic with modern elements.",
-    img: "https://picsum.photos/400/300?random=5",
+    img: contemporary,
     gallery: [
       "https://picsum.photos/400/300?random=9",
       "https://picsum.photos/400/300?random=10",
@@ -38,7 +42,7 @@ const exteriorDesigns = [
   {
     title: "Minimalist House",
     description: "Sleek and functional design for modern living.",
-    img: "https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg",
+    img: minimalist,
     gallery: [
       "https://picsum.photos/400/300?random=13",
       "https://picsum.photos/400/300?random=14",

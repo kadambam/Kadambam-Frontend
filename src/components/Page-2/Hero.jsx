@@ -10,7 +10,7 @@ import EcoFriendly from "../../assets/images/page2/section2/img5.jpeg";
 import Combiningstyle from "../../assets/images/page2/section2/img6.jpeg";
 import FarmHouse from "../../assets/images/page2/section2/img7.jpeg";
 import Custom from "../../assets/images/page2/section2/img8.jpeg";
-// import FallbackImage from "../../assets/images/fallback-image.png"; // Import a fallback image
+
 
 const fadeIn = {
   hidden: { opacity: 0, y: 50 },
@@ -91,6 +91,7 @@ const cardData = [
 const ImageGrid = () => {
   const navigate = useNavigate();
   const [startIndex, setStartIndex] = useState(0);
+  const whatsappNumber = "+919043672462"; // Replace with your actual WhatsApp number
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -98,6 +99,10 @@ const ImageGrid = () => {
     }, 4000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleGetQuotation = () => {
+    window.open(`https://wa.me/${whatsappNumber}?text=Hello, I'm interested in getting a quotation for your design services.`, '_blank', 'noopener,noreferrer');
+  };
 
   return (
     <motion.section
@@ -129,7 +134,7 @@ const ImageGrid = () => {
           className="flex items-center gap-2 px-6 py-2 border border-gray-800 mt-6 bg-white text-black rounded-lg hover:bg-gray-800 hover:text-white transition mx-auto"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => navigate("/quotation")}
+          onClick={handleGetQuotation}
         >
           Get a Quotation <ArrowRight className="w-5 h-5" />
         </motion.button>
@@ -173,7 +178,7 @@ const ImageGrid = () => {
                 className="w-full h-full object-cover"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = FallbackImage;
+                  // e.target.src = FallbackImage; // Uncomment if you have a fallback image
                 }}
               />
             </div>
@@ -190,7 +195,7 @@ const ImageGrid = () => {
               </div>
               <button
                 className="mt-4 px-4 py-2 bg-white text-black rounded-md text-sm font-medium focus:outline-none focus:ring focus:ring-indigo-300"
-                onClick={() => navigate("/quotation")}
+                onClick={handleGetQuotation}
               >
                 {card.buttonText}
               </button>

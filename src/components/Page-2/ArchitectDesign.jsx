@@ -10,6 +10,8 @@ const backgroundImages = [img1, img2, img3, img4];
 
 const ArchitectDesign = () => {
   const [currentImage, setCurrentImage] = useState(0);
+  const phoneNumber = "+919043672462"; // Replace with your actual phone number
+  const whatsappNumber = "+919043672462"; // Replace with your actual WhatsApp number
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -70,21 +72,25 @@ const ArchitectDesign = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
         >
-          <motion.button
+          <motion.a
+            href={`tel:${phoneNumber}`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="w-full sm:w-auto bg-[#ff4a2a] text-white py-3 px-6 rounded-md text-base sm:text-lg font-medium flex items-center justify-center gap-2 transition hover:bg-[#ff5a3b]"
           >
             TALK TO US <HiChevronRight size={20} />
-          </motion.button>
+          </motion.a>
 
-          <motion.button
+          <motion.a
+            href={`https://wa.me/${whatsappNumber}`}
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="w-full sm:w-auto bg-gray-800 text-white py-3 px-6 rounded-md text-base sm:text-lg font-medium flex items-center justify-center gap-2 transition hover:bg-gray-700"
           >
             BOOK FREE CONSULTATION <HiChevronRight size={20} />
-          </motion.button>
+          </motion.a>
         </motion.div>
       </div>
     </section>

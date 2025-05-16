@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
+import pack1 from "../../assets/images/page4/Section5/pack1.jpg";
+import pack2 from "../../assets/images/page4/Section5/pack2.jpg";
+import pack3 from "../../assets/images/page4/Section5/pack3.jpg";
+import pack4 from "../../assets/images/page4/Section5/pack4.jpg";
 
 const categories = [
     { name: "Pack-1", description: "2D Floor plan - 2 samples", icon: "🏠", color: "text-red-600" },
@@ -11,10 +15,10 @@ const categories = [
 ];
 
 const images = [
-    { id: 1, src: "https://picsum.photos/600/400?random=plan1", alt: "2D Floor Plan - Pack 1" },
-    { id: 2, src: "https://picsum.photos/600/400?random=plan2", alt: "2D Floor Plan - Pack 2" },
-    { id: 3, src: "https://picsum.photos/600/400?random=plan3", alt: "2D Floor Plan - Pack 3" },
-    { id: 4, src: "https://picsum.photos/600/400?random=plan4", alt: "2D Floor Plan - Pack 4" },
+    { id: 1, src: pack1, alt: "2D Floor Plan - Pack 1" },
+    { id: 2, src: pack2, alt: "2D Floor Plan - Pack 2" },
+    { id: 3, src: pack3, alt: "2D Floor Plan - Pack 3" },
+    { id: 4, src: pack4, alt: "2D Floor Plan - Pack 4" },
 ];
 
 const ExteriorDesigns = () => {
@@ -52,7 +56,7 @@ const ExteriorDesigns = () => {
                 {images.map((image) => (
                     <motion.div
                         key={image.id}
-                        className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer"
+                        className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer h-[250px]" // 👈 fixed height
                         whileHover={{ scale: 1.05 }}
                     >
                         <img

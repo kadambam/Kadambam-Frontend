@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
+import combo1 from "../../assets/images/page4/Section7/combo1.jpg"
+import combo2 from "../../assets/images/page4/Section7/combo2.jpg"
+import combo3 from "../../assets/images/page4/Section7/combo3.webp"
+import combo4 from "../../assets/images/page4/Section7/combo4.png"
 
 const categories = [
     { name: "Combo-1", description: "2D Floor plan + Elevation", icon: "🏠", color: "text-red-600" },
@@ -11,10 +15,10 @@ const categories = [
 ];
 
 const images = [
-    { id: 1, src: "https://picsum.photos/600/400?random=plan1", alt: "Combo - Pack 1" },
-    { id: 2, src: "https://picsum.photos/600/400?random=plan2", alt: "Combo - Pack 2" },
-    { id: 3, src: "https://picsum.photos/600/400?random=plan3", alt: "Combo - Pack 3" },
-    { id: 4, src: "https://picsum.photos/600/400?random=plan4", alt: "Combo - Pack 4" },
+    { id: 1, src: combo1, alt: "Combo - Pack 1" },
+    { id: 2, src: combo2, alt: "Combo - Pack 2" },
+    { id: 3, src: combo3, alt: "Combo - Pack 3" },
+    { id: 4, src: combo4, alt: "Combo - Pack 4" },
 ];
 
 const InteriorDesigns = () => {
@@ -33,20 +37,20 @@ const InteriorDesigns = () => {
                     <span className="text-red-500">Combo</span> <span className="text-gray-800">Collection</span>
                 </h2>
                 <div className="w-full space-y-4">
-                {categories.map((category) => (
-                    <motion.div
-                        key={category.name}
-                        className={`flex items-center gap-4 py-4 px-6 rounded-lg cursor-pointer text-lg font-medium transition-all duration-300 ${activeCategory === category.name ? 'bg-gray-100' : 'hover:bg-gray-50'}`}
-                        onClick={() => setActiveCategory(category.name)}
-                        whileHover={{ scale: 1.02 }}
-                    >
-                        <span className={`${category.color} text-2xl`}>{category.icon}</span>
-                        <div className="flex justify-between w-full items-center">
-                            <p className="text-gray-700 tracking-wide leading-relaxed">{category.name}</p>
-                            <p className="text-gray-600 text-sm">{category.description}</p>
-                        </div>
-                    </motion.div>
-                ))}
+                    {categories.map((category) => (
+                        <motion.div
+                            key={category.name}
+                            className={`flex items-center gap-4 py-4 px-6 rounded-lg cursor-pointer text-lg font-medium transition-all duration-300 ${activeCategory === category.name ? 'bg-gray-100' : 'hover:bg-gray-50'}`}
+                            onClick={() => setActiveCategory(category.name)}
+                            whileHover={{ scale: 1.02 }}
+                        >
+                            <span className={`${category.color} text-2xl`}>{category.icon}</span>
+                            <div className="flex justify-between w-full items-center">
+                                <p className="text-gray-700 tracking-wide leading-relaxed">{category.name}</p>
+                                <p className="text-gray-600 text-sm">{category.description}</p>
+                            </div>
+                        </motion.div>
+                    ))}
                 </div>
             </motion.div>
 
@@ -55,7 +59,7 @@ const InteriorDesigns = () => {
                 {images.map((image) => (
                     <motion.div
                         key={image.id}
-                        className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer"
+                        className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer h-[250px]" // 👈 Fixed height
                         whileHover={{ scale: 1.05 }}
                     >
                         <img

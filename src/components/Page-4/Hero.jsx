@@ -4,16 +4,20 @@ import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { motion } from "framer-motion";
+import img1 from "../../assets/images/page4/Section1/img1.png"
+import img2 from "../../assets/images/page4/Section1/img2.png"
+import img3 from "../../assets/images/page4/Section1/img3.png"
+import img4 from "../../assets/images/page4/Section1/img4.png"
 
 import Carousel from "./Carousel";
 
 const OnlineShopping = () => {
     // Sample offer images (Replace with your actual image URLs)
     const offerImages = [
-        "https://picsum.photos/1200/500?random=1",
-        "https://picsum.photos/1200/500?random=2",
-        "https://picsum.photos/1200/500?random=3",
-        "https://picsum.photos/1200/500?random=4",
+        img1,
+        img2,
+        img3,
+        img4,
     ];
 
     const containerVariants = {
