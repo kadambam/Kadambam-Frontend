@@ -57,7 +57,7 @@ const TabbedNav = () => {
   const navigate = useNavigate();
   const [tabPosition, setTabPosition] = useState({ left: 0, width: 0 });
   const tabRefs = useRef([]);
-  const whatsappNumber = "+919876543210"; // Replace with your actual WhatsApp number
+  const whatsappNumber = "+919043672462"; // Replace with your actual WhatsApp number
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -73,8 +73,14 @@ const TabbedNav = () => {
     }
   }, [activeTab]);
 
+  const handleWhatsAppClick = () => {
+    const message = `Hello, I'm interested in getting a quotation for ${tabs[activeTab].title}.`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  };
+
   return (
-    <section className="relative bg-white py-10 px-5 md:px-20">
+    <section className="relative bg-white-100 py-10 px-5 md:px-20">
       {/* Title Section */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -175,14 +181,12 @@ const TabbedNav = () => {
           <p className="text-gray-700 mt-4 leading-relaxed">{tabs[activeTab].content}</p>
           <button
             className="flex items-center gap-2 px-6 py-2 mt-6 bg-white text-black border border-gray-400 rounded-lg hover:bg-gray-800 hover:text-white transition"
-            onClick={() => navigate("/quotation")}
+            onClick={handleWhatsAppClick}
           >
             Get a Quotation <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </motion.div>
-
-      
     </section>
   );
 };

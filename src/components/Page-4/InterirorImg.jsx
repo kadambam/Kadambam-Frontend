@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { X } from "lucide-react";
+import bedroom from "../../assets/images/page4/Section8/bedroom.jpg"
+import dining from "../../assets/images/page4/Section8/dining.jpg"
+import living from "../../assets/images/page4/Section8/livingroom.jpg"
+import kitchen from "../../assets/images/page4/Section8/kitchen.jpg"
 
 const exteriorDesigns = [
     {
         title: "Modern Living Room",
         description: "A spacious and elegant living room with contemporary decor.",
-        img: "https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg",
+        img: living,
         gallery: [
             "https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg",
             "https://images.pexels.com/photos/2089698/pexels-photo-2089698.jpeg",
@@ -16,7 +20,7 @@ const exteriorDesigns = [
     {
         title: "Luxury Bedroom",
         description: "A cozy bedroom with warm lighting and luxurious furniture.",
-        img: "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg",
+        img: bedroom,
         gallery: [
             "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg",
             "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg",
@@ -27,7 +31,7 @@ const exteriorDesigns = [
     {
         title: "Minimalist Kitchen",
         description: "A sleek, modern kitchen with minimalist aesthetics.",
-        img: "https://images.pexels.com/photos/2089698/pexels-photo-2089698.jpeg",
+        img: kitchen,
         gallery: [
             "https://images.pexels.com/photos/2089698/pexels-photo-2089698.jpeg",
             "https://images.pexels.com/photos/4682117/pexels-photo-4682117.jpeg",
@@ -38,7 +42,7 @@ const exteriorDesigns = [
     {
         title: "Elegant Dining Room",
         description: "A sophisticated dining space with a classic touch.",
-        img: "https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg",
+        img: dining,
         gallery: [
             "https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg",
             "https://images.pexels.com/photos/932095/pexels-photo-932095.jpeg",

@@ -66,9 +66,16 @@ const pricingPlans = [
 const PricingPage = () => {
   const navigate = useNavigate();
   const [expandedPlan, setExpandedPlan] = useState(null);
+  const whatsappNumber = "+919043672462"; // Replace with your actual WhatsApp number
 
   const toggleViewMore = (index) => {
     setExpandedPlan(expandedPlan === index ? null : index);
+  };
+
+  const handleWhatsAppClick = (planTitle) => {
+    const message = `Hello, I'm interested in getting started with the "${planTitle}" plan.`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -125,7 +132,7 @@ const PricingPage = () => {
               <motion.button
                 className="mt-6 px-6 py-3 text-gray-900 rounded-lg text-lg transition bg-gray-300 hover:bg-gray-900 hover:text-white"
                 whileTap={{ scale: 0.9 }}
-                onClick={() => navigate("/contact")}
+                onClick={() => handleWhatsAppClick(plan.title)}
               >
                 {plan.buttonLabel}
               </motion.button>

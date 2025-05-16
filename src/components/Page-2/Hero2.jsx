@@ -33,19 +33,20 @@ const fadeIn = {
 
 // Card Data
 const cardData = [
-  { title: "Modern Style", description: "Tailored interiors with elegance", buttonText: "Explore Designs", bgColor: "bg-indigo-600", img: Modern },
-  { title: "Contemporary Style", description: "Modern living in the heart of the city", buttonText: "Explore Designs", bgColor: "bg-teal-600", img: Contemporary },
-  { title: "Art Modern Style", description: "Organic spaces with a green touch", buttonText: "Explore Designs", bgColor: "bg-orange-600", img: ArtModern },
-  { title: "Mid-Century Style", description: "Smart design for smarter homes", buttonText: "Explore Designs", bgColor: "bg-sky-700", img: MidCentury },
-  { title: "Minimalist Style", description: "Less clutter, more impact", buttonText: "Explore Designs", bgColor: "bg-pink-600", img: Minimalist },
-  { title: "Scandinavian Style", description: "Inspired by ocean breeze", buttonText: "Explore Designs", bgColor: "bg-cyan-700", img: Scandinavian },
-  { title: "Farmhouse Style", description: "Old-world charm with a modern twist", buttonText: "Explore Designs", bgColor: "bg-rose-700", img: Farmhouse },
-  { title: "Traditional Style", description: "Colorful designs that pop", buttonText: "Explore Designs", bgColor: "bg-yellow-500", img: Traditional },
+  { title: "Modern Style", description: "Tailored interiors with elegance", buttonText: "Get a Quotation", bgColor: "bg-indigo-600", img: Modern },
+  { title: "Contemporary Style", description: "Modern living in the heart of the city", buttonText: "Get a Quotation", bgColor: "bg-teal-600", img: Contemporary },
+  { title: "Art Modern Style", description: "Organic spaces with a green touch", buttonText: "Get a Quotation", bgColor: "bg-orange-600", img: ArtModern },
+  { title: "Mid-Century Style", description: "Smart design for smarter homes", buttonText: "Get a Quotation", bgColor: "bg-sky-700", img: MidCentury },
+  { title: "Minimalist Style", description: "Less clutter, more impact", buttonText: "Get a Quotation", bgColor: "bg-pink-600", img: Minimalist },
+  { title: "Scandinavian Style", description: "Inspired by ocean breeze", buttonText: "Get a Quotation", bgColor: "bg-cyan-700", img: Scandinavian },
+  { title: "Farmhouse Style", description: "Old-world charm with a modern twist", buttonText: "Get a Quotation", bgColor: "bg-rose-700", img: Farmhouse },
+  { title: "Traditional Style", description: "Colorful designs that pop", buttonText: "Get a Quotation", bgColor: "bg-yellow-500", img: Traditional },
 ];
 
 const Hero2 = () => {
   const navigate = useNavigate();
   const [startIndex, setStartIndex] = useState(0);
+  const whatsappNumber = "+919043672462"; // Replace with your actual WhatsApp number
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -53,6 +54,12 @@ const Hero2 = () => {
     }, 4000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleWhatsAppClick = (style) => {
+    const message = `Hello, I'm interested in getting a quotation for the "${style}" interior design style.`;
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <motion.section
@@ -85,14 +92,16 @@ const Hero2 = () => {
           Upgrade Your Lifestyle With Us
         </p>
 
-        <motion.button
+        <motion.a
+          href={`https://wa.me/${whatsappNumber}`}
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center gap-2 px-5 py-2 border border-gray-800 mt-6 bg-white text-black rounded-md hover:bg-gray-800 hover:text-white transition-all duration-300 ease-in-out"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => navigate("/quotation")}
         >
           Get a Quotation <ArrowRight className="w-4 h-4" />
-        </motion.button>
+        </motion.a>
 
         <motion.div
           className="mt-8 flex items-center justify-center gap-2 text-center" // Removed md:justify-start
@@ -131,7 +140,7 @@ const Hero2 = () => {
                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = FallbackImage;
+                  // e.target.src = FallbackImage;
                 }}
               />
             </div>
@@ -146,7 +155,7 @@ const Hero2 = () => {
               </div>
               <button
                 className="mt-4 px-3 py-2 bg-white text-black rounded-md text-sm font-medium focus:outline-none focus:ring focus:ring-indigo-300"
-                onClick={() => navigate("/quotation")}
+                onClick={() => handleWhatsAppClick(card.title)}
               >
                 {card.buttonText}
               </button>
