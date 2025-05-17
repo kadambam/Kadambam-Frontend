@@ -27,6 +27,13 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "Services", href: "architect" },
+    { name: "Online shop", href: "onlineshop" },
+    { name: "Contact", href: "contact" },
+  ];
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -39,7 +46,7 @@ const Navbar = () => {
           <a href="#" className="h-full flex items-center">
             <img
               className={`w-auto ${isMobile ? "h-10" : "h-12"}`}
-              src={isScrolled ? "logo3black.png" : "logo3black.png"}
+              src={isScrolled ? "logo5black.png" : "logo5black.png"}
               alt="Logo"
             />
           </a>
@@ -98,16 +105,16 @@ const Navbar = () => {
           }`}
         >
           <div className="flex flex-col md:flex-row md:items-center py-4 md:py-0 gap-y-2">
-            {["Home", "Services", "Online shop", "Contact"].map((item, index) => (
+            {navLinks.map((link, index) => (
               <a
                 key={index}
                 className={`block my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
                   isScrolled ? "text-black hover:text-gray-700" : "text-black hover:text-gray-300"
                 } text-center whitespace-nowrap`}
                 style={{ fontFamily: "Poppins, sans-serif" }}
-                href="#"
+                href={link.href}
               >
-                {item}
+                {link.name}
               </a>
             ))}
           </div>

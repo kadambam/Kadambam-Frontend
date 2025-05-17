@@ -27,6 +27,13 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "Services", href: "architect" },
+    { name: "Online shop", href: "onlineshop" },
+    { name: "Contact", href: "contact" },
+  ];
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -35,7 +42,7 @@ const Navbar = () => {
     >
       <div className="container py-1 mx-auto md:flex md:justify-between md:items-center h-full">
         <div className="flex items-center justify-between h-full w-full">
-          {/* Logo shown on both desktop and mobile */}
+          {/* Logo */}
           <a href="#" className="h-full flex items-center">
             <img
               className={`w-auto ${isMobile ? "h-10" : "h-12"}`}
@@ -44,7 +51,7 @@ const Navbar = () => {
             />
           </a>
 
-          {/* Menu icon for mobile */}
+          {/* Mobile Menu Icon */}
           <div className="flex lg:hidden h-full items-center ml-auto">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -55,34 +62,12 @@ const Navbar = () => {
               aria-label="toggle menu"
             >
               {isOpen ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 8h16M4 16h16"
-                  />
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 8h16M4 16h16" />
                 </svg>
               )}
             </button>
@@ -98,16 +83,16 @@ const Navbar = () => {
           }`}
         >
           <div className="flex flex-col md:flex-row md:items-center py-4 md:py-0 gap-y-2">
-            {["Home", "Services", "Online shop", "Contact"].map((item, index) => (
+            {navLinks.map(({ name, href }, index) => (
               <a
                 key={index}
+                href={href}
                 className={`block my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
                   isScrolled ? "text-black hover:text-gray-700" : "text-white hover:text-gray-300"
                 } text-center whitespace-nowrap`}
                 style={{ fontFamily: "Poppins, sans-serif" }}
-                href="#"
               >
-                {item}
+                {name}
               </a>
             ))}
           </div>

@@ -27,6 +27,13 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const links = [
+    { label: "Home", href: "/" },
+    { label: "Services", href: "/architect" },
+    { label: "Online shop", href: "/onlineshop" },
+    { label: "Contact", href: "/contact" },
+  ];
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
@@ -37,7 +44,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-full w-full">
           {/* Logo for desktop only */}
           {!isMobile && (
-            <a href="#" className="h-full flex items-center">
+            <a href="#home" className="h-full flex items-center">
               <img
                 className="w-auto h-9 sm:h-7"
                 src={isScrolled ? "logoblack.png" : "logowhite.png"}
@@ -100,16 +107,17 @@ const Navbar = () => {
           }`}
         >
           <div className="flex flex-col md:flex-row md:items-center py-4 md:py-0 gap-y-2">
-            {["Home", "Services", "Online shop", "Contact"].map((item, index) => (
+            {links.map(({ label, href }, index) => (
               <a
                 key={index}
+                href={href}
                 className={`block my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
                   isScrolled ? "text-black hover:text-gray-700" : "text-white hover:text-gray-300"
                 } text-center whitespace-nowrap`}
                 style={{ fontFamily: "Poppins, sans-serif" }}
-                href="#"
+                onClick={() => setIsOpen(false)} // Close menu on link click (mobile)
               >
-                {item}
+                {label}
               </a>
             ))}
           </div>

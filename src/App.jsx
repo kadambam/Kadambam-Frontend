@@ -21,11 +21,11 @@ function App() {
       
       <Routes>
         <Route path="/" element={<Page1 />} />
-        <Route path="/page2" element={<Page2 />} />
-        <Route path="/page4" element={<Page4 />} />
-        <Route path="/page3" element={<Page3/>} />
-        <Route path="/page5" element={<Page5/>} />
-        <Route path="/page6" element={<Page6/>} />
+        <Route path="/architect" element={<Page2 />} />
+        <Route path="/onlineshop" element={<Page4 />} />
+        <Route path="/pmc" element={<Page3/>} />
+        <Route path="/maintenance" element={<Page5/>} />
+        <Route path="/contact" element={<Page6/>} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/privacy" element={<PrivacyPolicy/>} />
         <Route path="/faq" element={<FAQSection/>} />

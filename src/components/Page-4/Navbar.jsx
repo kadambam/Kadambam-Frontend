@@ -7,8 +7,8 @@ const Navbar = () => {
     const handleScroll = () => {
       const heroSection = document.getElementById("hero-4");
       if (heroSection) {
-        const heroBottom = heroSection.offsetHeight; // Get hero section height
-        setIsScrolled(window.scrollY > heroBottom); // Set scrolled state
+        const heroBottom = heroSection.offsetHeight;
+        setIsScrolled(window.scrollY > heroBottom);
       }
     };
 
@@ -24,9 +24,9 @@ const Navbar = () => {
         isScrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-transparent"
       }`}
     >
-      <div className="container  py-1 mx-auto md:flex md:justify-between md:items-center">
+      <div className="container py-1 mx-auto md:flex md:justify-between md:items-center">
         <div className="flex items-center justify-between">
-          <a href="#">
+          <a href="#home">
             <img
               className="w-auto h-14 sm:h-12"
               src={isScrolled ? "logo4black.png" : "logo4black.png"}
@@ -87,41 +87,38 @@ const Navbar = () => {
         >
           <div className="flex flex-col md:flex-row">
             <a
+              href="/"
               className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
                 isScrolled ? "text-black hover:text-gray-600" : "text-black hover:text-gray-300"
               }`}
-              style={{ fontFamily: "Unbounded, sans-serif" }}
-              href="#"
+              style={{ fontFamily: "Poppins, sans-serif" }}
             >
               Home
             </a>
             <a
+              href="/architect"
               className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
                 isScrolled ? "text-black hover:text-gray-600" : "text-black hover:text-gray-300"
               }`}
-              style={{ fontFamily: "Unbounded, sans-serif" }}
-
-              href="#"
+              style={{ fontFamily: "Poppins, sans-serif" }}
             >
               Services
             </a>
             <a
+              href="/onlineshop"
               className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
                 isScrolled ? "text-black hover:text-gray-600" : "text-black hover:text-gray-300"
               }`}
-              style={{ fontFamily: "Unbounded, sans-serif" }}
-
-              href="#"
+              style={{ fontFamily: "Poppins, sans-serif" }}
             >
               Online shop
             </a>
             <a
+              href="/contact"
               className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
                 isScrolled ? "text-black hover:text-gray-600" : "text-black hover:text-gray-300"
               }`}
-              style={{ fontFamily: "Unbounded, sans-serif" }}
-
-              href="#"
+              style={{ fontFamily: "Poppins, sans-serif" }}
             >
               Contact
             </a>
