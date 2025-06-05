@@ -51,7 +51,7 @@ const TestimonialSection = () => {
       <h2 className="top-4 left-10 text-4xl font-bold">
         <span className="relative">
           What
-          <span className="absolute left-0 bottom-0 w-full h-1 bg-[#ff4a2a]"></span>
+          <span className="absolute left-0 bottom-[-6px] w-full h-1 bg-[#ff4a2a]"></span>
         </span>
         <span className="text-[#ff4a2a]"> Clients Say !</span>
       </h2>

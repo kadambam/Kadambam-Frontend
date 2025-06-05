@@ -77,16 +77,16 @@ const TabbedNav1 = () => {
 
             {/* Right Side */}
             <div className="lg:w-2/3 bg-gradient-to-br from-gray-50 to-gray-200 shadow-lg rounded-xl p-8">
-                {/* Tabs */}
-                <div className="flex flex-wrap gap-4 border-b pb-4">
+                {/* Responsive Tab Titles */}
+                <div className="flex flex-col lg:flex-row lg:justify-around border-b pb-4 gap-2 lg:gap-0">
                     {tabs.map((tab) => (
                         <button
                             key={tab.id}
-                            className={`text-base font-semibold truncate max-w-[180px] ${
+                            className={`text-base font-semibold truncate max-w-full w-full lg:max-w-[180px] ${
                                 activeTab === tab.id
                                     ? "text-red-600 border-b-2 border-red-600"
                                     : "text-gray-500"
-                            } pb-2 transition-all duration-300`}
+                            } pb-2 transition-all duration-300 text-center`}
                             onClick={() => setActiveTab(tab.id)}
                             title={tab.name}
                         >

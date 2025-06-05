@@ -25,7 +25,7 @@ const Page2 = () => {
       <ImageGrid/>
       <TabbedNav/>
       <PricingPage/>
-      <Hero2/>
+      {/* <Hero2/> */}
       <InfogramProcess/>
       <ExteriorDesigns/>
       <InteriorDesigns/>

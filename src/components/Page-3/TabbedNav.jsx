@@ -1,13 +1,9 @@
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { MdDownload } from 'react-icons/md';
-
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-
-
-import { Section3Images } from "../../utils/data1";
 
 import sec3img1 from "../../assets/images/page3/section3/kitchen.jpg"
 import sec3img2 from "../../assets/images/page3/section3/livingroom.jpg"
@@ -18,7 +14,6 @@ import sec3img6 from "../../assets/images/page3/section3/eelighting.jpg"
 import sec3img7 from "../../assets/images/page3/section3/layout.jpg"
 import sec3img8 from "../../assets/images/page3/section3/multi.jpg"
 
-
 const words = ["Residence", "Villa", "Bungalow", "Apartment", "Farmhouse", "Penthouse"];
 
 const tabs = [
@@ -26,7 +21,6 @@ const tabs = [
     title: "Residential Interior Design",
     content:
       "Kadamban Interior specializes in residential interior design, creating functional and personalized living spaces. We offer a variety of designs including: Modular Kitchen, Bedroom, Living Room, Dining Room, Wardrobe Design, Home Theatre, False Ceiling, Wallpaper, and Wall Cladding.",
-    image: "img1",
     boxes: [
       {
         img: sec3img1,
@@ -44,7 +38,6 @@ const tabs = [
     title: "Commercial Interior Design",
     content:
       "Kadamban Interior specializes in commercial interior design, offering solutions that enhance productivity and reflect your brand identity. Our services include Café / Showroom, Resort / Restaurant, Studio, and Office designs.",
-    image: "img2",
     boxes: [
       {
         img: sec3img3,
@@ -62,7 +55,6 @@ const tabs = [
     title: "Sustainable Interior Design",
     content:
       "Kadamban Interior specializes in sustainable interior design, focusing on eco-friendly materials and energy-efficient solutions. Our designs incorporate smart practices for a healthy and eco-conscious environment.",
-    image: "img3",
     boxes: [
       {
         img: sec3img5,
@@ -80,7 +72,6 @@ const tabs = [
     title: "Space Planning",
     content:
       "Kadamban Interior specializes in space planning, optimizing layouts for efficiency and aesthetics. We focus on maximizing the utility of your space while maintaining a stylish and functional design.",
-    image: "img4",
     boxes: [
       {
         img: sec3img7,
@@ -139,12 +130,12 @@ const TabbedNav = () => {
         </p>
       </motion.div>
 
-      {/* Tabs Section with Animated Underline */}
-      <div className="relative flex overflow-x-auto pb-3 justify-between md:justify-around">
+      {/* Tabs Section with Responsive Fix */}
+      <div className="relative flex flex-col sm:flex-row sm:overflow-x-auto pb-3 justify-start sm:justify-around gap-2 sm:gap-0">
         {tabs.map((tab, index) => (
           <button
             key={index}
-            className={`relative py-2 px-4 text-lg font-medium transition whitespace-nowrap ${
+            className={`relative py-2 px-4 text-base sm:text-lg font-medium transition whitespace-normal sm:whitespace-nowrap text-left sm:text-center ${
               activeTab === index ? "text-black" : "text-gray-500 hover:text-gray-800"
             }`}
             onClick={() => setActiveTab(index)}
@@ -153,10 +144,9 @@ const TabbedNav = () => {
             {tab.title}
           </button>
         ))}
-
-        {/* Moving Underline */}
+        {/* Animated underline for sm and above */}
         <motion.div
-          className="absolute bottom-0 h-[3px] bg-red-500"
+          className="hidden sm:block absolute bottom-0 h-[3px] bg-red-500"
           initial={{ left: 0, width: 0 }}
           animate={{
             left: tabPosition.left,
@@ -166,7 +156,7 @@ const TabbedNav = () => {
         />
       </div>
 
-      {/* Animated Content Section */}
+      {/* Content Section */}
       <motion.div
         key={activeTab}
         initial={{ opacity: 0, y: 20 }}
@@ -175,7 +165,7 @@ const TabbedNav = () => {
         transition={{ duration: 0.4 }}
         className="mt-6 bg-gray-50 p-6 rounded-lg shadow-md flex flex-col md:flex-row items-start gap-6"
       >
-        {/* Left side - 2 boxes side-by-side using flex */}
+        {/* Image Boxes */}
         <div className="w-full md:w-[50%] flex flex-col sm:flex-row gap-4">
           {tabs[activeTab].boxes?.map((box, index) => (
             <div
@@ -191,21 +181,17 @@ const TabbedNav = () => {
                 <h3 className="text-lg font-medium text-gray-800">{box.title}</h3>
                 <p className="text-gray-500 text-sm">{box.description}</p>
                 <button
-  className="mt-3 text-gray-600 hover:text-black transition"
-  onClick={() => {
-      // keep this if you still need to track selected design
-    navigate('/page2');       // navigate to page2
-  }}
->
-  ➜
-</button>
-
+                  className="mt-3 text-gray-600 hover:text-black transition"
+                  onClick={() => navigate('/page2')}
+                >
+                  ➜
+                </button>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Right side - content */}
+        {/* Text Content */}
         <div className="w-full md:w-[45%] text-left">
           <h3 className="text-lg font-semibold text-gray-800">{tabs[activeTab].title}</h3>
           <p className="text-gray-700 mt-2 leading-relaxed whitespace-pre-line">
@@ -222,13 +208,11 @@ const TabbedNav = () => {
               className="flex items-center gap-2 px-6 py-2 bg-white text-black border border-gray-400 rounded-lg hover:bg-gray-800 hover:text-white transition w-full sm:w-auto justify-center"
               onClick={() => navigate("/quotation")}
             >
-              Download File<MdDownload className="w-5 h-5" />
+              Download File <MdDownload className="w-5 h-5" />
             </button>
           </div>
         </div>
       </motion.div>
-
-      
     </section>
   );
 };

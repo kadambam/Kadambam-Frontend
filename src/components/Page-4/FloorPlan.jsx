@@ -5,13 +5,16 @@ import Nimg2 from "../../assets/images/page4/Section3/Nimg2.jpeg";
 import Nimg3 from "../../assets/images/page4/Section3/Nimg3.jpg";
 import Nimg4 from "../../assets/images/page4/Section3/Nimg4.jpg";
 
-const tabs = ["North", "East", "South", "West"];
+// Updated tabs with label + key
+const tabs = [
+    { key: "North", label: "North Facing" },
+    { key: "East", label: "East Facing" },
+    { key: "South", label: "South Facing" },
+    { key: "West", label: "West Facing" },
+];
 
 const images = {
-    North: [
-        Nimg1,Nimg2,Nimg3,Nimg4,
-       
-    ],
+    North: [Nimg1, Nimg2, Nimg3, Nimg4],
     East: [
         "https://images.pexels.com/photos/207929/pexels-photo-207929.jpeg",
         "https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg",
@@ -42,15 +45,12 @@ const allDesigns = {
         price: "28.5 Lakhs onwards",
         area: "800 Sq.Ft.",
     }),
-    East: [
-        ...Array(4).fill({
-            title: "East Villa",
-            location: "Coimbatore",
-            price: "30.8 Lakhs onwards",
-            area: "751 Sq.Ft.",
-        }),
-        
-    ],
+    East: Array(4).fill({
+        title: "East Villa",
+        location: "Coimbatore",
+        price: "30.8 Lakhs onwards",
+        area: "751 Sq.Ft.",
+    }),
     South: Array(4).fill({
         title: "South Villa",
         location: "Madurai",
@@ -75,9 +75,9 @@ const FloorPlanSection = () => {
     const isInView = useInView(sectionRef, { once: true });
 
     useLayoutEffect(() => {
-        if (tabRefs.current[tabs.indexOf(activeTab)]) {
-            const { offsetLeft, offsetWidth } =
-                tabRefs.current[tabs.indexOf(activeTab)];
+        const index = tabs.findIndex((t) => t.key === activeTab);
+        if (tabRefs.current[index]) {
+            const { offsetLeft, offsetWidth } = tabRefs.current[index];
             setTabPosition({ left: offsetLeft, width: offsetWidth });
         }
     }, [activeTab]);
@@ -87,20 +87,11 @@ const FloorPlanSection = () => {
             {/* Title Section */}
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
-                animate={{
-                    opacity: isInView ? 1 : 0,
-                    y: isInView ? 0 : 50,
-                }}
-                transition={{
-                    duration: 0.6,
-                    ease: "easeInOut",
-                }}
+                animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 50 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
                 className="text-center mb-8"
             >
-                <h2
-                    className="text-lg font-normal text-gray-700"
-                    style={{ fontFamily: "Poppins" }}
-                >
+                <h2 className="text-lg font-normal text-gray-700" style={{ fontFamily: "Poppins" }}>
                     Explore Our
                 </h2>
                 <h1 className="text-3xl font-medium mt-3">
@@ -118,21 +109,21 @@ const FloorPlanSection = () => {
             <div className="relative flex flex-wrap justify-around pb-3">
                 {tabs.map((tab, index) => (
                     <button
-                        key={tab}
+                        key={tab.key}
                         className={`relative py-2 px-4 text-lg font-medium transition ${
-                            activeTab === tab
+                            activeTab === tab.key
                                 ? "text-black"
                                 : "text-gray-500 hover:text-gray-800"
                         }`}
-                        onClick={() => setActiveTab(tab)}
+                        onClick={() => setActiveTab(tab.key)}
                         ref={(el) => (tabRefs.current[index] = el)}
                         role="tab"
-                        aria-selected={activeTab === tab}
-                        aria-controls={`tab-panel-${tab}`}
-                        id={`tab-${tab}`}
-                        aria-label={tab}
+                        aria-selected={activeTab === tab.key}
+                        aria-controls={`tab-panel-${tab.key}`}
+                        id={`tab-${tab.key}`}
+                        aria-label={tab.label}
                     >
-                        {tab}
+                        {tab.label}
                     </button>
                 ))}
                 <motion.div
@@ -156,10 +147,7 @@ const FloorPlanSection = () => {
             <motion.div
                 key={activeTab}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{
-                    opacity: isInView ? 1 : 0,
-                    y: isInView ? 0 : 20,
-                }}
+                animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
                 transition={{ duration: 0.4, ease: "easeInOut", delay: 0.2 }}
                 className="mt-8 flex flex-wrap justify-center gap-6"
                 id={`tab-panel-${activeTab}`}
@@ -171,10 +159,7 @@ const FloorPlanSection = () => {
                         className="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden w-full sm:w-[300px]"
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{
-                            duration: 0.3,
-                            ease: "easeInOut",
-                        }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.98 }}
                     >
@@ -188,38 +173,26 @@ const FloorPlanSection = () => {
                                 {design.title}
                             </h3>
                             <p className="text-sm text-gray-600 flex items-center gap-1 mb-2">
-                                <span className="text-pink-500 text-xl leading-none">
-                                    •
-                                </span>
+                                <span className="text-pink-500 text-xl leading-none">•</span>
                                 {design.location}
                             </p>
                             <div className="bg-gray-100 px-3 py-2 rounded-xl mb-3 flex items-center gap-3 text-left">
                                 <div className="text-lg text-black">₹</div>
                                 <div>
                                     <p className="text-xs text-gray-500">Price Range</p>
-                                    <p className="text-sm font-semibold text-black">
-                                        {design.price}
-                                    </p>
+                                    <p className="text-sm font-semibold text-black">{design.price}</p>
                                 </div>
                             </div>
                             <div className="flex justify-between items-center text-xs text-gray-700 mb-4">
-                                <div className="flex items-center gap-1">
-                                    🏘️ <span>Villa Plots</span>
-                                </div>
-                                <div className="flex items-center gap-1">
-                                    📐 <span>{design.area}</span>
-                                </div>
+                                <div className="flex items-center gap-1">🏘️ <span>Villa Plots</span></div>
+                                <div className="flex items-center gap-1">📐 <span>{design.area}</span></div>
                             </div>
                             <div className="flex justify-between items-center mb-2">
                                 <i className="fas fa-phone hover:text-black hover:scale-110 transition-transform cursor-pointer text-gray-600 text-lg"></i>
                                 <i className="fas fa-envelope hover:text-black hover:scale-110 transition-transform cursor-pointer text-gray-600 text-lg"></i>
                                 <i className="fab fa-whatsapp hover:text-green-600 hover:scale-110 transition-transform cursor-pointer text-lg"></i>
                             </div>
-                            <button
-                                className="w-full bg-red-500 text-white py-2 rounded-xl text-sm font-medium hover:bg-red-600 transition"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                            >
+                            <button className="w-full bg-red-500 text-white py-2 rounded-xl text-sm font-medium hover:bg-red-600 transition">
                                 View Details
                             </button>
                         </div>

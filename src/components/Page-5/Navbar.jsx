@@ -99,7 +99,7 @@ const Navbar = () => {
         {/* Menu */}
         <div
           className={`fixed top-14 right-0 w-2/3 ${
-            isScrolled ? "bg-white/90" : "bg-black/80"
+            isScrolled ? "bg-white/90" : "bg-white/80"
           } transition-transform duration-300 ease-in-out md:relative md:top-auto md:right-auto md:w-auto md:bg-transparent md:flex md:items-center ${
             isOpen ? "translate-x-0" : "translate-x-full md:translate-x-0"
           }`}

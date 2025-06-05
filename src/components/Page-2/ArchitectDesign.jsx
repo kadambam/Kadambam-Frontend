@@ -10,14 +10,13 @@ const backgroundImages = [img1, img2, img3, img4];
 
 const ArchitectDesign = () => {
   const [currentImage, setCurrentImage] = useState(0);
-  const phoneNumber = "+919043672462"; // Replace with your actual phone number
-  const whatsappNumber = "+919043672462"; // Replace with your actual WhatsApp number
+  const phoneNumber = "+919043672462";
+  const whatsappNumber = "+919043672462";
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % backgroundImages.length);
     }, 3000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -44,9 +43,9 @@ const ArchitectDesign = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-center items-start h-full max-w-6xl mx-auto px-6 sm:px-8 md:px-12">
+      <div className="relative z-10 flex flex-col justify-center items-start h-full max-w-6xl  px-6 sm:px-8 md:px-12 lg:pl-20">
         <motion.h2
-          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-4 sm:mb-6"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 sm:mb-6"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -57,7 +56,7 @@ const ArchitectDesign = () => {
         </motion.h2>
 
         <motion.p
-          className="text-base sm:text-lg text-gray-300 mb-8 sm:mb-12 max-w-xl leading-relaxed"
+          className="text-base sm:text-lg md:text-[17px] text-gray-300 mb-8 sm:mb-12 max-w-xl leading-relaxed"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
@@ -65,7 +64,7 @@ const ArchitectDesign = () => {
           Designed & Built in One Place
         </motion.p>
 
-        {/* Buttons - Stack vertically on small screens */}
+        {/* Buttons */}
         <motion.div
           className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
           initial={{ opacity: 0, y: 40 }}

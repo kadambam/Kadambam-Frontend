@@ -25,7 +25,7 @@ const OnlineShop = () => {
   }, []);
 
   return (
-    <section className="relative p-6 md:p-10 bg-white flex flex-col md:flex-row items-start md:space-x-10">
+    <section className="relative w-full overflow-x-hidden p-6 md:p-10 bg-white flex flex-col md:flex-row items-start md:space-x-10">
       
       {/* Title on top for mobile */}
       {isMobileView && (
@@ -50,10 +50,12 @@ const OnlineShop = () => {
           {images.map((image, index) => (
             <motion.div
               key={image.id}
-              className={`group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80 ${{
-                1: "md:col-span-2 sm:col-span-2",
-                2: "md:col-span-2 sm:col-span-2"
-              }[index] || ""}`}
+              className={`group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80 ${
+                {
+                  1: "md:col-span-2 sm:col-span-2",
+                  2: "md:col-span-2 sm:col-span-2"
+                }[index] || ""
+              }`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
@@ -94,7 +96,7 @@ const OnlineShop = () => {
           >
             <span className="relative mb-2 inline-block">
               Welcome
-              <span className="absolute left-0 bottom-[-6px] w-full h-1 bg-[#ff4a2a]"></span>
+              <span className="absolute left-0 bottom-[-10px] w-full h-1 bg-[#ff4a2a]"></span>
             </span>
             <span className="text-[#ff4a2a]"> to Online Shop</span>
           </motion.h2>
@@ -128,10 +130,11 @@ const OnlineShop = () => {
           Shop Now <HiChevronRight className="w-5 h-5" />
         </button>
 
-        {/* Responsive SingleCard wrapper */}
-        <div className="w-full ">
-          <SingleCard />
-        </div>
+        {!isMobileView && (
+          <div className="w-full">
+            <SingleCard />
+          </div>
+        )}
       </motion.div>
     </section>
   );

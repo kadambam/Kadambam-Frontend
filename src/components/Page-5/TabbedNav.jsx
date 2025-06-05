@@ -7,9 +7,11 @@ import p5sec3img2 from "../../assets/images/page5/section03/p5sec3img2.jpeg";
 import p5sec3img3 from "../../assets/images/page5/section03/p5sec3img3.jpeg";
 import p5sec3img4 from "../../assets/images/page5/section03/p5sec3img4.jpeg";
 
+// ...imports remain unchanged
+
 const TabbedNav = () => {
     const navigate = useNavigate();
-    
+
     const tabs = [
         {
             id: "propertyMonitoring",
@@ -56,7 +58,6 @@ const TabbedNav = () => {
     ];
 
     const [activeTab, setActiveTab] = useState(tabs[0].id);
-
     const currentTab = tabs.find((t) => t.id === activeTab);
 
     return (
@@ -79,24 +80,23 @@ const TabbedNav = () => {
 
             {/* Left Side - Interactive Section */}
             <div className="lg:w-2/3 bg-gradient-to-br from-gray-50 to-gray-200 shadow-lg rounded-xl p-8">
-                {/* Tab Navigation */}
-                <div className="flex flex-wrap gap-4 border-b pb-4">
-    {tabs.map((tab) => (
-        <button
-            key={tab.id}
-            className={`text-base font-semibold truncate max-w-[180px] ${
-                activeTab === tab.id ? "text-red-600 border-b-2 border-red-600" : "text-gray-500"
-            } pb-2 transition-all duration-300`}
-            onClick={() => setActiveTab(tab.id)}
-            title={tab.name} // Tooltip for full text
-        >
-            {tab.name}
-        </button>
-    ))}
-</div>
+                {/* Tab Navigation - Spaced Around */}
+                <div className="flex flex-wrap justify-around border-b pb-4">
+                    {tabs.map((tab) => (
+                        <button
+                            key={tab.id}
+                            className={`text-base font-semibold truncate max-w-[180px] ${
+                                activeTab === tab.id ? "text-red-600 border-b-2 border-red-600" : "text-gray-500"
+                            } pb-2 transition-all duration-300`}
+                            onClick={() => setActiveTab(tab.id)}
+                            title={tab.name}
+                        >
+                            {tab.name}
+                        </button>
+                    ))}
+                </div>
 
-
-                {/* Display Content Based on Selected Tab with Sliding Effect */}
+                {/* Display Content Based on Selected Tab */}
                 <AnimatePresence mode="wait">
                     {currentTab && (
                         <motion.div
@@ -116,13 +116,12 @@ const TabbedNav = () => {
                                 <h3 className="text-2xl font-bold text-gray-800">{currentTab.name}</h3>
                                 {currentTab.content}
                                 <motion.button 
-  className="mt-6 px-6 py-3 bg-gray-700 text-white rounded-lg shadow-md hover:bg-gray-800 transition relative"
-  whileHover={{ scale: 1.05, boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.4)" }}
-  onClick={() => window.open("https://wa.me/919043672462", "_blank")}
->
-  Get A Quote
-</motion.button>
-
+                                    className="mt-6 px-6 py-3 bg-gray-700 text-white rounded-lg shadow-md hover:bg-gray-800 transition relative"
+                                    whileHover={{ scale: 1.05, boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.4)" }}
+                                    onClick={() => window.open("https://wa.me/919043672462", "_blank")}
+                                >
+                                    Get A Quote
+                                </motion.button>
                             </div>
                         </motion.div>
                     )}

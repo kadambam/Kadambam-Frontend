@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,25 +18,41 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "Services", href: "architect" },
+    { name: "Online shop", href: "onlineshop" },
+    { name: "Contact", href: "contact" },
+  ];
 
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-transparent"
-      }`}
+      } ${isMobile ? "h-14" : "h-16"}`}
     >
-      <div className="container py-1 mx-auto md:flex md:justify-between md:items-center">
-        <div className="flex items-center justify-between">
-          <a href="#home">
+      <div className="container py-1 mx-auto md:flex md:justify-between md:items-center h-full">
+        <div className="flex items-center justify-between h-full w-full">
+          {/* Logo shown on both desktop and mobile */}
+          <a href="#" className="h-full flex items-center">
             <img
-              className="w-auto h-14 sm:h-12"
+              className={`w-auto ${isMobile ? "h-10" : "h-12"}`}
               src={isScrolled ? "logo4black.png" : "logo4black.png"}
               alt="Logo"
             />
           </a>
 
-          <div className="flex lg:hidden">
+          {/* Menu icon for mobile */}
+          <div className="flex lg:hidden h-full items-center ml-auto">
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
@@ -78,50 +96,27 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Menu */}
         <div
-          className={`absolute inset-x-0 w-full py-4 transition-all duration-300 ease-in-out md:relative md:w-auto md:flex md:items-center ${
-            isOpen
-              ? "translate-x-0 opacity-100"
-              : "opacity-0 -translate-x-full md:opacity-100 md:translate-x-0"
+          className={`fixed top-14 right-0 w-2/3 ${
+            isScrolled ? "bg-white/90" : "bg-white/80"
+          } transition-transform duration-300 ease-in-out md:relative md:top-auto md:right-auto md:w-auto md:bg-transparent md:flex md:items-center ${
+            isOpen ? "translate-x-0" : "translate-x-full md:translate-x-0"
           }`}
         >
-          <div className="flex flex-col md:flex-row">
-            <a
-              href="/"
-              className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isScrolled ? "text-black hover:text-gray-600" : "text-black hover:text-gray-300"
-              }`}
-              style={{ fontFamily: "Poppins, sans-serif" }}
-            >
-              Home
-            </a>
-            <a
-              href="/architect"
-              className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isScrolled ? "text-black hover:text-gray-600" : "text-black hover:text-gray-300"
-              }`}
-              style={{ fontFamily: "Poppins, sans-serif" }}
-            >
-              Services
-            </a>
-            <a
-              href="/onlineshop"
-              className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isScrolled ? "text-black hover:text-gray-600" : "text-black hover:text-gray-300"
-              }`}
-              style={{ fontFamily: "Poppins, sans-serif" }}
-            >
-              Online shop
-            </a>
-            <a
-              href="/contact"
-              className={`my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                isScrolled ? "text-black hover:text-gray-600" : "text-black hover:text-gray-300"
-              }`}
-              style={{ fontFamily: "Poppins, sans-serif" }}
-            >
-              Contact
-            </a>
+          <div className="flex flex-col md:flex-row md:items-center py-4 md:py-0 gap-y-2">
+            {navLinks.map((link, index) => (
+              <a
+                key={index}
+                className={`block my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
+                  isScrolled ? "text-black hover:text-gray-700" : "text-black hover:text-gray-300"
+                } text-center whitespace-nowrap`}
+                style={{ fontFamily: "Poppins, sans-serif" }}
+                href={link.href}
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
         </div>
       </div>

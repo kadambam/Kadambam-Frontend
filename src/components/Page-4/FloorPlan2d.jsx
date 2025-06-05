@@ -1,7 +1,14 @@
 import React, { useState, useRef, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
 
-const tabs = ["North", "East", "South", "West"];
+const tabs = ["North Facing", "East Facing", "South Facing", "West Facing"];
+
+const tabKeyMap = {
+    "North Facing": "North",
+    "East Facing": "East",
+    "South Facing": "South",
+    "West Facing": "West",
+};
 
 const images = {
     North: [
@@ -70,9 +77,10 @@ const allDesigns = {
 };
 
 const FloorPlanSection = () => {
-    const [activeTab, setActiveTab] = useState("North");
-    const selectedDesigns = allDesigns[activeTab];
-    const selectedImages = images[activeTab];
+    const [activeTab, setActiveTab] = useState("North Facing");
+    const currentKey = tabKeyMap[activeTab];
+    const selectedDesigns = allDesigns[currentKey];
+    const selectedImages = images[currentKey];
     const tabRefs = useRef([]);
     const [tabPosition, setTabPosition] = useState({ left: 0, width: 0 });
 
@@ -86,7 +94,6 @@ const FloorPlanSection = () => {
 
     return (
         <section className="relative bg-white py-10 px-5 md:px-20">
-            {/* Title Section */}
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -109,7 +116,6 @@ const FloorPlanSection = () => {
                 </p>
             </motion.div>
 
-            {/* Tabs Navigation */}
             <div className="relative flex flex-wrap justify-around pb-3">
                 {tabs.map((tab, index) => (
                     <button
@@ -121,8 +127,8 @@ const FloorPlanSection = () => {
                         ref={(el) => (tabRefs.current[index] = el)}
                         role="tab"
                         aria-selected={activeTab === tab}
-                        aria-controls={`tab-panel-${tab}`}
-                        id={`tab-${tab}`}
+                        aria-controls={`tab-panel-${tabKeyMap[tab]}`}
+                        id={`tab-${tabKeyMap[tab]}`}
                         aria-label={tab}
                     >
                         {tab}
@@ -136,24 +142,22 @@ const FloorPlanSection = () => {
                         width: tabPosition.width,
                     }}
                     transition={{ type: "spring", stiffness: 120, damping: 14 }}
-                    style={{ position: "absolute", bottom: 0 }}
                 />
             </div>
 
-            {/* Cards Layout */}
             <motion.div
                 key={activeTab}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="mt-8 flex flex-wrap justify-center gap-6" // Adjusted gap for mobile
-                id={`tab-panel-${activeTab}`}
-                aria-labelledby={`tab-${activeTab}`}
+                className="mt-8 flex flex-wrap justify-center gap-6"
+                id={`tab-panel-${currentKey}`}
+                aria-labelledby={`tab-${currentKey}`}
             >
                 {selectedDesigns.map((design, index) => (
                     <motion.div
                         key={index}
-                        className="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden w-full sm:w-[300px]" // Adjusted width for mobile
+                        className="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden w-full sm:w-[300px]"
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.3 }}
@@ -163,7 +167,7 @@ const FloorPlanSection = () => {
                             alt={design.title}
                             className="w-full h-48 object-cover rounded-t-xl"
                         />
-                        <div className="p-4">  {/* Reduced padding for mobile */}
+                        <div className="p-4">
                             <h3 className="text-lg font-semibold text-gray-800 mb-2">{design.title}</h3>
                             <p className="text-sm text-gray-600 flex items-center gap-1 mb-2">
                                 <span className="text-pink-500 text-xl leading-none">•</span>
@@ -184,7 +188,7 @@ const FloorPlanSection = () => {
                                     📐 <span>{design.area}</span>
                                 </div>
                             </div>
-                             <div className="flex justify-between items-center mb-2">  {/* Reduced margin for mobile */}
+                            <div className="flex justify-between items-center mb-2">
                                 <i className="fas fa-phone hover:text-black hover:scale-110 transition-transform cursor-pointer text-gray-600 text-lg"></i>
                                 <i className="fas fa-envelope hover:text-black hover:scale-110 transition-transform cursor-pointer text-gray-600 text-lg"></i>
                                 <i className="fab fa-whatsapp hover:text-green-600 hover:scale-110 transition-transform cursor-pointer text-lg"></i>

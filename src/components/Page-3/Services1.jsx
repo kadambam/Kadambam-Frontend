@@ -13,7 +13,7 @@ const ServicesSection1 = () => {
         <div className="text-left">
           <h2 className="top-4 left-10 text-3xl sm:text-4xl font-bold py-6">
             <span className="relative">
-              Project Management <span className="absolute left-0 bottom-[-4px] w-full h-1 bg-[#ff4a2a]"></span>
+              Project Management <span className="absolute left-0 bottom-[-6px] w-full h-1 bg-[#ff4a2a]"></span>
             </span>
             <span className="text-[#ff4a2a]"> Consultancy Services</span>
           </h2>

@@ -34,7 +34,7 @@ const ServicesSection = () => {
         <div className="text-left md:w-1/2">
           <h2 className="top-4 left-10 text-3xl sm:text-4xl font-bold py-6">
             <span className="relative">
-              Our <span className="absolute left-0 bottom-0 w-full h-1 bg-[#ff4a2a]"></span>
+              Our <span className="absolute left-0 bottom-[-6px] w-full h-1 bg-[#ff4a2a]"></span>
             </span>
             <span className="text-[#ff4a2a]"> Construction Services</span>
           </h2>
