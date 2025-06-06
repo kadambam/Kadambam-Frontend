@@ -4,9 +4,9 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false); // for dropdown
 
   useEffect(() => {
-    // Initial screen size check
     setIsMobile(window.innerWidth < 768);
 
     const handleResize = () => {
@@ -29,12 +29,11 @@ const Navbar = () => {
     };
   }, []);
 
-  // Do not render Navbar at all in mobile view
   if (isMobile) return null;
 
   const links = [
     { label: "Home", href: "/" },
-    { label: "Services", href: "/architect" },
+    { label: "Services", href: "/architect" }, // placeholder, dropdown overrides
     { label: "Online shop", href: "/onlineshop" },
     { label: "Contact", href: "/contact" },
   ];
@@ -54,21 +53,68 @@ const Navbar = () => {
           />
         </a>
 
-        <div className="flex gap-6">
-          {links.map(({ label, href }, index) => (
-            <a
-              key={index}
-              href={href}
-              className={`text-lg font-medium transition ${
-                isScrolled
-                  ? "text-black hover:text-gray-700"
-                  : "text-white hover:text-gray-300"
-              }`}
-              style={{ fontFamily: "Poppins, sans-serif" }}
-            >
-              {label}
-            </a>
-          ))}
+        <div className="flex gap-6 items-center relative">
+          {links.map(({ label, href }, index) => {
+            if (label === "Services") {
+              return (
+                <div
+                  key={index}
+                  className="relative"
+                  onMouseEnter={() => setServicesOpen(true)}
+                  onMouseLeave={() => setServicesOpen(false)}
+                >
+                  <a
+                    href={href}
+                    className={`text-lg font-medium transition ${
+                      isScrolled
+                        ? "text-black hover:text-gray-700"
+                        : "text-white hover:text-gray-300"
+                    }`}
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    {label}
+                  </a>
+                  {servicesOpen && (
+                    <div className="absolute top-8 left-0 bg-white shadow-md rounded-md w-48 py-2 z-50">
+                      <a
+                        href="/architect"
+                        className="block px-4 py-2 text-black hover:bg-gray-100"
+                      >
+                        Architect
+                      </a>
+                      <a
+                        href="/pmc"
+                        className="block px-4 py-2 text-black hover:bg-gray-100"
+                      >
+                        PMC Consultation
+                      </a>
+                      <a
+                        href="/maintenance"
+                        className="block px-4 py-2 text-black hover:bg-gray-100"
+                      >
+                        Maintenance
+                      </a>
+                    </div>
+                  )}
+                </div>
+              );
+            } else {
+              return (
+                <a
+                  key={index}
+                  href={href}
+                  className={`text-lg font-medium transition ${
+                    isScrolled
+                      ? "text-black hover:text-gray-700"
+                      : "text-white hover:text-gray-300"
+                  }`}
+                  style={{ fontFamily: "Poppins, sans-serif" }}
+                >
+                  {label}
+                </a>
+              );
+            }
+          })}
         </div>
       </div>
     </nav>

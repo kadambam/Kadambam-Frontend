@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { HiMenu } from "react-icons/hi";
 
 const NavbarBlack = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [isOpen, setIsOpen] = useState(false);
+  const [ServicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,18 +29,20 @@ const NavbarBlack = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "architect" },
-    { name: "Online shop", href: "/onlineshop" },
-    { name: "Contact", href: "/contact" },
-  ];
+  const toggleMenu = () => {
+    setIsOpen((prev) => !prev);
+    setServicesOpen(false);
+  };
+
+  const toggleServices = () => {
+    setServicesOpen((prev) => !prev);
+  };
 
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         isScrolled ? "bg-white/80 backdrop-blur-md shadow-md" : "bg-transparent"
-      } ${isMobile ? "h-14" : "h-16"}`}
+      }`}
     >
       <div className="container py-1 mx-auto md:flex md:justify-between md:items-center h-full">
         <div className="flex items-center justify-between h-full w-full">
@@ -50,75 +54,114 @@ const NavbarBlack = () => {
             />
           </a>
 
+          {/* Mobile Menu Toggle */}
           <div className="flex lg:hidden h-full items-center ml-auto">
             <button
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={toggleMenu}
               type="button"
               className={`${
                 isScrolled ? "text-black" : "text-white"
               } hover:opacity-75 focus:outline-none`}
               aria-label="toggle menu"
             >
-              {isOpen ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 8h16M4 16h16"
-                  />
-                </svg>
-              )}
+              <HiMenu className="text-3xl" />
             </button>
           </div>
         </div>
 
-        {/* Menu */}
-        <div
-          className={`fixed top-14 right-0 w-2/3 ${
-            isScrolled ? "bg-white/90" : "bg-black/80"
-          } transition-transform duration-300 ease-in-out md:relative md:top-auto md:right-auto md:w-auto md:bg-transparent md:flex md:items-center ${
-            isOpen ? "translate-x-0" : "translate-x-full md:translate-x-0"
-          }`}
-        >
-          <div className="flex flex-col md:flex-row md:items-center py-4 md:py-0 gap-y-2">
-            {navLinks.map(({ name, href }, index) => (
-              <a
-                key={index}
-                href={href}
-                className={`block my-2 md:mx-4 md:my-0 text-lg font-medium transition ${
-                  isScrolled
-                    ? "text-black hover:text-gray-700"
-                    : "text-white hover:text-gray-300"
-                } text-center whitespace-nowrap`}
+       {/* Desktop Menu */}
+<div className="hidden md:flex gap-6 text-lg items-center whitespace-nowrap">
+  <a
+    href="/"
+    className={`hover:text-[#ff4a2a] ${
+      isScrolled ? "text-black" : "text-white"
+    }`}
+    style={{ fontFamily: "Poppins, sans-serif" }}
+  >
+    Home
+  </a>
+
+  <div className="relative group">
+    <button
+      className={`hover:text-[#ff4a2a] ${
+        isScrolled ? "text-black" : "text-white"
+      }`}
+      style={{ fontFamily: "Poppins, sans-serif" }}
+    >
+      Services
+    </button>
+    <div className="absolute left-0 mt-2 bg-white text-black rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-50">
+      <a href="/architect" className="block px-4 py-2 hover:bg-gray-100">Architect</a>
+      <a href="/pmc" className="block px-4 py-2 hover:bg-gray-100">PMC Consultation</a>
+      <a href="/maintenance" className="block px-4 py-2 hover:bg-gray-100">Maintenance</a>
+    </div>
+  </div>
+
+  <a
+    href="/onlineshop"
+    className={`hover:text-[#ff4a2a] ${
+      isScrolled ? "text-black" : "text-white"
+    } whitespace-nowrap`}
+    style={{ fontFamily: "Poppins, sans-serif" }}
+  >
+    Online Shop
+  </a>
+  <a
+    href="/contact"
+    className={`hover:text-[#ff4a2a] ${
+      isScrolled ? "text-black" : "text-white"
+    } whitespace-nowrap`}
+    style={{ fontFamily: "Poppins, sans-serif" }}
+  >
+    Contact
+  </a>
+</div>
+
+
+        {/* Mobile Dropdown */}
+        {isOpen && (
+          <div className="absolute top-16 right-4 bg-white text-black shadow-lg rounded-lg p-4 space-y-3 w-64 z-50">
+            <a
+              href="/"
+              className="block hover:text-[#ff4a2a]"
+              style={{ fontFamily: "Poppins, sans-serif" }}
+            >
+              Home
+            </a>
+
+            <div>
+              <button
+                onClick={toggleServices}
+                className="w-full text-left hover:text-[#ff4a2a] focus:outline-none"
                 style={{ fontFamily: "Poppins, sans-serif" }}
               >
-                {name}
-              </a>
-            ))}
+                Services
+              </button>
+              {ServicesOpen && (
+                <div className="mt-2 ml-2 space-y-2 text-sm">
+                  <a href="/architect" className="block hover:text-[#ff4a2a]">Architect</a>
+                  <a href="/pmc" className="block hover:text-[#ff4a2a]">PMC Consultation</a>
+                  <a href="/maintenance" className="block hover:text-[#ff4a2a]">Maintenance</a>
+                </div>
+              )}
+            </div>
+
+            <a
+              href="/onlineshop"
+              className="block hover:text-[#ff4a2a]"
+              style={{ fontFamily: "Poppins, sans-serif" }}
+            >
+              Online Shop
+            </a>
+            <a
+              href="/contact"
+              className="block hover:text-[#ff4a2a]"
+              style={{ fontFamily: "Poppins, sans-serif" }}
+            >
+              Contact
+            </a>
           </div>
-        </div>
+        )}
       </div>
     </nav>
   );
