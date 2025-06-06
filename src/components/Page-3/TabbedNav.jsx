@@ -182,7 +182,7 @@ const TabbedNav = () => {
                 <p className="text-gray-500 text-sm">{box.description}</p>
                 <button
                   className="mt-3 text-gray-600 hover:text-black transition"
-                  onClick={() => navigate('/page2')}
+                  onClick={() => navigate('/architect')}
                 >
                   ➜
                 </button>
@@ -200,13 +200,13 @@ const TabbedNav = () => {
           <div className="flex flex-col sm:flex-row gap-3 mt-4">
             <button
               className="flex items-center gap-2 px-6 py-2 bg-white text-black border border-gray-400 rounded-lg hover:bg-gray-800 hover:text-white transition w-full sm:w-auto justify-center"
-              onClick={() => navigate("/quotation")}
+              onClick={() => navigate("/page2")}
             >
               View More <ArrowRight className="w-5 h-5" />
             </button>
             <button
               className="flex items-center gap-2 px-6 py-2 bg-white text-black border border-gray-400 rounded-lg hover:bg-gray-800 hover:text-white transition w-full sm:w-auto justify-center"
-              onClick={() => navigate("/quotation")}
+              onClick={() => navigate("/page2")}
             >
               Download File <MdDownload className="w-5 h-5" />
             </button>

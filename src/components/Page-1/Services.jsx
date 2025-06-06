@@ -18,21 +18,20 @@ import SpacePlanning from "../../assets/images/page1/specialization/Space Planni
 
 
 const allServices = [
-  { id: 1, title: "Architects", desc: "Innovative and customized designs tailored to your needs.", img: architects, link: "/page2" },
-  { id: 2, title: "Construction", desc: "High-quality construction for residential, commercial, and industrial projects.", img: construct, link: "/page2" },
-  { id: 3, title: "Maintenance", desc: "Reliable upkeep and repair services to keep your spaces functional and pristine.", img: Maintenance, link: "/page5" },
-  { id: 4, title: "Concept Development", desc: "Transforming ideas into actionable, creative plans.", img: Concept, link: "/page3" },
-  { id: 5, title: "Renovation & Re-Modelling", desc: "Modernize and upgrade your spaces with our expertise.", img: RenovationReModelling, link: "/page5" },
-  { id: 6, title: "Space Planning", desc: "Optimizing layouts for efficiency and style.", img: SpacePlanning, link: "/page6" },
-  { id: 7, title: "Property Management", desc: "Seamless management and maintenance of your properties.", img: PropertyManagement, link: "/page2" },
-  { id: 8, title: "Interior & Exterior Design", desc: "Stunning designs that reflect your personality and purpose.", img:InteriorExterior, link: "/page2" },
-  { id: 9, title: "PMC Consultancy", desc: "Expert project management and consultancy for smooth execution.", img: PMCConsultancy, link: "/page3" },
-  { id: 10, title: "Estimation & Costing", desc: "Accurate budgeting and cost-effective solutions.", img:EstimationCosting, link: "/page4" },
-  { id: 11, title: "Landscape Designing", desc: "Creating beautiful, sustainable outdoor spaces.", img: LandscapeDesigning, link: "/page2" },
-  { id: 12, title: "Contracting Services", desc: "End-to-end contracting for hassle-free project delivery.", img: ContractingServices, link: "/page5" },
-  { id: 13, title: "Material Suggestion", desc: "Guidance on the best materials for durability and aesthetics.", img:MaterialSuggestion, link: "/page5" },
+  { id: 1, title: "Architects", desc: "Innovative and customized designs tailored to your needs.", img: architects, link: "/architect" },
+  { id: 2, title: "Construction", desc: "High-quality construction for residential, commercial, and industrial projects.", img: construct, link: "/architect" },
+  { id: 3, title: "Maintenance", desc: "Reliable upkeep and repair services to keep your spaces functional and pristine.", img: Maintenance, link: "/maintenance" },
+  { id: 4, title: "Concept Development", desc: "Transforming ideas into actionable, creative plans.", img: Concept, link: "/pmc" },
+  { id: 5, title: "Renovation & Re-Modelling", desc: "Modernize and upgrade your spaces with our expertise.", img: RenovationReModelling, link: "/maintenance" },
+  { id: 6, title: "Space Planning", desc: "Optimizing layouts for efficiency and style.", img: SpacePlanning, link: "/contact" },
+  { id: 7, title: "Property Management", desc: "Seamless management and maintenance of your properties.", img: PropertyManagement, link: "/architect" },
+  { id: 8, title: "Interior & Exterior Design", desc: "Stunning designs that reflect your personality and purpose.", img:InteriorExterior, link: "/architect" },
+  { id: 9, title: "PMC Consultancy", desc: "Expert project management and consultancy for smooth execution.", img: PMCConsultancy, link: "/pmc" },
+  { id: 10, title: "Estimation & Costing", desc: "Accurate budgeting and cost-effective solutions.", img:EstimationCosting, link: "/onlineshop" },
+  { id: 11, title: "Landscape Designing", desc: "Creating beautiful, sustainable outdoor spaces.", img: LandscapeDesigning, link: "/architect" },
+  { id: 12, title: "Contracting Services", desc: "End-to-end contracting for hassle-free project delivery.", img: ContractingServices, link: "/maintenance" },
+  { id: 13, title: "Material Suggestion", desc: "Guidance on the best materials for durability and aesthetics.", img:MaterialSuggestion, link: "/maintenance" },
 ];
-
 const OurServices = () => {
   const navigate = useNavigate();
   const [currentPage1, setCurrentPage1] = useState(0);

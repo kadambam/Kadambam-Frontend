@@ -88,7 +88,7 @@ const Projects = () => {
                     Project {index + 1}
                   </p>
                   <div
-  onClick={() => navigate('/page4')}
+  onClick={() => navigate('/onlineshop')}
   className="hover:bg-gray-50 p-2 text-white hover:text-black transition rounded-lg cursor-pointer"
 >
   <HiChevronRight className="w-5 h-5" />
@@ -126,7 +126,7 @@ const Projects = () => {
                       Project {index + 1}
                     </p>
                     <div
-  onClick={() => navigate('/page4')}
+  onClick={() => navigate('/onlineshop')}
   className="hover:bg-gray-50 p-2 text-white hover:text-black transition rounded-lg cursor-pointer"
 >
   <HiChevronRight className="w-5 h-5" />
@@ -157,7 +157,7 @@ const Projects = () => {
                       Project {index + 4}
                     </p>
                     <div
-  onClick={() => navigate('/page4')}
+  onClick={() => navigate('/onlineshop')}
   className="hover:bg-gray-50 p-2 text-white hover:text-black transition rounded-lg cursor-pointer"
 >
   <HiChevronRight className="w-5 h-5" />

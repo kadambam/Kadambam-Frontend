@@ -10,25 +10,25 @@ const exteriorDesigns = [
     title: "Modern Living Room",
     description: "North Face 30x40\n2BHK 1500 buildup area\nCost – ₹15,00,000/-",
     img: p3sec6img1,
-    link: "/page2",
+    link: "/architect",
   },
   {
     title: "Luxury Bedroom",
     description: "South Face 40x60\n3BHK 2000 buildup area\nCost – ₹20,00,000/-",
     img: p3sec6img2,
-    link: "/page2",
+    link: "/architect",
   },
   {
     title: "Minimalist Kitchen",
     description: "East Face 25x30\n1BHK 1000 buildup area\nCost – ₹10,00,000/-",
     img: p3sec6img3,
-    link: "/page2",
+    link: "/architect",
   },
   {
     title: "Elegant Dining Room",
     description: "West Face 35x45\n3BHK 1800 buildup area\nCost – ₹17,50,000/-",
     img: p3sec6img4,
-    link: "/page2",
+    link: "/architect",
   },
 ];
 

@@ -57,7 +57,7 @@ const ServicesSection = () => {
       </div>
       {/* Buttons Section - Moved Outside the Flex Container */}
       <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto max-w-6xl mx-auto px-4 sm:px-6 md:justify-start">
-      <Link to="/page2">
+      <Link to="/architect">
   <button className="bg-[#ff4a2a] text-white py-3 px-6 rounded-md text-lg font-medium flex items-center justify-center gap-2 transition hover:bg-opacity-90 w-full sm:w-auto">
     View More <HiChevronRight size={20} />
   </button>

@@ -52,7 +52,7 @@ const ServicesSection1 = () => {
             {/* View More - Navigate to page2 */}
             <button
               className="bg-[#ff4a2a] text-white py-3 px-6 rounded-md text-lg font-medium flex items-center justify-center gap-2 transition hover:bg-opacity-90 w-full sm:w-auto"
-              onClick={() => navigate('/page2')}
+              onClick={() => navigate('/architect')}
             >
               View More <HiChevronRight size={20} />
             </button>

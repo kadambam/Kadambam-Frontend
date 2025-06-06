@@ -6,10 +6,10 @@ import { Section2Images } from "../../utils/data1";
 import { HiChevronRight } from "react-icons/hi";
 
 const images = [
-  { id: 1, src: Section2Images[0].image, path: "/page4" },
-  { id: 2, src: Section2Images[1].image, path: "/page4" },
-  { id: 3, src: Section2Images[2].image, path: "/page4" },
-  { id: 4, src: Section2Images[3].image, path: "/page4" }
+  { id: 1, src: Section2Images[0].image, path: "/onlineshop" },
+  { id: 2, src: Section2Images[1].image, path: "/onlineshop" },
+  { id: 3, src: Section2Images[2].image, path: "/onlineshop" },
+  { id: 4, src: Section2Images[3].image, path: "/onlineshop" }
 ];
 
 const OnlineShop = () => {
