@@ -61,7 +61,7 @@ const HeroMobile = () => {
 </p>
 
             <a
-              href="/contact"
+              href="https://wa.me/919043672462"
               className="inline-block bg-[#ff4a2a] hover:bg-[#e93e1d] text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors"
             >
               Get Started

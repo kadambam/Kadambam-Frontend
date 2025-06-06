@@ -5,14 +5,14 @@ import React from 'react'
 
 import Footer from '../Page-1/Footer'
 import ContactUs from './Contactus'
-import NavbarBlack from './NavbarBlack'
+
 
 
 
 const Page6 = () => {
   return (
     <div>
-      <NavbarBlack/>
+      {/* <NavbarBlack/> */}
       <ContactUs/>
 
       {/* <Hero/>
