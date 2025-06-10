@@ -1,18 +1,18 @@
 import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
-import { MdDownload } from 'react-icons/md';
+import { MdDownload } from "react-icons/md";
 import { ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import sec3img1 from "../../assets/images/page3/section3/kitchen.jpg"
-import sec3img2 from "../../assets/images/page3/section3/livingroom.jpg"
-import sec3img3 from "../../assets/images/page3/section3/office.jpg"
-import sec3img4 from "../../assets/images/page3/section3/cafe.jpg"
-import sec3img5 from "../../assets/images/page3/section3/ecomaterials.jpg"
-import sec3img6 from "../../assets/images/page3/section3/eelighting.jpg"
-import sec3img7 from "../../assets/images/page3/section3/layout.jpg"
-import sec3img8 from "../../assets/images/page3/section3/multi.jpg"
+import sec3img1 from "../../assets/images/page3/section3/kitchen.jpg";
+import sec3img2 from "../../assets/images/page3/section3/livingroom.jpg";
+import sec3img3 from "../../assets/images/page3/section3/office.jpg";
+import sec3img4 from "../../assets/images/page3/section3/cafe.jpg";
+import sec3img5 from "../../assets/images/page3/section3/ecomaterials.jpg";
+import sec3img6 from "../../assets/images/page3/section3/eelighting.jpg";
+import sec3img7 from "../../assets/images/page3/section3/layout.jpg";
+import sec3img8 from "../../assets/images/page3/section3/multi.jpg";
 
 const words = ["Residence", "Villa", "Bungalow", "Apartment", "Farmhouse", "Penthouse"];
 
@@ -87,12 +87,12 @@ const tabs = [
   },
 ];
 
+// ...all your imports remain the same
+
 const TabbedNav = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [changingWord, setChangingWord] = useState(words[0]);
   const navigate = useNavigate();
-  const [tabPosition, setTabPosition] = useState({ left: 0, width: 0 });
-  const tabRefs = useRef([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -100,13 +100,6 @@ const TabbedNav = () => {
     }, 2000);
     return () => clearInterval(interval);
   }, []);
-
-  useLayoutEffect(() => {
-    if (tabRefs.current[activeTab]) {
-      const { offsetLeft, offsetWidth } = tabRefs.current[activeTab];
-      setTabPosition({ left: offsetLeft, width: offsetWidth });
-    }
-  }, [activeTab]);
 
   return (
     <section className="relative bg-white py-10 px-5 md:px-20">
@@ -130,30 +123,18 @@ const TabbedNav = () => {
         </p>
       </motion.div>
 
-      {/* Tabs Section with Responsive Fix */}
+      {/* Tabs Section */}
       <div className="relative flex flex-col sm:flex-row sm:overflow-x-auto pb-3 justify-start sm:justify-around gap-2 sm:gap-0">
         {tabs.map((tab, index) => (
           <button
             key={index}
-            className={`relative py-2 px-4 text-base sm:text-lg font-medium transition whitespace-normal sm:whitespace-nowrap text-left sm:text-center ${
-              activeTab === index ? "text-black" : "text-gray-500 hover:text-gray-800"
-            }`}
+            className={`relative py-2 px-4 text-base sm:text-lg font-medium transition whitespace-normal sm:whitespace-nowrap text-left sm:text-center
+              ${activeTab === index ? "text-black after:absolute after:bottom-0 after:left-0 after:w-full after:h-[3px] after:bg-red-500" : "text-gray-500 hover:text-gray-800"}`}
             onClick={() => setActiveTab(index)}
-            ref={(el) => (tabRefs.current[index] = el)}
           >
             {tab.title}
           </button>
         ))}
-        {/* Animated underline for sm and above */}
-        <motion.div
-          className="hidden sm:block absolute bottom-0 h-[3px] bg-red-500"
-          initial={{ left: 0, width: 0 }}
-          animate={{
-            left: tabPosition.left,
-            width: tabPosition.width,
-          }}
-          transition={{ type: "spring", stiffness: 120, damping: 14 }}
-        />
       </div>
 
       {/* Content Section */}

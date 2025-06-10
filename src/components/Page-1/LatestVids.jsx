@@ -7,13 +7,38 @@ import { HiChevronRight } from "react-icons/hi";
 
 
 const videos = [
-    { id: "dQw4w9WgXcQ", title: "How to Grow Your Business Online", description: "Learn the top strategies to expand your business digitally." },
-    { id: "3JZ_D3ELwOQ", title: "Best Video Editing Tips", description: "Boost your editing skills with these pro-level techniques." },
-    { id: "LXb3EKWsInQ", title: "Social Media Marketing in 2024", description: "Master the latest trends in social media marketing." },
-    { id: "ZZ5LpwO-An4", title: "Website Development for Beginners", description: "Step-by-step guide to building your first website." },
-    { id: "H2DZWV5erEs", title: "Branding Strategies Explained", description: "How to create a strong and unique brand identity." },
-    { id: "e-ORhEE9VVg", title: "YouTube Growth Secrets", description: "Tips to increase your YouTube subscribers and views." },
-  ];
+  {
+    id: "6h3g2ImdMlk",
+    title: "Best Office Design",
+    description: "modern office design ideas, latest office design"
+  },
+  {
+    id: "PXvEA4AcPlI",
+    title: "House Elevation Design",
+    description: "Current Trends in House Elevation Design "
+  },
+  {
+    id: "dWduKO9xAak",
+    title: "MODERN SMALL OFFICE",
+    description: "MODERN SMALL OFFICE INTERIOR DESIGN"
+  },
+  {
+    id: "NszxBNeM-Bg",
+    title: "Hall interior design",
+    description: "Best hall Interior design"
+  },
+  {
+    id: "aT5Yc3xDohU",
+    title: "Latest House Elevation",
+    description: "Top Trends in Modern Home Design !"
+  },
+  {
+    id: "1j0UhTJ1fpw",
+    title: "Modern home Elevation ",
+    description: "two floor elevation | kadamban architect."
+  }
+];
+
 
   // Duplicate videos for seamless infinite loop
 const repeatedVideos = [...videos, ...videos];
@@ -45,7 +70,7 @@ const LatestVids = () => {
        <p>Check out some of our customer reviews</p>
       </h2>
       <a
-  href="https://yourbloglink.com" // ⬅️ Replace this with your blog URL
+  href="https://www.youtube.com/@houseelevationdesign" // ⬅️ Replace this with your blog URL
   target="_blank"
   rel="noopener noreferrer"
   className="text-[#ff4a2a] font-bold flex items-center hover:underline"

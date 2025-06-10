@@ -12,7 +12,10 @@ const Footer = () => {
           {/* Logo and Socials */}
           <div>
             {/* <h1 className="text-2xl font-bold ">YourLogo</h1> */}
-            <img src="logowhite.png" alt="" className='mb-4 w-40' />
+            <a href="/">
+  <img src="logowhite.png" alt="Logo" className="mb-4 w-40" />
+</a>
+
             <div className="flex gap-4 mb-6">
               <a href="https://facebook.com/Kadambangroups/
 "> <FaFacebookF className="cursor-pointer hover:text-[#ff4a2a]" /></a>
@@ -110,6 +113,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+        <p className='text-center text-sm mt-5'>Copyrights © 2025 Kadamban Group | All Rights Reserved </p>
     </footer>
   );
 };

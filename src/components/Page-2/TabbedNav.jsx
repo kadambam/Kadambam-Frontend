@@ -57,7 +57,7 @@ const TabbedNav = () => {
   const navigate = useNavigate();
   const [tabPosition, setTabPosition] = useState({ left: 0, width: 0 });
   const tabRefs = useRef([]);
-  const whatsappNumber = "+919043672462"; // Replace with your actual WhatsApp number
+  const whatsappNumber = "+919043672462";
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -95,7 +95,7 @@ const TabbedNav = () => {
         <h1 className="text-3xl font-medium mt-3">
           <span className="relative inline-block">
             <span className="text-red-500">Architectural Services</span>
-            <span className="absolute left-1/2 transform -translate-x-1/2 bottom-[-8px] w-75 h-[2px] bg-red-500"></span>
+            <span className="hidden md:block absolute left-1/2 transform -translate-x-1/2 bottom-[-8px] w-75 h-[2px] bg-red-500"></span>
           </span>{" "}
           For Your{" "}
           <span className="inline-block relative w-[150px] h-[40px] overflow-hidden align-middle">
@@ -107,7 +107,7 @@ const TabbedNav = () => {
                 exit={{ y: "-100%" }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
                 className="absolute left-0 right-0 text-green-500 text-center w-full"
-                aria-live="polite" // Announce changing word to screen readers
+                aria-live="polite"
               >
                 {changingWord}
               </motion.span>
@@ -120,13 +120,19 @@ const TabbedNav = () => {
       </motion.div>
 
       {/* Tabs Navigation */}
-      <div className="relative flex flex-wrap justify-around pb-3">
+      <div className="relative flex flex-col md:flex-row flex-wrap justify-around pb-3">
         {tabs.map((tab, index) => (
           <button
             key={index}
-            className={`relative py-2 px-4 text-lg font-medium transition ${
-              activeTab === index ? "text-black" : "text-gray-500 hover:text-gray-800"
-            }`}
+            className={`
+              relative py-2 px-4 text-lg font-medium transition 
+              ${
+                activeTab === index
+                  ? "text-black md:border-none border-b-2 border-red-500"
+                  : "text-gray-500 hover:text-gray-800"
+              }
+              w-full md:w-auto text-left md:text-center
+            `}
             onClick={() => setActiveTab(index)}
             ref={(el) => (tabRefs.current[index] = el)}
             role="tab"
@@ -139,15 +145,15 @@ const TabbedNav = () => {
           </button>
         ))}
 
+        {/* Animated underline for desktop */}
         <motion.div
-          className="absolute bottom-0 h-[3px] bg-red-500"
+          className="absolute bottom-0 h-[3px] bg-red-500 hidden md:block"
           initial={{ left: 0, width: 0 }}
           animate={{
             left: tabPosition.left,
             width: tabPosition.width,
           }}
           transition={{ type: "spring", stiffness: 120, damping: 14 }}
-          style={{ position: "absolute", bottom: 0 }} // Ensure correct positioning context
         />
       </div>
 
@@ -162,7 +168,7 @@ const TabbedNav = () => {
         id={`tab-panel-${activeTab}`}
         aria-labelledby={`tab-${activeTab}`}
       >
-        {/* Big Image */}
+        {/* Image */}
         <div className="w-full md:w-1/2 flex justify-center items-center">
           <motion.img
             key={tabs[activeTab].image}
